@@ -20,8 +20,7 @@ body {
 
 #topBarGrid {
   display: grid;
-  grid-template-columns: 20% 50% 15% 15%;
-
+  grid-template-columns: 15% 40% 27% 9% 9%;
 }
 
 #userIcon,
@@ -42,8 +41,8 @@ body {
 }
 
 #userIconCircle {
-  width: 50%;
-  height: 50%;
+  width: 45px;
+  height: 45px;
   background-color: var(--main-purple);
   border-radius: 50%;
   margin: auto;
@@ -62,6 +61,7 @@ body {
 
 #filterButton {
   /* background-color: blue; */
+  grid-column-start: 4;
 }
 
 #postButton {
