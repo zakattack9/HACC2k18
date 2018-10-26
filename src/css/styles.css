@@ -1,6 +1,8 @@
 body {
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 0.5fr 0.5fr 5fr 0.5fr;
   /* background-color: purple; */
   margin: 0;
   padding: 0;
@@ -11,9 +13,9 @@ body {
 }
 
 #topBar {
-  background-color: white;
+  /* background-color: red; */
   width: 100%;
-  height: 75px;
+  height: 100%;
 }
 
 #topBarGrid {
@@ -72,9 +74,9 @@ body {
 }
 
 #resourceForumBar {
-  background-color: white;
+  /* background-color: yellow; */
   width: 100%;
-  height: 75px;
+  height: 100%;
 }
 
 #rfBarGrid {
@@ -99,11 +101,12 @@ body {
 }
 
 #bottomBar {
-  background-color: white;
+  /* background-color: orange; */
   width: 100%;
-  height: 75px;
-  position: absolute;
-  bottom: 0;
+  height: 100%;
+  border-top: 1px solid #A0A0A0;
+  /* position: absolute;
+  bottom: 0; */
 }
 
 #bottomBarGrid {
@@ -130,7 +133,7 @@ body {
 #homeButton i,
 #searchButton i,
 #alertsButton i {
-  font-size: 3em;
+  font-size: 2em;
   transition: 0.3s;
 }
 
@@ -138,4 +141,9 @@ body {
 #searchButton i:hover,
 #alertsButton i:hover {
   color: var(--main-purple)
+}
+
+#mainContent {
+  height: 100%;
+  background-color: #D0D0D0;
 }
