@@ -6,10 +6,8 @@ router.get('/', (req, res) => {
   return User
   .fetchAll()
   .then(users => {
-    console.log(req.user.id);
-    res.render('logout', {
-      users:users.models
-    });
+    //console.log(req.user.id);
+    res.render('logout');
   })
   .catch(err => {
     console.log('error: ', err.message);
