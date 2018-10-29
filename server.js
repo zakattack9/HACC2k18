@@ -36,6 +36,10 @@ server.get('/', function (req, res) {
   res.render('login');
 });
 
+server.get('/register', function (req, res) {
+  res.render('register');
+});
+
 server.use('/', routes);
 
 server.listen(PORT, () => {
