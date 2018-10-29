@@ -13,7 +13,7 @@ body {
 }
 
 #topBar {
-  background-color: white;
+  /* background-color: red; */
   width: 100%;
   height: 100%;
 }
@@ -74,7 +74,7 @@ body {
 }
 
 #resourceForumBar {
-  background-color: white;
+  /* background-color: yellow; */
   width: 100%;
   height: 100%;
 }
@@ -104,7 +104,7 @@ body {
   /* background-color: orange; */
   width: 100%;
   height: 100%;
-  border-top: 1px solid #C0C0C0;
+  border-top: 1px solid #A0A0A0;
   /* position: absolute;
   bottom: 0; */
 }
@@ -144,93 +144,28 @@ body {
 }
 
 #mainContent {
+  height: 100%;
+  max-height: 100%;
   overflow-y: scroll;
-  background-color: #C0C0C0;
+  background-color: #D0D0D0;
 }
 
-#feedContainer,
-#forumContainer {
+#feedContainer {
   width: 98%;
   height: 100%;
   margin: auto;
-  margin-top: 0.5em;
-  display: block;
+  margin-top: 1em;
 }
 
 .feedItem {
   background-color: white;
   width: 100%;
-  border-bottom: 1px solid #D0D0D0;
+  height: 150px;
+  border-bottom: 1px solid #A0A0A0;
   display: grid;
-  grid-template-columns: 1fr 2fr 10%;
-  grid-template-rows: 25% 30% 20% 15%;
-  grid-column-gap: 5px;
+  grid-template-columns: 1fr 2fr
 }
 
-.itemIcon {
-  margin: auto;
-  width: 85%;
-  height: 85%;
-  grid-row-end: span 3;
-  background-image: url("../images/crayons.png");
-  background-position: center;
-  background-size: cover;
-}
-
-.feedItem:nth-child(2) .itemIcon {
-  background-image: url("../images/biology.png");
-}
-
-.feedItem:nth-child(3) .itemIcon {
-  background-image: url("../images/biology.png");
-}
-
-.feedItem:last-child {
-  margin-bottom: 0.5em;
-}
-
-.itemPostInfo {
-  width: 85%;
-  height: 100%;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  grid-row-start: 4;
-}
-
-.itemTitle {
-  grid-column-start: 2;
-}
-
-.itemDropArrow {
-  grid-row-start: 1;
-  grid-column-start: 3;
-  margin: auto;
-  color: var(--main-purple)
-}
-
-.itemType h2 {
-  font-family: 'Roboto';
-  font-weight: lighter;
-  letter-spacing: 1px;
-}
-
-.itemTitle h2 {
-  font-family: 'Roboto';
-  font-weight: lighter;
-  font-size: 1.1em;
-  opacity: 0.7;
-  letter-spacing: 1px;
-}
-
-.itemDate h4,
-.itemUser h4 {
-  font-family: 'Lato';
-  font-weight: bolder;
-  font-size: 0.7em;
-  opacity: 0.5;
-}
-
-#forumContainer {
-  display: none;
+.feedItem:first-child {
+  border-top: none;
 }
