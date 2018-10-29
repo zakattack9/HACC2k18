@@ -1,0 +1,53 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  background: linear-gradient(#8c14fc, white);
+  font-family: 'Roboto', sans-serif;
+}
+
+#appName {
+  font-size: 2em;
+  font-family: 'Pacifico', cursive;
+  color: white;
+}
+
+.input {
+  background-color: rgba(255, 255, 255, 0.5);
+  /* border: 2px solid white; */
+  border: none;
+  border-radius: 3px;
+  width: 100%;
+  padding: 5px 10px;
+  outline: none;
+  color: white;
+}
+
+.input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgba(248, 248, 248, 0.7);
+  font-weight: 200;
+}
+
+.logIn {
+  background-color: rgba(255, 255, 255, 0);
+  width: 100%;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  font-weight: 300;
+}
+
+.reset {
+  font-size: 0.85em;
+  width: 100%;
+  color: white;
+  font-weight: 300;
+}
+
+.signUp {
+  background-color: rgba(187, 187, 187, 0);  
+  border: none;
+  font-size: 0.9em;
+  width: 100%;
+  color: rgb(61, 61, 61);
+  font-weight: 300;
+}
