@@ -117,7 +117,9 @@ router.post('/login', (req, res, next) => {
         let userProfile = {
           id: user.id,
           username: user.username,
+          email: user.email,
           first_name: user.first_name,
+          last_name: user.last_name,
           school: user.school,
           title: user.title,
           avatar_link: user.avatar_link,
