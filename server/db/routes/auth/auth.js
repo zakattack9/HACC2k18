@@ -125,7 +125,8 @@ router.post('/login', (req, res, next) => {
           request_tokens: user.request_tokens
         };
         console.log("success");
-        return res.json(userProfile);
+        return res.redirect('/feed');
+        //return res.json(userProfile);
       }
     });
   })(req, res, next);

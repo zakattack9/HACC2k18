@@ -32,6 +32,18 @@ server.use(
   })
 );
 
+function checkAuth (req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  } else {
+    res.render('login');
+  }
+}
+
+// server.get('/home', checkAuth, (req, res) => {
+//   res.render('home');
+// })
+
 server.get('/', function (req, res) {
   res.render('login');
 });

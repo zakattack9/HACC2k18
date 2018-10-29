@@ -16,7 +16,7 @@ a:active, a:visited, a:focus {
   text-decoration:none;
 }
 
-#appName {
+.appNameLogin {
   font-size: 2em;
   font-family: 'Pacifico', cursive;
   color: white;
