@@ -124,6 +124,9 @@ router.post('/login', (req, res, next) => {
           bio: user.bio,
           request_tokens: user.request_tokens
         };
+
+        //req.cookie.cookieName //get userProfile
+        res.cookie('userProfile', userProfile);
         console.log("success");
         return res.redirect('/feed');
         //return res.json(userProfile);
