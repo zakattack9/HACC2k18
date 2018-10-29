@@ -3,7 +3,36 @@
     <div class="col-12 pt-5 text-center" id="appName">AppName</div>
   </div>
 
-  <div class="row pt-4 justify-content-center">
+  <form class="row pt-4 justify-content-center" action="/auth/login" method="POST">
+    <div class="col-10">
+      <input class="input" type="text" name="username" placeholder="Username">
+    </div>
+
+    <div class="col-10 mt-3">
+      <input class="input" type="password" name="password" placeholder="Password">
+    </div>
+
+    <div class="col-10 mt-3">
+      <input class="input logIn" type="submit" value="Log In">
+    </div>
+
+    <div class="col-10 pt-3">
+      <button class="reset">Forgot Password?</button>
+    </div>
+  </form>
+
+  {{!-- <form class="row pt-4 justify-content-center" action="/auth/login" method="POST">
+    <input class="col-9 input" id="userInp" type="text" name="username" placeholder="Username">
+    <input class="col-9 mt-3 input" id="passInp" type="password" name="password" placeholder="Password">
+    <input class="col-9 mt-3 input logIn" type="submit" value="Log In">
+
+    <div class="col-10 pt-3">
+      <button class="reset">Forgot Password?</button>
+    </div>
+  </form> --}}
+ 
+
+  {{!-- <div class="row pt-4 justify-content-center">
     <div class="col-10">
       <input class="input" id="userInp" type="text" name="username" placeholder="Username">
     </div>
@@ -19,7 +48,7 @@
     <div class="col-10 pt-3">
       <button class="reset">Forgot Password?</button>
     </div>
-  </div>
+  </div> --}}
 
   <div class="row fixed-bottom">
     <a href="/register" class="signUpPg pb-3 text-center">Don't have an account? <span style="color:rgb(178, 133, 245)">Sign up</span></a>

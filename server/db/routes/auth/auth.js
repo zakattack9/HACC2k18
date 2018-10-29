@@ -99,14 +99,12 @@ router.post('/register', (req, res) => {
 router.post('/login', (req, res, next) => {
   console.log(req.body)
   passport.authenticate('local', (err, user, info) => {
-    console.log(user);
     if (err) {
-      console.log('error');
       return next(err);
     }
     if (!user) {
       console.log('redirecting...');
-      return res.redirect('/auth/login');
+      return res.redirect('/');
     }
     req.login(user, err => {
       if (err) {

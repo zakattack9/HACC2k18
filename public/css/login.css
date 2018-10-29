@@ -66,9 +66,19 @@ a:active, a:visited, a:focus {
   border: none;
   font-size: 0.9em;
   width: 100%;
-  color: rgb(61, 61, 61);
   font-weight: 300;
 }
+
+a {
+  color: rgb(75, 75, 75);
+  text-decoration: none;
+}
+
+a:active, a:visited, a:focus {
+  color: rgb(75, 75, 75);
+  text-decoration:none;
+}
+
 
 .register:focus {
   outline: none;

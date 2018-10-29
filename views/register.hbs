@@ -4,7 +4,33 @@
     <div class="col-9 pt-3 text-center" id="appDesc">Sign up to connect with a network of teachers and resources</div>
   </div>
 
-  <div class="row pt-4 justify-content-center">
+  <form class="row pt-4 justify-content-center" action="/auth/register" method="POST">
+    <div class="col-10">
+      <input class="input" type="text" name="email" placeholder="Email">
+    </div>
+
+    <div class="col-10 pt-3">
+      <input class="input" type="text" name="firstname" placeholder="First Name">
+    </div>
+
+    <div class="col-10 pt-3">
+      <input class="input" type="text" name="lastname" placeholder="Last Name">
+    </div>
+
+    <div class="col-10 pt-3">
+      <input class="input" type="text" name="username" placeholder="Username">
+    </div>
+
+    <div class="col-10 pt-3">
+      <input class="input" type="password" name="password" placeholder="Password">
+    </div>
+
+    <div class="col-10 mt-3">
+      <input class="input signUp" type="submit" value="Sign Up">
+    </div>
+  </form>
+
+  {{!-- <div class="row pt-4 justify-content-center">
     <div class="col-10">
       <input class="input" type="text" name="email" placeholder="Email">
     </div>
@@ -28,7 +54,7 @@
     <div class="col-10 pt-3">
       <button class="input signUp" id="register">Sign Up</button>
     </div>
-  </div>
+  </div> --}}
 
   <div class="row fixed-bottom">
     <a href="/" class="logInPg pb-3 text-center">Already have an account? <span style="color:rgb(178, 133, 245)">Sign in</span></a>
