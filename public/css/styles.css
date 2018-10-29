@@ -160,12 +160,71 @@ body {
 .feedItem {
   background-color: white;
   width: 100%;
-  height: 150px;
   border-bottom: 1px solid #A0A0A0;
   display: grid;
-  grid-template-columns: 1fr 2fr
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  /* grid-gap: 5px; */
 }
 
 .feedItem:first-child {
   border-top: none;
+}
+
+.itemLeft {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 60% 40%;
+}
+
+.itemIcon {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/crayons.png");
+  background-size: cover;
+  background-color: green;
+  grid-row-end: span 2;
+}
+
+.itemPostInfo {
+  background-color: yellow;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-row-start: 3;
+}
+
+.itemDate h4,
+.itemUser h4 {
+  font-family: 'Lato';
+  font-weight: lighter;
+  font-size: 0.9em
+}
+
+.itemRight {
+
+}
+
+.itemType {
+  background-color: red;
+}
+.itemType h2 {
+  font-family: 'Roboto';
+  font-weight: lighter;
+}
+
+.itemTitle {
+  background-color: orange;
+  grid-column-start: 2;
+}
+
+.itemTitle h2 {
+  font-family: 'Roboto';
+  font-weight: lighter;
+  font-size: 1.3em;
+  opacity: 0.9;
 }
