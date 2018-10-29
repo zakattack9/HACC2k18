@@ -66,7 +66,7 @@ passport.use(
 
 //Register
 router.post('/register', (req, res) => {
-  let { username, email, first_name, last_name, school, title} = req.body;
+  let { username, email, first_name, last_name} = req.body;
   bcrypt.genSalt(saltRounds, (err, salt) => {
     if (err) {
       return res.status(500);
@@ -81,9 +81,7 @@ router.post('/register', (req, res) => {
         password: hashedPassword,
         email,
         first_name,
-        last_name,
-        school,
-        title
+        last_name
       })
         .save()
         .then(result => {
@@ -97,18 +95,16 @@ router.post('/register', (req, res) => {
   });
 });
 
-router.get('/login', (req, res) => {
-  res.render('login');
-})
-
 //Log In
 router.post('/login', (req, res, next) => {
+  console.log(req.body)
   passport.authenticate('local', (err, user, info) => {
     if (err) {
       return next(err);
     }
     if (!user) {
-      return res.redirect('/auth/login');
+      console.log('redirecting...');
+      return res.redirect('/');
     }
     req.login(user, err => {
       if (err) {
@@ -128,6 +124,7 @@ router.post('/login', (req, res, next) => {
           bio: user.bio,
           request_tokens: user.request_tokens
         };
+        console.log("success");
         return res.json(userProfile);
       }
     });

@@ -18,7 +18,7 @@ server.engine('.hbs', exphbs({
 server.set('view engine', '.hbs');
 
 //middleware
-server.use(express.static('public')); //load static files (css & js)
+server.use(express.static(path.join(__dirname, '/public'))); //load static files (css & js)
 server.use(bodyparser.json());
 server.use(bodyparser.urlencoded({ extended : true}));
 server.use(passport.initialize());
@@ -34,6 +34,10 @@ server.use(
 
 server.get('/', function (req, res) {
   res.render('login');
+});
+
+server.get('/register', function (req, res) {
+  res.render('register');
 });
 
 server.use('/', routes);
