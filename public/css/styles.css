@@ -10,6 +10,11 @@ body {
 
 :root {
   --main-purple: #B885FE;
+  --math-red: #ec644b;
+  --science-green: #23cba7;
+  --english-blue: #6bb9f0;
+  --history-yellow: #f7ca18;
+  --foreign-orange: #e67e22
 }
 
 #topBar {
@@ -29,7 +34,8 @@ body {
 #postButton,
 #homeButton,
 #searchButton,
-#alertsButton {
+#alertsButton,
+.subForumIcon {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -233,4 +239,86 @@ body {
 
 #forumContainer {
   display: none;
+}
+
+#forumGrid {
+  display: grid;
+  height: 100%;
+  grid-auto-rows: 100px;
+  grid-gap: 1px;
+}
+
+.subForum {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 0.2fr 1fr 4fr;
+  grid-gap: 10px;
+  border-bottom: 1px solid #D0D0D0;
+}
+
+.borderLeft {
+  background-color: var(--main-purple);
+  height: 100%;
+}
+
+.subForum:nth-child(2) .borderLeft,
+.subForum:nth-child(2) .subForumIcon i {
+  background-color: var(--math-red);
+}
+
+.subForum:nth-child(3) .borderLeft,
+.subForum:nth-child(3) .subForumIcon i {
+  background-color: var(--science-green)
+}
+
+.subForum:nth-child(4) .borderLeft,
+.subForum:nth-child(4) .subForumIcon i {
+  background-color: var(--english-blue)
+}
+
+.subForum:nth-child(5) .borderLeft,
+.subForum:nth-child(5) .subForumIcon i {
+  background-color: var(--history-yellow)
+}
+
+.subForum:nth-child(6) .borderLeft,
+.subForum:nth-child(6) .subForumIcon i {
+  background-color: var(--foreign-orange)
+}
+
+.subForum:nth-child(7) .borderLeft,
+.subForum:nth-child(7) .subForumIcon i {
+  background-color: var(--main-purple)
+}
+
+
+.subForumIcon {
+  padding: 10px;
+}
+
+.subForumIcon i {
+  font-size: 2em;
+  padding: 15px;
+  border-radius: 50%;
+  background-color: var(--main-purple);
+  color: white;
+}
+
+.subForumInfo h1,
+.subForumInfo h2 {
+  font-family: 'Roboto';
+  font-weight: lighter;
+}
+
+.subForumInfo h1 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.subForumInfo h2 {
+  font-size: 1em;
+  margin-top: 10px;
+  opacity: 0.8;
 }
