@@ -184,11 +184,12 @@ function subForumClick() {
             var subPostTitle = document.createElement("h1");
             $(subPost).append(subPostTitle);
             for (var key in mathSubForumPosts) {
-                console.log(key, mathSubForumPosts[key].title);
-                if (key == ("post" + (i - 1))) {
+                if (key == ("post"+(i-1))) {
                     $(subPost).text(mathSubForumPosts[key].title)
                 }
-            }
+              }
+
+
             $(mathSubForums).append(subPost);
         }
     } else if (this.id === "scienceButton") {
