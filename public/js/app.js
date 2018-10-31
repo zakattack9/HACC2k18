@@ -215,7 +215,10 @@ function subForumClick() {
 
             for (var key in mathSubForumPosts) {
                 console.log(key, mathSubForumPosts[key].title);
-                  $(subPost).text(mathSubForumPosts[key].title)
+                if (key == ("post"+(i-1))) {
+
+                    $(subPost).text(mathSubForumPosts[key].title)
+                }
               }
 
 
