@@ -3,6 +3,18 @@ body {
     padding: 0;
 }
 
+.inactive {
+    display: none;
+}
+
+.grid-display {
+    display: grid;
+}
+
+.block-display {
+    display: block;
+}
+
 #mainGrid {
     width: 100%;
     height: 100vh;
@@ -80,11 +92,15 @@ body {
     grid-template-columns: 1fr 1fr;
   }
   
-  #notificationsButton {
+  .tabButtonStyle {
     border-bottom: 3px solid var(--main-purple);
     color: var(--main-purple);
   }
-  
+
+  #notificationsButton {
+    /* border-bottom: 3px solid var(--main-purple);
+    color: var(--main-purple); */
+  }
   #messagesButton {
     /* border-bottom: 3px solid var(--main-purple);
     color: var(--main-purple); */
@@ -122,10 +138,10 @@ body {
   }
   
   #alertsButton {
+      color: var(--main-purple);
   }
   
   #homeButton i {
-    color: var(--main-purple)
   }
   
   #homeButton i,
@@ -206,7 +222,7 @@ body {
 
 /* Message Only Styles */
 #messagePreviewContainer {
-    display: none;
+    /* display: none; */
 }
 
 /* Conversation styles */
@@ -216,7 +232,7 @@ body {
     z-index: 3;
     width: 100vw;
     height: 100vh;
-    display: grid;
+    /* display: grid; */
     grid-template-rows: .75fr 5.5fr 0.5fr;
     margin: 0;
     padding: 0;

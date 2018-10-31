@@ -32,10 +32,10 @@
 
     <div id="notificationMessageBar">
       <div id="nmBarGrid">
-        <div id="notificationsButton">
+        <div id="notificationsButton" onclick="activateNotifTab()">
           <h1>Notifications</h1>
         </div>
-        <div id="messagesButton">
+        <div id="messagesButton" onclick="activateMsgTab()">
           <h1>Messages</h1>
         </div>
       </div>
@@ -75,7 +75,7 @@
             <img src="./avatars/031-boy-2.png">
           </div>
           <div class="notifContent">
-            <p><b>Lorem I.</b> would like to request your materials.</p>
+            <p><b>Laurence Doi</b> would like to request your materials.</p>
             <span class="time-ago">1d ago</span>
           </div>
         </div>
@@ -91,9 +91,9 @@
             <span class="time-ago">1m ago</span>
           </div>
         </div>
-        <div class="messagePreviewItem">
+        <div class="messagePreviewItem" id="convoIdentifier" onclick="activateConvo()">
           <div class="user-icon user-id-3">
-            <img src="./avatars/031-boy-2.png">
+            <img src="./avatars/002-woman-14.png">
           </div>
           <div class="msgContent">
             <p><b>Lorem I.:</b> Thank you so much! See you then.</p>
@@ -123,7 +123,7 @@
 
   <div id="convoContainer">
     <div id="userBar" class="user-id-2">
-      <div class="backButton">
+      <div class="backButton" onclick="activateMsgTab()">
         <i class="fas fa-angle-left"></i>
       </div>
       <div class="user-name" id="user-id-2">Lorem I.</div>
@@ -131,7 +131,7 @@
         <img src="./avatars/002-woman-14.png">
       </div>
     </div>
-    <div id="conversation" id="user-id-3-msg-user-id-2">
+    <div id="conversation" class="user-id-4-msg-user-id-2">
       <div id="messageContainer">
         <div class="messageItem non-native-user">
           <p>Hi! Would you mind emailing me a copy of your science lesson plan?</p>

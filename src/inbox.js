@@ -9,6 +9,61 @@ console.log('hello');
  *  onload, scroll to bottom of chatbox
 */
 
+/* GENERAL NAVIGATION */
+//sets all containers to inactive except for notification
+$(document).ready(() => {
+    activateNotifTab();
+});
+
+const activateNotifTab = () => {
+    $("#notificationContainer").removeClass("inactive");
+    $("#notificationContainer").addClass("block-display");
+    $("#notificationsButton").addClass("tabButtonStyle");
+    $("#messagePreviewContainer").removeClass("grid-display");
+    $("#messagesButton").removeClass("tabButtonStyle");
+    $("#messagePreviewContainer").addClass("inactive")
+    $("#convoContainer").removeClass("grid-display");
+    $("#convoContainer").addClass("inactive");
+    // $("#notificationContainer").show();
+    // $("#messagePreviewContainer").hide();
+    // $("#convoConatiner").hide();
+}
+
+const activateMsgTab = () => {
+    $("#notificationContainer").removeClass("block-display");
+    $("#notificationsButton").removeClass("tabButtonStyle");
+    $("#notificationContainer").addClass("inactive");
+    $("#messagePreviewContainer").removeClass("inactive")
+    $("#messagePreviewContainer").addClass("block-display");
+    $("#messagesButton").addClass("tabButtonStyle");
+    $("#convoContainer").removeClass("grid-display");
+    $("#convoContainer").addClass("inactive");
+    // $("#notificationContainer").hide();
+    // $("#messagePreviewContainer").show();
+    // $("#convoConatiner").hide();
+}
+
+const activateConvo = () => {
+    $("#notificationContainer").removeClass("block-display");
+    $("#notificationContainer").addClass("inactive");
+    $("#messagePreviewContainer").removeClass("block-display")
+    $("#messagePreviewContainer").addClass("inactive");
+    $("#convoContainer").removeClass("inactive");
+    $("#convoContainer").addClass("grid-display");
+    scrollToBottom();
+}
+
+$("#notificationsButton").click(activateNotifTab);
+$("#messagesButton").click(function () {
+    activateMsgTab();
+});
+
+
+
+//working with #notificationContainer, #notificationsButton,
+//  #messagePreviewContainer, #messagesButton
+//if $().css('property) == 'value' => do something
+
 /* NOTIFICATION functionality */
 //navigates user to Messages tab after clicking "received message" notification
 function goToMsg() {
