@@ -183,7 +183,7 @@ body {
     display: inline-block;
 }
 
-.time {
+.tim-agoe {
     font-size: 0.8em;
     color: #9DAAB5;
     position: relative;
@@ -220,7 +220,7 @@ body {
     grid-template-rows: .75fr 5.5fr 0.5fr;
     margin: 0;
     padding: 0;
-    display: none;
+    /* display: none; */
 }
 
 #userBar {
@@ -251,6 +251,7 @@ body {
 }
 
 #conversation {
+    overflow-y: scroll;
     background-color: #F2F2F2;
 }
 
@@ -264,7 +265,7 @@ body {
 
 .messageItem {
     display: grid;
-    grid-template-rows: 1fr 0.5fr;
+    grid-template-rows: 1fr 1em;
     font-family: 'Lato';
     box-sizing: border-box;
     padding: 5px;
@@ -272,19 +273,33 @@ body {
     padding-right: 15px;
 }
 
-.non-native-user {
+.non-native-user p{
+    padding: 10px;
     background-color: #F7E0FF;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
-.native-user {
+.native-user p{
+    padding: 10px;
     background-color: white;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 .non-native-user p, .non-native-user span {
     text-align: left;
+    width: 85%;
 }
 
-.native-user p, .native-user span {
+.native-user p {
+    text-align: left;
+    width: 85%;
+    position: relative;
+    left: 10%;
+}
+
+.native-user span {
     text-align: right;
 }
 
@@ -327,4 +342,9 @@ body {
 
 #sendButton:hover {
     color: var(--main-purple);
+}
+
+.date-and-time {
+    font-size: 0.8em;
+    color: #9DAAB5;
 }
