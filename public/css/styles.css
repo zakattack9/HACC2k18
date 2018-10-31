@@ -202,7 +202,8 @@ body {
   background-image: url("../images/biology.png");
 }
 
-.feedItem:last-child {
+.feedItem:last-child,
+.subForum:last-child {
   margin-bottom: 0.5em;
 }
 
