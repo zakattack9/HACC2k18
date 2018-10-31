@@ -2,7 +2,7 @@ body {
   width: 100%;
   height: 100vh;
   display: grid;
-  grid-template-rows: 0.5fr 0.5fr 5fr 0.5fr;
+  grid-template-rows: 0.5fr 5fr 0.5fr;
   /* background-color: purple; */
   margin: 0;
   padding: 0;
@@ -26,6 +26,7 @@ body {
 #topBarGrid {
   display: grid;
   grid-template-columns: 15% 40% 27% 9% 9%;
+  border-bottom: 1px solid #D0D0D0;
 }
 
 #userIcon,
@@ -52,6 +53,11 @@ body {
   background-color: var(--main-purple);
   border-radius: 50%;
   margin: auto;
+}
+
+#backArrow {
+  display: none;
+  font-size: 1.5em;
 }
 
 #appName {
@@ -88,8 +94,12 @@ body {
 #rfBarGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  height: 20%;
 }
 
+.rfBarForum {
+  grid-template-columns: 1fr !important;
+}
 #resourcesButton {
   border-bottom: 3px solid var(--main-purple);
   color: var(--main-purple);
@@ -99,7 +109,8 @@ body {
 }
 
 #resourcesButton h1,
-#forumButton h1 {
+#forumButton h1,
+#forumNameContainer h1 {
   text-align: center;
   font-family: 'Lato';
   font-weight: lighter;
