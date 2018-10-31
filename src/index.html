@@ -1,169 +1,175 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="inbox.css">
-    <link href="https://fonts.googleapis.com/css?family=Lato|Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  </head>
-  <body>
-    <div id="mainGrid">
-      <div id="topBar">
-          <div id="topBarGrid">
-            <div id="userIcon">
-              <div id="userIconCircle"></div>
-            </div>
-            <div id="appName">
-              <h1>App Name</h1>
-            </div>
-            <div class="empty"></div>
-            <div id="newMsgButton">
-              <i class="fas fa-plus"></i>
-            </div>
-          </div>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="inbox.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato|Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+    crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="./inbox.js"></script>
+</head>
+
+<body>
+  <div id="mainGrid">
+    <div id="topBar">
+      <div id="topBarGrid">
+        <div id="userIcon">
+          <div id="userIconCircle"></div>
         </div>
-    
-        <div id="notificationMessageBar">
-          <div id="nmBarGrid">
-            <div id="notificationsButton">
-              <h1>Notifications</h1>
-            </div>
-            <div id="messagesButton">
-              <h1>Messages</h1>
-            </div>
-          </div>
+        <div id="appName">
+          <h1>App Name</h1>
         </div>
-    
-        <div id="mainContent">
-          <div id="notificationContainer">
-            <div class="notificationItem gotoMsg">
-              <div class="user-icon user-id-1">
-                  <img src="./avatars/013-woman-3.png">
-              </div>
-              <div class="notifContent">
-                <p><b>Rebecca Rain</b> messaged you.</p>
-                <span class="time-ago">1m ago</span>
-              </div>
-            </div>
-            <div class="notificationItem gotoRequest">
-                <div class="user-icon user-id-1">
-                  <img src="./avatars/013-woman-3.png">
-                </div>
-                <div class="notifContent">
-                  <p><b>Rebecca Rain</b> wishes to fulfill your request.</p>
-                  <span class="time-ago">1m ago</span>
-                </div>
-            </div>
-            <div class="notificationItem gotoProvide">
-                <div class="user-icon user-id-2">
-                  <img src="./avatars/002-woman-14.png">
-                </div>
-                <div class="notifContent">
-                  <p><b>Lorem I.</b> would like to request your materials.</p>
-                  <span class="time-ago">1d ago</span>
-                </div>
-            </div>
-            <div class="notificationItem confirmation">
-                <div class="user-icon user-id-3">
-                  <img src="./avatars/031-boy-2.png">
-                </div>
-                <div class="notifContent">
-                  <p><b>Lorem I.</b> would like to request your materials.</p>
-                  <span class="time-ago">1d ago</span>
-                </div>
-            </div>
-          </div>
-          <div id="messagePreviewContainer">
-            <div class="messagePreviewItem">
-              <div class="user-icon user-id-1">
-                  <img src="./avatars/013-woman-3.png">
-              </div>
-              <div class="notifContent">
-                <p><b>Rebecca Rain:</b> Hi! I have some crayons that you might be interested in. A few colors might be missing though.</p>
-                <span class="time-ago">1m ago</span>
-              </div>
-            </div>
-            <div class="messagePreviewItem">
-              <div class="user-icon user-id-3">
-                  <img src="./avatars/031-boy-2.png">
-                </div>
-                <div class="msgContent">
-                  <p><b>Lorem I.:</b> Thank you so much! See you then.</p>
-                  <span class="time-ago">1m ago</span>
-                </div>
-            </div>
-            <div class="messagePreviewItem"></div>
-            <div class="messagePreviewItem"></div>
-          </div>
-          
+        <div class="empty"></div>
+        <div id="newMsgButton">
+          <i class="fas fa-plus"></i>
         </div>
-    
-        <div id="bottomBar">
-          <div id="bottomBarGrid">
-            <div id="homeButton">
-              <i class="fas fa-home"></i>
-            </div>
-            <div id="searchButton">
-              <i class="fas fa-search"></i>
-            </div>
-            <div id="alertsButton">
-              <i class="far fa-bell"></i>
-            </div>
-          </div>
-        </div>
+      </div>
     </div>
 
-    <div id="convoContainer">
-      <div id="userBar" class="user-id-2">
-        <div class="backButton">
-            <i class="fas fa-angle-left"></i>
+    <div id="notificationMessageBar">
+      <div id="nmBarGrid">
+        <div id="notificationsButton">
+          <h1>Notifications</h1>
         </div>
-        <div class="user-name" id="user-id-2">Lorem I.</div>
-        <div class="user-icon user-id-2">
-          <img src="./avatars/002-woman-14.png">
-        </div>
-      </div>
-      <div id="conversation" id="user-id-3-msg-user-id-2">
-        <div id="messageContainer">
-          <div class="messageItem non-native-user">
-            <p>Hi! Would you mind emailing me a copy of your science lesson plan?</p>
-            <span class="date-and-time">10/30/18 9:05pm</span>
-          </div>
-          <div class="messageItem native-user">
-            <p>Not at all. I'll email it to you as soon as possible.</p>
-            <span class="date-and-time">10/30/18 9:07pm</span>
-          </div>
-          <div class="messageItem non-native-user">
-            <p>That would be great, thank you.</p>
-            <span class="date-and-time">10/30/18 9:07pm</span>
-          </div>
-          <div class="messageItem native-user">
-            <p>I also have some prepped materials if you're interested? I can probably meet up during the weekend if you'd like.</p>
-            <span class="date-and-time">10/30/18 9:07pm</span>
-          </div>
-          <div class="messageItem non-native-user">
-            <p>Sure. Is Pearl City Starbucks at 11pm Saturday ok?</p>
-            <span class="date-and-time">10/30/18 9:07pm</span>
-          </div>
-          <div class="messageItem native-user">
-            <p>I can make it. See you then.</p>
-            <span class="date-and-time">10/30/18 9:07pm</span>
-          </div>
-          <div class="messageItem non-native-user">
-            <p>Thank you so much! See you then.</p>
-            <span class="date-and-time">10/30/18 9:07pm</span>
-          </div>
+        <div id="messagesButton">
+          <h1>Messages</h1>
         </div>
       </div>
-      <div id="sendContainer">
-        <input type="text" id="msgInput" placeholder="Send a message">
-        <i id="sendButton" class="fas fa-paper-plane"></i>
+    </div>
+
+    <div id="mainContent">
+      <div id="notificationContainer">
+        <div class="notificationItem gotoMsg">
+          <div class="user-icon user-id-1">
+            <img src="./avatars/013-woman-3.png">
+          </div>
+          <div class="notifContent">
+            <p><b>Rebecca Rain</b> messaged you.</p>
+            <span class="time-ago">1m ago</span>
+          </div>
+        </div>
+        <div class="notificationItem gotoRequest">
+          <div class="user-icon user-id-1">
+            <img src="./avatars/013-woman-3.png">
+          </div>
+          <div class="notifContent">
+            <p><b>Rebecca Rain</b> wishes to fulfill your request.</p>
+            <span class="time-ago">1m ago</span>
+          </div>
+        </div>
+        <div class="notificationItem gotoProvide">
+          <div class="user-icon user-id-2">
+            <img src="./avatars/002-woman-14.png">
+          </div>
+          <div class="notifContent">
+            <p><b>Lorem I.</b> would like to request your materials.</p>
+            <span class="time-ago">1d ago</span>
+          </div>
+        </div>
+        <div class="notificationItem confirmation">
+          <div class="user-icon user-id-3">
+            <img src="./avatars/031-boy-2.png">
+          </div>
+          <div class="notifContent">
+            <p><b>Lorem I.</b> would like to request your materials.</p>
+            <span class="time-ago">1d ago</span>
+          </div>
+        </div>
+      </div>
+      <div id="messagePreviewContainer">
+        <div class="messagePreviewItem">
+          <div class="user-icon user-id-1">
+            <img src="./avatars/013-woman-3.png">
+          </div>
+          <div class="notifContent">
+            <p><b>Rebecca Rain:</b> Hi! I have some crayons that you might be interested in. A few colors might be
+              missing though.</p>
+            <span class="time-ago">1m ago</span>
+          </div>
+        </div>
+        <div class="messagePreviewItem">
+          <div class="user-icon user-id-3">
+            <img src="./avatars/031-boy-2.png">
+          </div>
+          <div class="msgContent">
+            <p><b>Lorem I.:</b> Thank you so much! See you then.</p>
+            <span class="time-ago">1m ago</span>
+          </div>
+        </div>
+        <div class="messagePreviewItem"></div>
+        <div class="messagePreviewItem"></div>
+      </div>
+
+    </div>
+
+    <div id="bottomBar">
+      <div id="bottomBarGrid">
+        <div id="homeButton">
+          <i class="fas fa-home"></i>
+        </div>
+        <div id="searchButton">
+          <i class="fas fa-search"></i>
+        </div>
+        <div id="alertsButton">
+          <i class="far fa-bell"></i>
+        </div>
       </div>
     </div>
   </div>
-  <script type="text/javascript" src="./inbox.js"></script>
-  </body>
+
+  <div id="convoContainer">
+    <div id="userBar" class="user-id-2">
+      <div class="backButton">
+        <i class="fas fa-angle-left"></i>
+      </div>
+      <div class="user-name" id="user-id-2">Lorem I.</div>
+      <div class="user-icon user-id-2">
+        <img src="./avatars/002-woman-14.png">
+      </div>
+    </div>
+    <div id="conversation" id="user-id-3-msg-user-id-2">
+      <div id="messageContainer">
+        <div class="messageItem non-native-user">
+          <p>Hi! Would you mind emailing me a copy of your science lesson plan?</p>
+          <span class="date-and-time">10/30/18 9:05pm</span>
+        </div>
+        <div class="messageItem native-user">
+          <p>Not at all. I'll email it to you as soon as possible.</p>
+          <span class="date-and-time">10/30/18 9:07pm</span>
+        </div>
+        <div class="messageItem non-native-user">
+          <p>That would be great, thank you.</p>
+          <span class="date-and-time">10/30/18 9:07pm</span>
+        </div>
+        <div class="messageItem native-user">
+          <p>I also have some prepped materials if you're interested? I can probably meet up during the weekend if
+            you'd like.</p>
+          <span class="date-and-time">10/30/18 9:07pm</span>
+        </div>
+        <div class="messageItem non-native-user">
+          <p>Sure. Is Pearl City Starbucks at 11pm Saturday ok?</p>
+          <span class="date-and-time">10/30/18 9:07pm</span>
+        </div>
+        <div class="messageItem native-user">
+          <p>I can make it. See you on Saturday.</p>
+          <span class="date-and-time">10/30/18 9:07pm</span>
+        </div>
+        <div class="messageItem non-native-user">
+          <p>Thank you so much! See you then.</p>
+          <span class="date-and-time">10/30/18 9:07pm</span>
+        </div>
+      </div>
+    </div>
+    <div id="sendContainer">
+      <input type="text" id="msgInput" placeholder="Send a message">
+      <i id="sendButton" class="fas fa-paper-plane" onclick="sendTypedMsg()"></i>
+    </div>
+  </div>
+  </div>
+</body>
+
 </html>
