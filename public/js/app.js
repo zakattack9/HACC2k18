@@ -18,6 +18,7 @@ let historyYellow = window.getComputedStyle(document.documentElement).getPropert
 let foreignOrange = window.getComputedStyle(document.documentElement).getPropertyValue('--foreign-orange');
 var inBrowser = 0;
 var inSubForum = 0;
+var inFeedItem = 0;
 
 function switchToForum() {
     $(feedContainer).css("display", "none");
@@ -80,91 +81,58 @@ $(forumButton).click(function() {
 //
 // }
 
-function browser(action) {
-    $("#backArrow").css("display", "block");
-    $("#appName > h1").text("Forum");
-    $("#rfBarGrid").addClass("rfBarForum");
-    $("#rfBarGrid").children().hide();
+function generateFeed() {
+    for (var i = 1; i <= Object.keys(feedItems).length; i++) {
 
-    var forumNameContainer = document.createElement("div");
-    forumNameContainer.id = "forumNameContainer";
-    forumNameContainer.className = "forumName"
-    var forumName = document.createElement("h1");
+        var feedItem = document.createElement("div");
 
-    forumNameContainer.appendChild(forumName);
-    $("#rfBarGrid").append(forumNameContainer);
+        var feedIcon = document.createElement("div");
+        feedIcon.className = "itemIcon";
+        $(feedItem).append(feedIcon);
 
-    if (action === "gdForumClick") {
-        inBrowser = 1;
-        inSubForum = 1;
-        $("#forumGrid").hide();
-        $("#userIconCircle").hide();
-        $(forumName).text("General Discussion");
-        $("#forumNameContainer").css("border-bottom", `3px solid ${mainPurple}`)
-    } else if (action === "mathForumClick") {
-        inBrowser = 1;
-        inSubForum = 1;
-        $("#forumGrid").hide();
-        $("#userIconCircle").hide();
-        $(forumName).text("Math");
-        $("#forumNameContainer").css("border-bottom", `3px solid ${mathRed}`)
-    } else if (action === "scienceForumClick") {
-        inBrowser = 1;
-        inSubForum = 1;
-        $("#forumGrid").hide();
-        $("#userIconCircle").hide();
-        $(forumName).text("Science");
-        $("#forumNameContainer").css("border-bottom", `3px solid ${scienceGreen}`)
-    } else if (action === "englishForumClick") {
-        inBrowser = 1;
-        inSubForum = 1;
-        $("#forumGrid").hide();
-        $("#userIconCircle").hide();
-        $(forumName).text("English Language Arts");
-        $("#forumNameContainer").css("border-bottom", `3px solid ${englishBlue}`)
-    } else if (action === "ssForumClick") {
-        inBrowser = 1;
-        inSubForum = 1;
-        $("#forumGrid").hide();
-        $("#userIconCircle").hide();
-        $(forumName).text("Social Studies");
-        $("#forumNameContainer").css("border-bottom", `3px solid ${historyYellow}`)
-    } else if (action === "foreignForumClick") {
-        inBrowser = 1;
-        inSubForum = 1;
-        $("#forumGrid").hide();
-        $("#userIconCircle").hide();
-        $(forumName).text("Foreign Languages");
-        $("#forumNameContainer").css("border-bottom", `3px solid ${foreignOrange}`)
-    } else if (action === "otForumClick") {
-        inBrowser = 1;
-        inSubForum = 1;
-        $("#forumGrid").hide();
-        $("#userIconCircle").hide();
-        $(forumName).text("Off-topic");
-        $("#forumNameContainer").css("border-bottom", `3px solid ${mainPurple}`)
+        var feedType = document.createElement("div");
+        feedType.className = "itemType";
+        var feedTypeText = document.createElement("h2");
+        $(feedType).append(feedTypeText);
+        $(feedItem).append(feedType);
+
+        var feedInfo = document.createElement("div");
+        feedInfo.className = "itemPostInfo";
+        var feedDate = document.createElement("div");
+        feedDate.className = "itemDate";
+        var feedUser = document.createElement("div");
+        feedUser.className = "itemUser";
+        $(feedInfo).append(feedDate)
+        $(feedInfo).append(feedUser)
+        $(feedItem).append(feedInfo)
+
+
+        var feedTitle = document.createElement("div");
+        feedTitle.className = "itemTitle";
+        var feedTitleText = document.createElement("h2");
+        $(feedTitle).append(feedTitleText);
+        $(feedItem).append(feedTitle);
+
+        $("#feedContainer").append(feedItem);
+        for (var key in feedItems) {
+            console.log(key, feedItems[key].type);
+            if (key == ("feedItem" + (i - 1))) {
+
+                if(feedItems[key].type === "requesting"){
+                  $(feedTypeText).text("Requesting");
+                } else if (feedItems[key].type === "providing"){
+                  $(feedTypeText).text("Providing");
+                }
+
+                $(feedTitleText).text(feedItems[key].item)
+                feedItem.id = "feedItem" + i;
+                feedItem.className = "feedItem " + feedItems[key].type;
+            }
     }
-
-
-    $("#backArrow").click(function() {
-        if (inSubForum === 1) {
-            $("#forumGrid").show();
-            $("#userIconCircle").show();
-            $("#backArrow").hide();
-            $(".forumName").remove();
-            $("#rfBarGrid").children().show();
-            $("#rfBarGrid").removeClass("rfBarForum");
-            $("#appName > h1").text("App Name");
-            $("#gdSubForums").remove();
-            $("#mathSubForums").remove();
-            $("#scienceSubForums").remove();
-            $("#englishSubForums").remove();
-            $("#ssSubForums").remove();
-            $("#foreignSubForums").remove();
-            $("#otSubForums").remove();
-        }
-    });
 }
+}
+
+generateFeed();
 
 gdButton.addEventListener('click', subForumClick);
 mathButton.addEventListener('click', subForumClick);
@@ -175,72 +143,54 @@ foreignButton.addEventListener('click', subForumClick);
 offTopicButton.addEventListener('click', subForumClick);
 
 
+$('.request').click(function() {
+    console.log(1);
+    browser("requestItemClick")
+});
+
 function subForumClick() {
     console.log(this)
     if (this.id === "gdButton") {
         browser("gdForumClick");
-
         var gdSubForums = document.createElement("div");
         gdSubForums.id = "gdSubForums";
         forumContainer.appendChild(gdSubForums);
+        for (var i = 1; i <= Object.keys(mathSubForumPosts).length; i++) {
+            var subPost = document.createElement("div");
+            subPost.id = "gdPost" + i;
+            subPost.className = "subPost";
 
-        var subForumsGrid = document.createElement("div");
-        subForumsGrid.id = "subForumsGrid";
+            var subPostTitle = document.createElement("h1");
+            $(subPost).append(subPostTitle);
+            for (var key in gdSubForumPosts) {
+                if (key == ("post" + (i - 1))) {
+                    $(subPost).text(gdSubForumPosts[key].title)
+                }
+            }
+            $(gdSubForums).append(subPost);
+        }
+
 
     } else if (this.id === "mathButton") {
         browser("mathForumClick");
         var mathSubForums = document.createElement("div");
         mathSubForums.id = "mathSubForums";
         forumContainer.appendChild(mathSubForums);
-
-        var titleArray = [];
-        // for (var prop in mathSubForumPosts) {
-        //     if (mathSubForumPosts.hasOwnProperty(prop)) {
-        //         var innerObj = {};
-        //         innerObj[prop] = mathSubForumPosts[prop];
-        //         titleArray.push(innerObj)
-        //     }
-        // }
-
-
-
         for (var i = 1; i <= Object.keys(mathSubForumPosts).length; i++) {
-
             var subPost = document.createElement("div");
             subPost.id = "mathPost" + i;
             subPost.className = "subPost";
 
             var subPostTitle = document.createElement("h1");
             $(subPost).append(subPostTitle);
-
             for (var key in mathSubForumPosts) {
                 console.log(key, mathSubForumPosts[key].title);
-                  $(subPost).text(mathSubForumPosts[key].title)
-              }
-
-
-
-
+                if (key == ("post" + (i - 1))) {
+                    $(subPost).text(mathSubForumPosts[key].title)
+                }
+            }
             $(mathSubForums).append(subPost);
         }
-
-        //   Object.keys(mathSubForumPosts).forEach(function(key) {
-        //     console.log(mathSubForumPosts[key]);
-        //     var titleArray = [];
-        //     titleArray.push(mathSubForumPosts[key]);
-        //     console.log(titleArray)
-        // });
-        // for(var i =1; i<= Object.keys(mathSubForumPosts).length; i++){
-        //   $(mathSubForums).append($('<div/>', { id: 'mathPost' + i,
-        //                                         'class' : 'forumGridItem',
-        //                                       }
-        //                             )
-        //                           )
-        // }
-
-
-
-
     } else if (this.id === "scienceButton") {
         browser("scienceForumClick");
         var scienceSubForums = document.createElement("div");
@@ -267,4 +217,93 @@ function subForumClick() {
         otSubForums.id = "otSubForums";
         forumContainer.appendChild(otSubForums);
     }
+}
+
+function browser(action) {
+    inBrowser = 1;
+    $("#userIconCircle").hide();
+    $("#backArrow").css("display", "block");
+
+    if (action === "gdForumClick" ||
+        action === "mathForumClick" ||
+        action === "scienceForumClick" ||
+        action === "englishForumClick" ||
+        action === "ssForumClick" ||
+        action === "foreignForumClick" ||
+        action === "otForumClick") {
+        $("#appName > h1").text("Forum");
+        $("#rfBarGrid").addClass("rfBarForum");
+        $("#rfBarGrid").children().hide();
+        var forumNameContainer = document.createElement("div");
+        forumNameContainer.id = "forumNameContainer";
+        forumNameContainer.className = "forumName"
+        var forumName = document.createElement("h1");
+        forumNameContainer.appendChild(forumName);
+        $("#rfBarGrid").append(forumNameContainer);
+        $("#forumGrid").hide();
+        inSubForum = 1;
+    }
+
+
+    if (action === "requestItemClick") {
+        $("#rfBarGrid").addClass("rfBarForum");
+        $("#rfBarGrid").children().hide();
+        var forumNameContainer = document.createElement("div");
+        forumNameContainer.id = "forumNameContainer";
+        forumNameContainer.className = "forumName"
+        var forumName = document.createElement("h1");
+        forumNameContainer.appendChild(forumName);
+        $("#rfBarGrid").append(forumNameContainer);
+        inFeedItem = 1;
+    }
+
+
+
+    if (action === "gdForumClick") {
+        $(forumName).text("General Discussion");
+        $("#forumNameContainer").css("border-bottom", `3px solid ${mainPurple}`)
+    } else if (action === "mathForumClick") {
+        $(forumName).text("Math");
+        $("#forumNameContainer").css("border-bottom", `3px solid ${mathRed}`)
+    } else if (action === "scienceForumClick") {
+        $(forumName).text("Science");
+        $("#forumNameContainer").css("border-bottom", `3px solid ${scienceGreen}`)
+    } else if (action === "englishForumClick") {
+        $(forumName).text("English Language Arts");
+        $("#forumNameContainer").css("border-bottom", `3px solid ${englishBlue}`)
+    } else if (action === "ssForumClick") {
+        $(forumName).text("Social Studies");
+        $("#forumNameContainer").css("border-bottom", `3px solid ${historyYellow}`)
+    } else if (action === "foreignForumClick") {
+        $(forumName).text("Foreign Languages");
+        $("#forumNameContainer").css("border-bottom", `3px solid ${foreignOrange}`)
+    } else if (action === "otForumClick") {
+        $(forumName).text("Off-topic");
+        $("#forumNameContainer").css("border-bottom", `3px solid ${mainPurple}`)
+    } else if (action === "requestItemClick") {
+        inFeedItem = 1;
+        $(forumName).text("Requesting");
+    }
+
+
+    $("#backArrow").click(function() {
+        if (inSubForum === 1) {
+            $("#forumGrid").show();
+            $("#userIconCircle").show();
+            $("#backArrow").hide();
+            $(".forumName").remove();
+            $("#rfBarGrid").children().show();
+            $("#rfBarGrid").removeClass("rfBarForum");
+            $("#appName > h1").text("App Name");
+            $("#gdSubForums").remove();
+            $("#mathSubForums").remove();
+            $("#scienceSubForums").remove();
+            $("#englishSubForums").remove();
+            $("#ssSubForums").remove();
+            $("#foreignSubForums").remove();
+            $("#otSubForums").remove();
+        } else if (inFeedItem === 1) {
+
+        }
+    });
 }
