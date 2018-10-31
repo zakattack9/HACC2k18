@@ -360,7 +360,7 @@ body {
     color: var(--main-purple);
 }
 
-.date-and-time {
+.date-and-time, .time-ago {
     font-size: 0.8em;
     color: #9DAAB5;
 }

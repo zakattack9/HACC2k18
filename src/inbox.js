@@ -1,12 +1,10 @@
 console.log('hello');
 
 /* needed functions:
- *  active notifications/messages
- *  + only on messages
- *  new message
- *   
+ *  + only visible on messages
+ *  new message - waiting for search functionality
  *  indicate unread message
- *  onload, scroll to bottom of chatbox
+ * dynamically change #convoContainer to bring up conversations between users
 */
 
 /* GENERAL NAVIGATION */
@@ -66,9 +64,11 @@ $("#messagesButton").click(function () {
 
 /* NOTIFICATION functionality */
 //navigates user to Messages tab after clicking "received message" notification
-function goToMsg() {
-
-}
+$(document).ready(() => {
+    $(".gotoMsg").click(() => {
+        activateMsgTab();
+    }); 
+});
 
 
 /* MESSAGING functionality */
@@ -120,3 +120,13 @@ $(document).keypress((key) => {
 })
 
 //return to Messages tab from Convo
+
+//show most recent message in message preview WIP
+const reMsgPreview = () => {
+    let lastMsg = $(".messageItem p").last().text();
+    console.log("last msg: " + lastMsg);
+}
+
+// $(document).ready(() => {
+//     $(document).on("DOMSubTreeModified", ".user-id-4-convo-user-id-2", reMsgPreview());
+// })
