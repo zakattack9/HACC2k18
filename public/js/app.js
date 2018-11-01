@@ -125,7 +125,6 @@ function generateFeed() {
 
         $("#feedContainer").append(feedItem);
         for (var key in feedItems) {
-            console.log(key, feedItems[key].type);
             if (key == ("feedItem" + (i - 1))) {
 
                 if(feedItems[key].type === "requesting"){
@@ -134,7 +133,7 @@ function generateFeed() {
                   $(feedTypeText).text("Providing");
                 }
 
-                $(feedIcon).css("background-image", `${feedItems[key].icon}`) 
+                $(feedIcon).css("background-image", `${feedItems[key].icon}`)
 
                 $(feedTitleText).text(feedItems[key].item)
                 feedItem.id = "feedItem" + i;
@@ -158,9 +157,16 @@ foreignButton.addEventListener('click', subForumClick);
 offTopicButton.addEventListener('click', subForumClick);
 
 
-$('.request').click(function() {
+$('.requesting').click(function() {
     console.log(1);
-    browser("requestItemClick")
+    browser("requestItemClick");
+    $(".feedItem").not($(this)).hide();
+});
+
+$('.providing').click(function() {
+    console.log(1);
+    browser("provideItemClick");
+    $(".feedItem").not($(this)).hide();
 });
 
 function subForumClick() {
@@ -271,6 +277,22 @@ function browser(action) {
         forumNameContainer.appendChild(forumName);
         $("#rfBarGrid").append(forumNameContainer);
         inFeedItem = 1;
+        $("#mainContent").animate({ scrollTop: 0 }, "fast");
+        $("#forumNameContainer").css("border-bottom", `3px solid ${mainPurple}`)
+        $(forumName).text("Requesting");
+    } else if (action === "provideItemClick"){
+        $("#rfBarGrid").addClass("rfBarForum");
+        $("#rfBarGrid").children().hide();
+        var forumNameContainer = document.createElement("div");
+        forumNameContainer.id = "forumNameContainer";
+        forumNameContainer.className = "forumName"
+        var forumName = document.createElement("h1");
+        forumNameContainer.appendChild(forumName);
+        $("#rfBarGrid").append(forumNameContainer);
+        inFeedItem = 1;
+        $("#mainContent").animate({ scrollTop: 0 }, "fast");
+        $("#forumNameContainer").css("border-bottom", `3px solid ${mainPurple}`)
+        $(forumName).text("Providing");
     }
 
 
@@ -296,11 +318,7 @@ function browser(action) {
     } else if (action === "otForumClick") {
         $(forumName).text("Off-topic");
         $("#forumNameContainer").css("border-bottom", `3px solid ${mainPurple}`)
-    } else if (action === "requestItemClick") {
-        inFeedItem = 1;
-        $(forumName).text("Requesting");
-    }
-
+    } }
 
     $("#backArrow").click(function() {
         if (inSubForum === 1) {
@@ -319,7 +337,9 @@ function browser(action) {
             $("#foreignSubForums").remove();
             $("#otSubForums").remove();
         } else if (inFeedItem === 1) {
-
+            $("#rfBarGrid").children().show();
+            $("#rfBarGrid").removeClass("rfBarForum");
+            $("#forumNameContainer").remove()
+            $(".feedItem").not($(this)).show();
         }
     });
-}
