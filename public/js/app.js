@@ -175,18 +175,20 @@ $('.providing').click(function() {
 
 function generateForumPosts(subForum, subForumObject){
   var openSubForum = document.createElement("div");
-  openSubForum.id = `${subForum}`;
+  openSubForum.id = `openSubForum`;
   openSubForum.className = "subForumGrid";
   forumContainer.appendChild(openSubForum);
   for (var i = 1; i <= Object.keys(subForumObject).length; i++) {
       var subPost = document.createElement("div");
       subPost.id = `${subForum}Posts` + i;
       subPost.className = "subPost";
+
       var subPostTitleContainer = document.createElement("div");
       subPostTitleContainer.id = "subPostTitleContainer";
       var subPostTitle = document.createElement("h1");
       $(subPostTitleContainer).append(subPostTitle);
       $(subPost).append(subPostTitleContainer);
+
       for (var key in subForumObject) {
           if (key == ("post" + (i - 1))) {
               $(subPostTitle).text(subForumObject[key].title)
@@ -208,33 +210,23 @@ function subForumClick() {
     } else if (this.id === "scienceButton") {
         browser("scienceForumClick");
         var scienceSubForums = document.createElement("div");
-        scienceSubForums.id = "scienceSubForums";
-        scienceSubForums.className = "subForumGrid";
-        forumContainer.appendChild(scienceSubForums);
+        generateForumPosts("scienceForum", scienceSubForumPosts);
     } else if (this.id === "englishButton") {
         browser("englishForumClick");
         var englishSubForums = document.createElement("div");
-        englishSubForums.id = "englishSubForums";
-        englishSubForums.className = "subForumGrid";
-        forumContainer.appendChild(englishSubForums);
+        generateForumPosts("englishForum", englishSubForumPosts);
     } else if (this.id === "ssButton") {
         browser("ssForumClick");
         var ssSubForums = document.createElement("div");
-        ssSubForums.id = "ssSubForums";
-        ssSubForums.className = "subForumGrid";
-        forumContainer.appendChild(ssSubForums);
+        generateForumPosts("ssForum", ssSubForumPosts);
     } else if (this.id === "foreignButton") {
         browser("foreignForumClick");
         var foreignSubForums = document.createElement("div");
-        foreignSubForums.id = "foreignSubForums";
-        foreignSubForums.className = "subForumGrid";
-        forumContainer.appendChild(foreignSubForums);
+        generateForumPosts("foreignForum", foreignSubForumPosts);
     } else if (this.id === "offTopicButton") {
         browser("otForumClick");
         var otSubForums = document.createElement("div");
-        otSubForums.id = "otSubForums";
-        otSubForums.className = "subForumGrid";
-        forumContainer.appendChild(otSubForums);
+        generateForumPosts("otForum", otSubForumPosts);
     }
 }
 
@@ -324,13 +316,7 @@ function browser(action) {
             $("#rfBarGrid").children().show();
             $("#rfBarGrid").removeClass("rfBarForum");
             $("#appName > h1").text("App Name");
-            $("#gdSubForums").remove();
-            $("#mathSubForums").remove();
-            $("#scienceSubForums").remove();
-            $("#englishSubForums").remove();
-            $("#ssSubForums").remove();
-            $("#foreignSubForums").remove();
-            $("#otSubForums").remove();
+            $("#openSubForum").remove();
             inSubForum = 0;
         } else if (inFeedItem === 1) {
             $("#feedContainer").show();

@@ -87,3 +87,123 @@ var mathSubForumPosts = {
     comments: 7
   }
 }
+
+var scienceSubForumPosts = {
+
+  post0: {
+    title: "What's an effective way to teach students algebra?",
+    date: "11h",
+    user: "Regina C.",
+    comments: 3
+  },
+
+  post1: {
+    title: "How do I engage students with math?",
+    date: "5h",
+    user: "Edmar R.",
+    comments: 7
+  },
+
+  post2: {
+    title: "post2test",
+    date: "5h",
+    user: "Robert O.",
+    comments: 7
+  }
+}
+
+var englishSubForumPosts = {
+
+  post0: {
+    title: "What's an effective way to teach students algebra?",
+    date: "11h",
+    user: "Regina C.",
+    comments: 3
+  },
+
+  post1: {
+    title: "How do I engage students with math?",
+    date: "5h",
+    user: "Edmar R.",
+    comments: 7
+  },
+
+  post2: {
+    title: "post2test",
+    date: "5h",
+    user: "Robert O.",
+    comments: 7
+  }
+}
+
+var ssSubForumPosts = {
+
+  post0: {
+    title: "What's an effective way to teach students algebra?",
+    date: "11h",
+    user: "Regina C.",
+    comments: 3
+  },
+
+  post1: {
+    title: "How do I engage students with math?",
+    date: "5h",
+    user: "Edmar R.",
+    comments: 7
+  },
+
+  post2: {
+    title: "post2test",
+    date: "5h",
+    user: "Robert O.",
+    comments: 7
+  }
+}
+
+var foreignSubForumPosts = {
+
+  post0: {
+    title: "What's an effective way to teach students algebra?",
+    date: "11h",
+    user: "Regina C.",
+    comments: 3
+  },
+
+  post1: {
+    title: "How do I engage students with math?",
+    date: "5h",
+    user: "Edmar R.",
+    comments: 7
+  },
+
+  post2: {
+    title: "post2test",
+    date: "5h",
+    user: "Robert O.",
+    comments: 7
+  }
+}
+
+var otSubForumPosts = {
+
+  post0: {
+    title: "What's an effective way to teach students algebra?",
+    date: "11h",
+    user: "Regina C.",
+    comments: 3
+  },
+
+  post1: {
+    title: "How do I engage students with math?",
+    date: "5h",
+    user: "Edmar R.",
+    comments: 7
+  },
+
+  post2: {
+    title: "post2test",
+    date: "5h",
+    user: "Robert O.",
+    comments: 7
+  }
+}
