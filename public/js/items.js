@@ -4,28 +4,40 @@ var feedItems = {
     type: "requesting",
     item: "Crayons & Markers",
     date: "1hr",
-    user: "Dylan. T"
+    user: "Dylan. T",
+    icon: "url('../images/crayons.png')"
   },
 
   feedItem1: {
     type: "providing",
     item: "Science Lesson Plan",
     date: "2hr",
-    user: "Kyle. L"
+    user: "Kyle. L",
+    icon: "url('../images/biology.png')"
   },
 
   feedItem2: {
     type: "requesting",
     item: "Science Lesson Plan",
     date: "2hr",
-    user: "Lorem. I"
+    user: "Lorem. I",
+    icon: "url('../images/biology.png')"
   },
 
   feedItem3: {
     type: "requesting",
     item: "Crayons & Markers",
     date: "1hr",
-    user: "Angela G"
+    user: "Angela G",
+    icon: "url('../images/crayons.png')"
+  },
+
+  feedItem4: {
+    type: "providing",
+    item: "Crayons & Markers",
+    date: "4hr",
+    user: "Zak S.",
+    icon: "url('../images/crayons.png')"
   }
 }
 

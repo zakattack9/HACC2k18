@@ -134,6 +134,8 @@ function generateFeed() {
                   $(feedTypeText).text("Providing");
                 }
 
+                $(feedIcon).css("background-image", `${feedItems[key].icon}`) 
+
                 $(feedTitleText).text(feedItems[key].item)
                 feedItem.id = "feedItem" + i;
                 feedItem.className = "feedItem " + feedItems[key].type;

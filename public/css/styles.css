@@ -190,18 +190,10 @@ body {
   width: 85%;
   height: 85%;
   grid-row-end: span 3;
-  background-image: url("../images/crayons.png");
   background-position: center;
   background-size: cover;
 }
 
-.feedItem:nth-child(2) .itemIcon {
-  background-image: url("../images/biology.png");
-}
-
-.feedItem:nth-child(3) .itemIcon {
-  background-image: url("../images/biology.png");
-}
 
 .feedItem:last-child,
 .subForum:last-child {
