@@ -100,18 +100,28 @@ function generateFeed() {
         feedInfo.className = "itemPostInfo";
         var feedDate = document.createElement("div");
         feedDate.className = "itemDate";
+        var feedDateText = document.createElement("h4");
+        $(feedDate).append(feedDateText)
         var feedUser = document.createElement("div");
         feedUser.className = "itemUser";
-        $(feedInfo).append(feedDate)
-        $(feedInfo).append(feedUser)
-        $(feedItem).append(feedInfo)
-
+        var feedUserText = document.createElement("h4");
+        $(feedUser).append(feedUserText);
+        $(feedInfo).append(feedDate);
+        $(feedInfo).append(feedUser);
+        $(feedItem).append(feedInfo);
 
         var feedTitle = document.createElement("div");
         feedTitle.className = "itemTitle";
         var feedTitleText = document.createElement("h2");
         $(feedTitle).append(feedTitleText);
         $(feedItem).append(feedTitle);
+
+        var arrowDown = document.createElement("div");
+        arrowDown.className = "itemDropArrow";
+        var chevronDown = document.createElement("i");
+        chevronDown.className = "fas fa-chevron-down";
+        $(arrowDown).append(chevronDown);
+        $(feedItem).append(arrowDown)
 
         $("#feedContainer").append(feedItem);
         for (var key in feedItems) {
@@ -127,6 +137,9 @@ function generateFeed() {
                 $(feedTitleText).text(feedItems[key].item)
                 feedItem.id = "feedItem" + i;
                 feedItem.className = "feedItem " + feedItems[key].type;
+
+                $(feedDateText).text(feedItems[key].date)
+                $(feedUserText).html(`<i class="fas fa-user"></i> ${feedItems[key].user}`);
             }
     }
 }
