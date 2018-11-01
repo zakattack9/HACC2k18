@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const user = require('./user/user');
 const auth = require('./auth/auth');
-const feed = require('./feed');
+const feed = require('./feed/feed');
 const messages = require('./inbox/messages');
 const notifications = require('./inbox/notifications');
 
