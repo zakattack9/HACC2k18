@@ -167,7 +167,8 @@ body {
 }
 
 #feedContainer,
-#forumContainer {
+#forumContainer,
+#individualFeedItem {
   width: 98%;
   height: 100%;
   margin: auto;
@@ -242,7 +243,8 @@ body {
   opacity: 0.5;
 }
 
-#forumContainer {
+#forumContainer,
+#individualFeedItem {
   display: none;
 }
 
@@ -326,4 +328,19 @@ body {
   font-size: 1em;
   margin-top: 10px;
   opacity: 0.8;
+}
+
+.subForumGrid {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-gap: 10px;
+}
+
+.subPost {
+  background-color: white;
+}
+
+#subPostTitleContainer h1{
+  font-family: 'Roboto';
+  font-size: 1.3em;
 }

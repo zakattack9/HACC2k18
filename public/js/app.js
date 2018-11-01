@@ -160,83 +160,80 @@ offTopicButton.addEventListener('click', subForumClick);
 $('.requesting').click(function() {
     console.log(1);
     browser("requestItemClick");
-    $(".feedItem").not($(this)).hide();
+    $("#individualFeedItem").show();
+    $(this).clone().appendTo("#individualFeedItem");
+    $("#feedContainer").hide();
 });
 
 $('.providing').click(function() {
     console.log(1);
     browser("provideItemClick");
-    $(".feedItem").not($(this)).hide();
+    $("#individualFeedItem").show();
+    $(this).clone().appendTo("#individualFeedItem");
+    $("#feedContainer").hide();
 });
+
+function generateForumPosts(subForum, subForumObject){
+  var openSubForum = document.createElement("div");
+  openSubForum.id = `${subForum}`;
+  openSubForum.className = "subForumGrid";
+  forumContainer.appendChild(openSubForum);
+  for (var i = 1; i <= Object.keys(subForumObject).length; i++) {
+      var subPost = document.createElement("div");
+      subPost.id = `${subForum}Posts` + i;
+      subPost.className = "subPost";
+      var subPostTitleContainer = document.createElement("div");
+      subPostTitleContainer.id = "subPostTitleContainer";
+      var subPostTitle = document.createElement("h1");
+      $(subPostTitleContainer).append(subPostTitle);
+      $(subPost).append(subPostTitleContainer);
+      for (var key in subForumObject) {
+          if (key == ("post" + (i - 1))) {
+              $(subPostTitle).text(subForumObject[key].title)
+          }
+      }
+      $(openSubForum).append(subPost);
+  }
+}
+
 
 function subForumClick() {
     console.log(this)
     if (this.id === "gdButton") {
         browser("gdForumClick");
-        var gdSubForums = document.createElement("div");
-        gdSubForums.id = "gdSubForums";
-        forumContainer.appendChild(gdSubForums);
-        for (var i = 1; i <= Object.keys(mathSubForumPosts).length; i++) {
-            var subPost = document.createElement("div");
-            subPost.id = "gdPost" + i;
-            subPost.className = "subPost";
-
-            var subPostTitle = document.createElement("h1");
-            $(subPost).append(subPostTitle);
-            for (var key in gdSubForumPosts) {
-                if (key == ("post" + (i - 1))) {
-                    $(subPost).text(gdSubForumPosts[key].title)
-                }
-            }
-            $(gdSubForums).append(subPost);
-        }
-
-
+        generateForumPosts("gdForum", gdSubForumPosts);
     } else if (this.id === "mathButton") {
         browser("mathForumClick");
-        var mathSubForums = document.createElement("div");
-        mathSubForums.id = "mathSubForums";
-        forumContainer.appendChild(mathSubForums);
-        for (var i = 1; i <= Object.keys(mathSubForumPosts).length; i++) {
-            var subPost = document.createElement("div");
-            subPost.id = "mathPost" + i;
-            subPost.className = "subPost";
-
-            var subPostTitle = document.createElement("h1");
-            $(subPost).append(subPostTitle);
-            for (var key in mathSubForumPosts) {
-                if (key == ("post"+(i-1))) {
-                    $(subPost).text(mathSubForumPosts[key].title)
-                }
-              }
-
-
-            $(mathSubForums).append(subPost);
-        }
+        generateForumPosts("mathForum", mathSubForumPosts)
     } else if (this.id === "scienceButton") {
         browser("scienceForumClick");
         var scienceSubForums = document.createElement("div");
         scienceSubForums.id = "scienceSubForums";
+        scienceSubForums.className = "subForumGrid";
         forumContainer.appendChild(scienceSubForums);
     } else if (this.id === "englishButton") {
         browser("englishForumClick");
         var englishSubForums = document.createElement("div");
         englishSubForums.id = "englishSubForums";
+        englishSubForums.className = "subForumGrid";
         forumContainer.appendChild(englishSubForums);
     } else if (this.id === "ssButton") {
         browser("ssForumClick");
         var ssSubForums = document.createElement("div");
         ssSubForums.id = "ssSubForums";
+        ssSubForums.className = "subForumGrid";
         forumContainer.appendChild(ssSubForums);
     } else if (this.id === "foreignButton") {
         browser("foreignForumClick");
         var foreignSubForums = document.createElement("div");
         foreignSubForums.id = "foreignSubForums";
+        foreignSubForums.className = "subForumGrid";
         forumContainer.appendChild(foreignSubForums);
     } else if (this.id === "offTopicButton") {
         browser("otForumClick");
         var otSubForums = document.createElement("div");
         otSubForums.id = "otSubForums";
+        otSubForums.className = "subForumGrid";
         forumContainer.appendChild(otSubForums);
     }
 }
@@ -268,8 +265,7 @@ function browser(action) {
 
 
     if (action === "requestItemClick") {
-        $("#rfBarGrid").addClass("rfBarForum");
-        $("#rfBarGrid").children().hide();
+        $("#rfBarGrid").hide();
         var forumNameContainer = document.createElement("div");
         forumNameContainer.id = "forumNameContainer";
         forumNameContainer.className = "forumName"
@@ -281,8 +277,7 @@ function browser(action) {
         $("#forumNameContainer").css("border-bottom", `3px solid ${mainPurple}`)
         $(forumName).text("Requesting");
     } else if (action === "provideItemClick"){
-        $("#rfBarGrid").addClass("rfBarForum");
-        $("#rfBarGrid").children().hide();
+        $("#rfBarGrid").hide();
         var forumNameContainer = document.createElement("div");
         forumNameContainer.id = "forumNameContainer";
         forumNameContainer.className = "forumName"
@@ -336,10 +331,16 @@ function browser(action) {
             $("#ssSubForums").remove();
             $("#foreignSubForums").remove();
             $("#otSubForums").remove();
+            inSubForum = 0;
         } else if (inFeedItem === 1) {
-            $("#rfBarGrid").children().show();
-            $("#rfBarGrid").removeClass("rfBarForum");
+            $("#feedContainer").show();
+            $("#userIconCircle").show();
+            $("#backArrow").hide();
+            $("#individualFeedItem").children().remove();
+            $("#individualFeedItem").hide();
+            $("#rfBarGrid").show();
             $("#forumNameContainer").remove()
             $(".feedItem").not($(this)).show();
+            inFeedItem = 0;
         }
     });
