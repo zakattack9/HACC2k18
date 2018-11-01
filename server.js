@@ -1,29 +1,20 @@
 require('dotenv').config();
 const path = require('path');
 const express = require('express');
+const server = express();
 const bodyparser = require('body-parser');
 const session = require('express-session');
 const Redis = require('connect-redis')(session);
 const passport = require('passport');
 const exphbs = require('express-handlebars');
-const server = express();
 const routes = require('./server/db/routes/');
 // const http = require('http').Server(server);
 const PORT = process.env.PORT || 8000;
-
-//set the template engine handlebars
-server.engine('.hbs', exphbs({
-  defaultLayout: 'main',
-  extname: '.hbs'
-}))
-server.set('view engine', '.hbs');
 
 //middleware
 server.use(express.static(__dirname + '/public')); //load static files (css & js)
 server.use(bodyparser.json());
 server.use(bodyparser.urlencoded({ extended : true}));
-server.use(passport.initialize());
-server.use(passport.session());
 server.use(
   session({
     store : new Redis(),
@@ -32,7 +23,9 @@ server.use(
     saveUninitialized : true
   })
 );
-
+server.use(passport.initialize());
+server.use(passport.session());
+  
 function checkAuth (req, res, next) { //prevents routes from being accessed without signing in
   if (req.isAuthenticated()) {
     return next();
@@ -79,7 +72,7 @@ io.on('connection', (socket) => {
     io.sockets.emit('new_message', {message : data.message, username : socket.username});
   })
 
-  //Privat Chats
+  //Private Chats
   socket.on('subscribe', function(room) { 
     console.log('joining room', room);
     socket.join(room); 
@@ -100,3 +93,10 @@ io.on('connection', (socket) => {
   //   socket.broadcast.emit('typing', {username : socket.username})
   // })
 })
+
+//set the template engine handlebars
+server.engine('.hbs', exphbs({
+  defaultLayout: 'main',
+  extname: '.hbs'
+}))
+server.set('view engine', '.hbs');

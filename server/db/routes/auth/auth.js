@@ -3,6 +3,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const bcrypt = require('bcrypt');
 const router = express.Router();
+//const flash = require('connect-flash');
 const app = express();
 
 const User = require('../../models/User');
@@ -125,9 +126,11 @@ router.post('/login', (req, res, next) => {
           request_tokens: user.request_tokens
         };
 
-        //req.cookie.cookieName //get userProfile
-        res.cookie('userProfile', userProfile);
-        console.log("success");
+        //req.body = userProfile;
+        //req.cookie.userProfile //get userProfile
+        // res.cookie('userProfile', userProfile);
+        console.log(req.body);
+        req.session.key = userProfile
         return res.redirect('/feed');
         //return res.json(userProfile);
       }
