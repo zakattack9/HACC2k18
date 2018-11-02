@@ -21,7 +21,7 @@ body {
     display: grid;
     grid-template-rows: 0.5fr 0.5fr 5fr 0.5fr;
     /* background-color: purple; */
-    
+    /* display: none; */
   }
   
   :root {
@@ -244,11 +244,11 @@ body {
     grid-template-columns: 0.5fr 2fr 0.5fr;
 }
 
-.backButton, .user-name {
+.msgBackButton, .user-name {
     margin: auto;
 }
 
-.backButton {
+.msgBackButton {
     font-size: 2em;
 }
 
@@ -335,11 +335,11 @@ body {
 #msgInput {
     height: 100%;
     width: 100%;
+    padding-left: 1em; 
     box-sizing: border-box;
     border: none;
     border-right: 1px solid var(--main-purple) !important;
     border-radius: 0px;
-    padding-left: 1em; 
 }
 
 #msgInput:focus {
@@ -364,3 +364,78 @@ body {
     font-size: 0.8em;
     color: #9DAAB5;
 }
+
+
+/* NEW MESSAGE STYLES */
+#newMsgContainer {
+    background-color: white;
+    position: absolute;
+    top: 0;
+    z-index: 3;
+    width: 100vw;
+    height: 100vh;
+    grid-template-rows: 3.5em 1fr;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#searchFriendsBar {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+#searchFriendsBar {
+    display: grid;
+    grid-template-columns: 2.5em 1fr 2.5em;
+}
+
+#friendSearchInput {
+    height: 80%;
+    width: 93%;
+    margin: auto;
+    border-radius: 1.25em;
+    border: 1px solid black !important;
+    padding-left: 1em; 
+    box-sizing: border-box;
+}
+ 
+#friendSearchInput:focus {
+    /* changes outline of search input to purple when focused */
+    border: 1px solid var(--main-purple) !important;
+    box-shadow: 0 0 3px var(--main-purple) !important;
+    -moz-box-shadow: 0 0 3px var(--main-purple) !important;
+    -webkit-box-shadow: 0 0 3px var(--main-purple) !important;
+    outline-offset: 0px !important;
+    outline: none !important;
+  }
+
+#searchFriendButton {
+    font-size: 1.75em;
+    margin: auto;
+    margin-left: 0;
+}
+
+.friendList {
+    background-color: #F2F2F2;
+}
+
+.friendItem {
+    background-color: white;
+    width: 100%;
+    height: 70px;
+    border-bottom: 1px solid #A0A0A0;
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    font-family: 'Lato';
+    margin-top: 8px;
+}
+
+.friendName {
+    line-height: 70px;
+    font-size: 1.2em;
+}
+
+/* .friendItem .user-icon {
+    height: 100
+} */

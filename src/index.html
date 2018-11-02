@@ -32,10 +32,10 @@
 
     <div id="notificationMessageBar">
       <div id="nmBarGrid">
-        <div id="notificationsButton" onclick="activateNotifTab()">
+        <div id="notificationsButton">
           <h1>Notifications</h1>
         </div>
-        <div id="messagesButton" onclick="activateMsgTab()">
+        <div id="messagesButton">
           <h1>Messages</h1>
         </div>
       </div>
@@ -91,7 +91,7 @@
             <span class="time-ago">1m ago</span>
           </div>
         </div>
-        <div class="messagePreviewItem" id="convoIdentifier" onclick="activateConvo()">
+        <div class="messagePreviewItem convoIdentifier">
           <div class="user-icon user-id-3">
             <img src="./avatars/002-woman-14.png">
           </div>
@@ -121,9 +121,9 @@
     </div>
   </div>
 
-  <div id="convoContainer" class="user-id-4-convo-user-id-2">
+  <div id="convoContainer" class="convoIdentifier">
     <div id="userBar" class="user-id-2">
-      <div class="backButton" onclick="activateMsgTab()">
+      <div class="msgBackButton">
         <i class="fas fa-angle-left"></i>
       </div>
       <div class="user-name" id="user-id-2">Lorem I.</div>
@@ -166,9 +166,46 @@
     </div>
     <div id="sendContainer">
       <input type="text" id="msgInput" placeholder="Send a message">
-      <i id="sendButton" class="fas fa-paper-plane" onclick="sendTypedMsg()"></i>
+      <i id="sendButton" class="fas fa-paper-plane"></i>
     </div>
   </div>
+
+  <div id="newMsgContainer">
+    <div id="searchFriendsBar">
+        <div class="msgBackButton">
+            <i class="fas fa-angle-left"></i>
+          </div>
+      <input id="friendSearchInput" onkeyup="searchFriends()" type="text" placeholder="Find a teacher by name">
+      <div id="searchFriendButton">
+        <i class="fas fa-search"></i>
+      </div>
+    </div>
+    <div class="friendList user-id-4-friend-list">
+      <div class="friendItem user-id-">
+        <div class="user-icon">
+          <img src="./avatars/002-woman-14.png">
+        </div>
+        <div class="friendName user-id-X-name">NAME</div>
+      </div>
+      <div class="friendItem user-id-">
+        <div class="user-icon">
+          <img src="">
+        </div>
+        <div class="friendName user-id-X-name">NAME</div>
+      </div>
+      <div class="friendItem user-id-">
+        <div class="user-icon">
+          <img src="">
+        </div>
+        <div class="friendName user-id-X-name"></div>
+      </div>
+      <div class="friendItem user-id-">
+        <div class="user-icon">
+          <img src="">
+        </div>
+        <div class="friendName user-id-X-name"></div>
+      </div>
+    </div>
   </div>
 </body>
 
