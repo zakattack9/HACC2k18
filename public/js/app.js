@@ -20,30 +20,31 @@ var inBrowser = 0;
 var inSubForum = 0;
 var inFeedItem = 0;
 
-// const resources = document.getElementsByClassName('title');
-// const items = document.getElementsByTagName('h2');
+const resources = document.getElementsByClassName('title');
+const items = document.getElementsByClassName('request');
 
-// const searchBar = document.forms["searchBar"].querySelector("input");
-// searchBar.addEventListener("keyup", function(e){
-//     const term = e.target.value.toLowerCase();
-//     console.log(term);
-//     let allTitles = [];
-//     for (i=0; i<resources.length; i++) {
-//         let titles = resources[i];
-//         var words = titles.innerHTML;
-//         allTitles.push(words);
-//     };
-//     console.log(allTitles);
+const searchBar = document.forms["searchBar"].querySelector("input");
+searchBar.addEventListener("keyup", function(e){
+    const term = e.target.value.toLowerCase();
+    console.log(term);
 
-//     for (i=0; i<resources.length; i++) {
-//         console.log(allTitles[i].toLowerCase());
-//         if (allTitles[i].toLowerCase() == term) {
-//             items.style.display = 'block';
-//         } else {
-//             items.style.display = 'none';
-//         }
-//     };
-// });
+    let allTitles = [];
+    for (i=0; i<resources.length; i++) {
+        let titles = resources[i];
+        let words = titles.innerHTML;
+        allTitles.push(words);
+    };
+    console.log(allTitles);
+
+    for (i=0; i<allTitles.length; i++) {
+        console.log(allTitles[i].toLowerCase());
+        if (allTitles[i].toLowerCase() == term) {
+            items[i].style.display = 'block';
+        } else {
+            items[i].style.display = 'none';
+        }
+    };
+});
 
 function switchToForum() {
     $(feedContainer).css("display", "none");
