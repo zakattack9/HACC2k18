@@ -233,7 +233,6 @@ $('.requesting').click(function() {
     $("#feedContainer").hide();
 
     for (var i = 0; i <= Object.keys(feedItems).length; i++) {
-
         for (var key in feedItems) {
             if (key == "feedItem" + i) {
                 console.log(key)
@@ -241,6 +240,7 @@ $('.requesting').click(function() {
                 console.log(Object.keys(feedItems[key].comments).length)
                 console.log(feedItems)
             }
+            console.log(Object.keys(feedItems[key].comments).length)
         }
     }
 });

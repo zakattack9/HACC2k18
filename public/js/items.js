@@ -85,6 +85,18 @@ var feedItems = {
                 user: "Kyxle. L",
                 text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta turpis purus, vitae hendrerit dui consequat sed. In mollis orci. Donec porta turpis"
             },
+
+            comment3: {
+                date: "1hr",
+                user: "Ksyle. L",
+                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta turpis purus, vitae hendrerit dui consequat sed. In mollis orci. Donec porta turpis"
+            },
+
+            comment4: {
+                date: "1hr",
+                user: "Ksyle. L",
+                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta turpis purus, vitae hendrerit dui consequat sed. In mollis orci. Donec porta turpis"
+            },
         }
     },
 
@@ -114,6 +126,24 @@ var feedItems = {
                 user: "Kyle. L",
                 text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta turpis purus, vitae hendrerit dui consequat sed. In mollis orci. Donec porta turpis"
             },
+
+            comment3: {
+                date: "1hr",
+                user: "Ksyle. L",
+                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta turpis purus, vitae hendrerit dui consequat sed. In mollis orci. Donec porta turpis"
+            },
+
+            comment4: {
+                date: "1hr",
+                user: "Ksyle. L",
+                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta turpis purus, vitae hendrerit dui consequat sed. In mollis orci. Donec porta turpis"
+            },
+
+            comment5: {
+                date: "1hr",
+                user: "Ksyle. L",
+                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta turpis purus, vitae hendrerit dui consequat sed. In mollis orci. Donec porta turpis"
+            },
         }
     },
 
@@ -141,6 +171,30 @@ var feedItems = {
             comment2: {
                 date: "1hr",
                 user: "Kylxe. L",
+                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta turpis purus, vitae hendrerit dui consequat sed. In mollis orci. Donec porta turpis"
+            },
+
+            comment3: {
+                date: "1hr",
+                user: "Ksyle. L",
+                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta turpis purus, vitae hendrerit dui consequat sed. In mollis orci. Donec porta turpis"
+            },
+
+            comment4: {
+                date: "1hr",
+                user: "Ksyle. L",
+                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta turpis purus, vitae hendrerit dui consequat sed. In mollis orci. Donec porta turpis"
+            },
+
+            comment5: {
+                date: "1hr",
+                user: "Ksyle. L",
+                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta turpis purus, vitae hendrerit dui consequat sed. In mollis orci. Donec porta turpis"
+            },
+
+            comment6: {
+                date: "1hr",
+                user: "Ksyle. L",
                 text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta turpis purus, vitae hendrerit dui consequat sed. In mollis orci. Donec porta turpis"
             },
         }
