@@ -12,19 +12,19 @@ var feedItems = {
             comment0: {
                 date: "1hr",
                 user: "Kylve. L",
-                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta turpis purus, vitae hendrerit dui consequat sed. In mollis orci. Donec porta turpis"
+                text: "Lorem ipsum dolc porta turpis purus, vitae hendrerit dui consequat sed. In mollis orci. Donec porta turpis"
             },
 
             comment1: {
                 date: "1hr",
                 user: "Kvsyle. L",
-                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta turpis purus, vitae hendrerit dui consequat sed. In mollis orci. Donec porta turpis"
+                text: "Lorem ipsum dolor sit amet, conssssacvvvvvvvsectetur adipiscing elit. Donec porta turpis purus, vitae hendrerit dui consequat sed. In mollis orci. Donec porta turpis"
             },
 
             comment2: {
                 date: "1hr",
                 user: "Ksyle. L",
-                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta turpis purus, vitae hendrerit dui consequat sed. In mollis orci. Donec porta turpis"
+                text: "Lorem ipsum dolommmmmmr sit amet, consectetur adipiscing elit. Donec porta turpis purus, vitae hendrerit dui consequat sed. In mollis orci. Donec porta turpis"
             },
         }
     },

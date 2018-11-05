@@ -121,7 +121,7 @@ function generateFeed() {
         $(feedItem).append(feedDescription);
 
         var feedItemRepliesContainer = document.createElement("div");
-        feedItemRepliesContainer.className = "feedItemRepliesContainer";
+        feedItemRepliesContainer.className = "feedItemRepliesContainer shortReplies";
         $(feedItem).append(feedItemRepliesContainer);
 
         $("#feedContainer").append(feedItem);
@@ -147,15 +147,12 @@ function generateFeed() {
                 // console.log(Object.keys(feedItems[key].comments).length);
 
                 for(var x in feedItems[key].comments){
-                  console.log(key);
-                  console.log(x);
                     var feedItemReplies = document.createElement("div");
                     feedItemReplies.id = `feedItemReplies${x}`;
                     var feedItemReplyText = document.createElement("h4");
                     $(feedItemReplies).append(feedItemReplyText)
-                    $(feedItemReplyText)
+                    $(feedItemReplyText).text(feedItems[key].comments[x].text)
                     $(feedItemRepliesContainer).append(feedItemReplies);
-                  console.log(feedItems[key].comments[x]);
                 }
 
                 // for (var i = 0; i <= test; i++) {

@@ -300,6 +300,10 @@ body {
 -webkit-text-fill-color: transparent;
 }
 
+.shortReplies {
+  display: none;
+}
+
 .longDesc {
   margin-bottom: 20px;
 }
