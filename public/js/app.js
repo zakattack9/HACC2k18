@@ -117,12 +117,17 @@ function generateFeed() {
         var feedDescription = document.createElement("div");
         feedDescription.className = "feedDescription shortDesc";
         var feedDescriptionText = document.createElement("h4");
-        $(feedDescription).append(feedDescriptionText)
-        $(feedItem).append(feedDescription)
+        $(feedDescription).append(feedDescriptionText);
+        $(feedItem).append(feedDescription);
+
+        var feedItemRepliesContainer = document.createElement("div");
+        feedItemRepliesContainer.className = "feedItemRepliesContainer";
+        $(feedItem).append(feedItemRepliesContainer);
 
         $("#feedContainer").append(feedItem);
         for (var key in feedItems) {
-            if (key == ("feedItem" + (i))) {
+            if (key == ("feedItem" + i)) {
+
 
                 if (feedItems[key].type === "requesting") {
                     $(feedTypeText).text("Requesting");
@@ -138,12 +143,37 @@ function generateFeed() {
 
                 $(feedUserText).html(`<i class="fas fa-user"></i> ${feedItems[key].user} • ${feedItems[key].date}`);
                 $(feedDescriptionText).text(feedItems[key].description);
+                // console.log(feedItems[key].comments)
+                // console.log(Object.keys(feedItems[key].comments).length);
+
+                for(var x in feedItems[key].comments){
+                  console.log(key);
+                  console.log(x);
+                    var feedItemReplies = document.createElement("div");
+                    feedItemReplies.id = `feedItemReplies${x}`;
+                    var feedItemReplyText = document.createElement("h4");
+                    $(feedItemReplies).append(feedItemReplyText)
+                    $(feedItemReplyText)
+                    $(feedItemRepliesContainer).append(feedItemReplies);
+                  console.log(feedItems[key].comments[x]);
+                }
+
+                // for (var i = 0; i <= test; i++) {
+                //   var feedItemReplies = document.createElement("div");
+                //   feedItemReplies.id = `feedItemReplies${i}`;
+                //   var feedItemReplyText = document.createElement("h4");
+                //   $(feedItemReplies).append(feedItemReplyText)
+                //   $(feedItemReplyText)
+                //   $(feedItemRepliesContainer).append(feedItemReplies);
+                // }
+
             }
         }
     }
 }
 
 generateFeed();
+
 
 function generateForumPosts(subForum, subForumObject) {
     var openSubForum = document.createElement("div");
@@ -231,19 +261,26 @@ $('.requesting').click(function() {
     $(this).find(".feedDescription").addClass("longDesc");
     $(this).clone().prependTo("#individualFeedItem");
     $("#feedContainer").hide();
+    generateFeedReplies(this);
 
-    for (var i = 0; i <= Object.keys(feedItems).length; i++) {
-        for (var key in feedItems) {
-            if (key == "feedItem" + i) {
-                console.log(key)
-                console.log(feedItems[key].comments)
-                console.log(Object.keys(feedItems[key].comments).length)
-                console.log(feedItems)
-            }
-            console.log(Object.keys(feedItems[key].comments).length)
-        }
-    }
+//     for (var i = 0; i <= Object.keys(feedItems).length; i++) {
+//         for (var key in feedItems) {
+//             if (key == "feedItem" + i) {
+//               var feedItemNum = `feedItem${i}`;
+//               console.log(feedItemNum);
+//               for (var i = 0; i < 5; i++) {
+//                 var commentNum = `comment${i}`;
+//                 console.log(commentNum);
+//               }
+//               console.log(feedItems[key].comments.commentNum);
+//             }
+//           }
+// }
 });
+
+function generateFeedReplies(feedItem){
+  console.log(feedItem)
+}
 
 $('.providing').click(function() {
     browser("provideItemClick");

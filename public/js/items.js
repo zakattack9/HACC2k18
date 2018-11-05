@@ -55,6 +55,12 @@ var feedItems = {
                 user: "Kyle. L",
                 text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta turpis purus, vitae hendrerit dui consequat sed. In mollis orci. Donec porta turpis"
             },
+
+            comment3: {
+                date: "1hr",
+                user: "Kyle. L",
+                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta turpis purus, vitae hendrerit dui consequat sed. In mollis orci. Donec porta turpis"
+            },
         }
 
     },
