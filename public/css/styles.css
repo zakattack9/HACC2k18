@@ -1,6 +1,14 @@
 body {
   width: 100%;
   height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-y: hidden;
+}
+
+#appContainer {
+  width: 100%;
+  height: 100vh;
   display: grid;
   grid-template-rows: 0.5fr 5fr 0.5fr;
   /* background-color: purple; */
@@ -8,7 +16,6 @@ body {
   padding: 0;
   overflow-y: hidden;
 }
-
 :root {
   --main-purple: #B885FE;
   --math-red: #ec644b;
@@ -37,7 +44,9 @@ body {
 #homeButton,
 #searchButton,
 #alertsButton,
-.subForumIcon {
+.subForumIcon,
+.formItemImageContainer,
+.itemMessage {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,6 +79,7 @@ body {
   font-family: 'Lato';
   font-weight: lighter;
   font-size: 2em;
+  color: #707070;
 }
 
 #filterButton {
@@ -79,11 +89,13 @@ body {
 
 #postButton {
   /* background-color: yellow; */
+  grid-column-start: 5;
 }
 
 #filterButton i,
 #postButton i {
   font-size: 1.5em;
+  color: #808080;
 }
 
 #resourceForumBar {
@@ -107,6 +119,7 @@ body {
 }
 
 #forumButton {
+  color: #808080
 }
 
 #resourcesButton h1,
@@ -167,7 +180,9 @@ body {
 }
 
 #feedContainer,
-#forumContainer {
+#forumContainer,
+#individualFeedItem,
+.formContainer {
   width: 98%;
   height: 100%;
   margin: auto;
@@ -180,8 +195,8 @@ body {
   width: 100%;
   border-bottom: 1px solid #D0D0D0;
   display: grid;
-  grid-template-columns: 1fr 2fr 10%;
-  grid-template-rows: 25% 30% 20% 15%;
+  grid-template-columns: 1fr 2fr 9%;
+  grid-template-rows: 20% 20% 20% 40%;
   grid-column-gap: 5px;
 }
 
@@ -189,57 +204,60 @@ body {
   margin: auto;
   width: 85%;
   height: 85%;
-  grid-row-end: span 3;
-  background-image: url("../images/crayons.png");
+  grid-column-start: 1;
+  grid-row-end: span 2;
   background-position: center;
   background-size: cover;
 }
 
-.feedItem:nth-child(2) .itemIcon {
-  background-image: url("../images/biology.png");
-}
-
-.feedItem:nth-child(3) .itemIcon {
-  background-image: url("../images/biology.png");
-}
 
 .feedItem:last-child,
-.subForum:last-child {
+.subForum:last-child,
+.subPost:last-child {
   margin-bottom: 0.5em;
 }
 
 .itemPostInfo {
-  width: 85%;
+  width: 87%;
   height: 100%;
   margin: auto;
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  grid-row-start: 4;
+  /* display: grid; */
+  /* grid-template-columns: 1fr 3fr; */
+  /* grid-row-gap: 32px; */
+  grid-row-start: 1;
+  grid-column-end: span 2;
+}
+
+.itemType h2 {
+  margin: 0;
 }
 
 .itemTitle {
   grid-column-start: 2;
 }
 
-.itemDropArrow {
+.itemMessage {
   grid-row-start: 1;
   grid-column-start: 3;
   margin: auto;
-  color: var(--main-purple)
+  color: var(--main-purple);
+  font-size: 11px;
 }
 
 .itemType h2 {
   font-family: 'Roboto';
   font-weight: lighter;
   letter-spacing: 1px;
+  color: #505050;
 }
 
 .itemTitle h2 {
   font-family: 'Roboto';
   font-weight: lighter;
   font-size: 1.1em;
-  opacity: 0.7;
+  color: #808080;
   letter-spacing: 1px;
+  margin: 0;
 }
 
 .itemDate h4,
@@ -250,14 +268,54 @@ body {
   opacity: 0.5;
 }
 
-#forumContainer {
+#forumContainer,
+#individualFeedItem {
   display: none;
+}
+
+.feedDescription {
+  /* background-color: red; */
+  /* display: none; */
+  grid-column-start: 1;
+  grid-column-end: span 3;
+  /* text-align: center; */
+  margin: auto;
+  width: 90%;
+  position: relative;
+  overflow: hidden;
+  bottom: 0;
+  left: 0;
+  max-height: 100%;
+}
+
+.feedDescription h4 {
+  font-family: 'Roboto';
+  font-weight: lighter;
+  font-size: 0.8em;
+}
+
+.shortDesc {
+  background-image: linear-gradient(180deg,#303030 40%,rgba(0,0,0,0));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.longDesc {
+  margin-bottom: 20px;
+}
+
+.repliesText {
+  background-color: white;
+  padding: 10px;
+  font-family: 'Lato';
+  font-weight: bolder;
+  color: #808080;
+  letter-spacing: 1.4px;
 }
 
 #forumGrid {
   display: grid;
   height: 100%;
-  grid-auto-rows: 100px;
   grid-gap: 1px;
 }
 
@@ -308,11 +366,10 @@ body {
 
 
 .subForumIcon {
-  padding: 10px;
 }
 
 .subForumIcon i {
-  font-size: 2em;
+  font-size: 1.5em;
   padding: 15px;
   border-radius: 50%;
   background-color: var(--main-purple);
@@ -326,7 +383,7 @@ body {
 }
 
 .subForumInfo h1 {
-  font-size: 1.5em;
+  font-size: 1.3em;
   margin-bottom: 10px;
 }
 
@@ -334,4 +391,260 @@ body {
   font-size: 1em;
   margin-top: 10px;
   opacity: 0.8;
+}
+
+.subForumGrid {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-gap: 10px;
+}
+
+.subPost {
+  background-color: white;
+  border-top: 1px solid #A0A0A0;
+  border-bottom: 1px solid #A0A0A0;
+}
+
+
+
+.subPostTopBar {
+  width: 80%;
+  margin: auto;
+}
+
+.subPostInfo {
+  display: grid;
+  grid-template-columns: 9fr 1fr;
+  font-family: 'Lato';
+  color: #707070;
+  font-size: 0.7em;
+  letter-spacing: 1.3px;
+}
+
+#subPostTitleContainer h1{
+  font-family: 'Roboto';
+  font-size: 1.2em;
+  font-weight: normal;
+  width: 80%;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.subPostBottomBar {
+  width: 80%;
+  margin: auto;
+  color: #707070;
+  font-family: 'Lato';
+  font-size: 0.8em;
+  letter-spacing: 1.3px;
+}
+
+#postFeedContainer {
+  height: 100%;
+  display: none;
+  grid-template-rows: 0.5fr 5fr;
+}
+
+.topBar {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+}
+
+.topBarGrid {
+  display: grid;
+  grid-template-columns: 15% 40% 27% 9% 9%;
+  border-bottom: 1px solid #D0D0D0;
+}
+
+.userIcon,
+.closeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* vertically centering elements */
+}
+
+.closeButton {
+  grid-column-start: 5;
+}
+
+.closeButton i {
+  font-size: 1.5em;
+  color: #808080;
+}
+
+.userIcon {
+  /* background-color: red; */
+}
+
+.userIconCircle {
+  width: 45px;
+  height: 45px;
+  background-color: var(--main-purple);
+  border-radius: 50%;
+  margin: auto;
+}
+
+.backArrow {
+  display: none;
+  font-size: 1.5em;
+}
+
+.postFeedTitle {
+}
+
+.postFeedTitle h1 {
+  font-family: 'Lato';
+  font-weight: lighter;
+  font-size: 2em;
+  color: #707070;
+}
+
+.forumScroll {
+  overflow-y: scroll;
+}
+
+.formContainer {
+  width: 80%;
+
+}
+
+.formGrid {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-gap: 2em;
+}
+
+label {
+  font-family: 'Roboto';
+  font-weight: 200;
+}
+
+label h1 {
+  font-size: 1em;
+  letter-spacing: 2px;
+  font-family: 'Lato';
+  font-weight: bolder;
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#radioGridContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+
+#formRequest {
+  background-color: var(--main-purple);
+  height: 100%;
+  border-radius: 3px;
+}
+
+#formProvide {
+  background-color: var(--main-purple);
+  height: 100%;
+  border-radius: 3px;
+}
+
+.radioContainer {
+  display: block;
+  color: black;
+  font-size: 1em;
+}
+
+/* Hide the browser's default radio button */
+
+.radioContainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+/* Create a custom radio button */
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    color: transparent;
+    border-radius: 10px;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+input:checked ~ .checkmark {
+}
+
+.checkmark:after {
+    content: '';
+    padding: 10px;
+    position: absolute;
+    display: none;
+}
+
+.checkmark p {
+    color: white;
+    font-size: 20px;
+}
+
+#formTitleInput,
+#formDescriptionInput,
+#formForumInput {
+  width: 100%;
+  padding: 0px;
+}
+
+#formDescriptionInput {
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  height: 100px;
+  border-radius: 4px;
+}
+
+.formItemImage {
+  height: 200px;
+}
+
+.formItemImageContainer {
+  width: 100%;
+  height: 100%;
+  background-color: #C0C0C0;
+  border-radius: 6px;
+}
+
+.formItemImage i {
+  font-size: 4em;
+  color: gray;
+}
+
+input[type="submit"] {
+  border: none;
+  background-color: var(--main-purple);
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  width: 70%;
+  margin: auto;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+  font-family: 'Lato';
+  font-size: 1em;
+  letter-spacing: 2px;
+}
+
+#postForumContainer {
+  height: 100%;
+  display: none;
+  grid-template-rows: 0.5fr 5fr;
 }
