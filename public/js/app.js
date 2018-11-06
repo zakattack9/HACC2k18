@@ -110,7 +110,6 @@ function generateFeed() {
         var itemMessage = document.createElement("div");
         itemMessage.className = "itemMessage";
         var chevronDown = document.createElement("i");
-        chevronDown.className = "fas fa-envelope";
         $(itemMessage).append(chevronDown);
         $(feedItem).append(itemMessage);
 

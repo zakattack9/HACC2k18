@@ -34,7 +34,6 @@ body {
 #topBarGrid {
   display: grid;
   grid-template-columns: 15% 40% 27% 9% 9%;
-  border-bottom: 1px solid #D0D0D0;
 }
 
 #userIcon,
@@ -183,7 +182,6 @@ body {
 #forumContainer,
 #individualFeedItem,
 .formContainer {
-  width: 98%;
   height: 100%;
   margin: auto;
   margin-top: 0.5em;
