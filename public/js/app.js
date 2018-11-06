@@ -73,7 +73,7 @@ $(forumButton).click(function() {
 
 
 function generateFeed() {
-    for (var i = 0; i <= Object.keys(feedItems).length; i++) {
+    for (var i = 0; i < Object.keys(feedItems).length; i++) {
 
         var feedItem = document.createElement("div");
 
