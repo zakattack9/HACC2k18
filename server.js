@@ -1,30 +1,34 @@
 require('dotenv').config();
 const path = require('path');
 const express = require('express');
-const server = express();
 const bodyparser = require('body-parser');
 const session = require('express-session');
 const Redis = require('connect-redis')(session);
 const passport = require('passport');
 const exphbs = require('express-handlebars');
-const routes = require('./server/db/routes/');
 // const http = require('http').Server(server);
 const PORT = process.env.PORT || 8000;
+const server = express();
+const routes = require('./server/db/routes/');
 
 //middleware
 server.use(express.static(__dirname + '/public')); //load static files (css & js)
+// server.use(express.bodyParser());
 server.use(bodyparser.json());
-server.use(bodyparser.urlencoded({ extended : true}));
+server.use(bodyparser.urlencoded({extended: true}));
+server.use((req, res, next) => {
+  next();
+});
 server.use(
   session({
     store : new Redis(),
     secret : process.env.SESSION_SECRET,
-    resave : false,
-    saveUninitialized : true
+    resave : false
   })
 );
 server.use(passport.initialize());
 server.use(passport.session());
+// server.use(server.router);
   
 function checkAuth (req, res, next) { //prevents routes from being accessed without signing in
   if (req.isAuthenticated()) {

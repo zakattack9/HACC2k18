@@ -3,7 +3,7 @@
     <div class="col-12 pt-5 text-center appNameLogin">AppName</div>
   </div>
 
-  <form class="row pt-4 justify-content-center" action="/auth/login" method="POST">
+  <form class="row pt-4 justify-content-center" action="/login" method="POST">
     <div class="col-10">
       <input class="input" type="text" name="username" placeholder="Username">
     </div>
@@ -13,7 +13,7 @@
     </div>
 
     <div class="col-10 mt-3">
-      <input class="input logIn" type="submit" value="Log In">
+      <input class="input logIn" type="submit" value="Log In" onclick="login()">
     </div>
 
     <div class="col-10 pt-3">
@@ -54,5 +54,3 @@
     <a href="/register" class="signUpPg pb-3 text-center">Don't have an account? <span style="color:rgb(178, 133, 245)">Sign up</span></a>
   </div>
 </div>
-
-<script src="/js/login.js"></script>
