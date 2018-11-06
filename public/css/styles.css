@@ -33,8 +33,9 @@ body {
 
 #topBarGrid {
   display: grid;
+  width: 93%;
+  margin: auto;
   grid-template-columns: 15% 40% 27% 9% 9%;
-  border-bottom: 1px solid #D0D0D0;
 }
 
 #userIcon,
@@ -78,7 +79,7 @@ body {
   text-align: center;
   font-family: 'Lato';
   font-weight: lighter;
-  font-size: 2em;
+  font-size: 1.7em;
   color: #707070;
 }
 
@@ -93,7 +94,8 @@ body {
 }
 
 #filterButton i,
-#postButton i {
+#postButton i,
+#backArrow {
   font-size: 1.5em;
   color: #808080;
 }
@@ -128,7 +130,7 @@ body {
   text-align: center;
   font-family: 'Lato';
   font-weight: lighter;
-  font-size: 1.5em;
+  font-size: 1.25em;
 }
 
 #bottomBar {
@@ -164,7 +166,7 @@ body {
 #homeButton i,
 #searchButton i,
 #alertsButton i {
-  font-size: 2em;
+  font-size: 1.45em;
   transition: 0.3s;
 }
 
@@ -176,14 +178,13 @@ body {
 
 #mainContent {
   overflow-y: scroll;
-  background-color: #C0C0C0;
+  background-color: #E0E0E0;
 }
 
 #feedContainer,
 #forumContainer,
 #individualFeedItem,
 .formContainer {
-  width: 98%;
   height: 100%;
   margin: auto;
   margin-top: 0.5em;
@@ -300,6 +301,10 @@ body {
 -webkit-text-fill-color: transparent;
 }
 
+.shortReplies {
+  display: none;
+}
+
 .longDesc {
   margin-bottom: 20px;
 }
@@ -383,12 +388,12 @@ body {
 }
 
 .subForumInfo h1 {
-  font-size: 1.3em;
+  font-size: 1.1em;
   margin-bottom: 10px;
 }
 
 .subForumInfo h2 {
-  font-size: 1em;
+  font-size: 0.9em;
   margin-top: 10px;
   opacity: 0.8;
 }
@@ -401,8 +406,8 @@ body {
 
 .subPost {
   background-color: white;
-  border-top: 1px solid #A0A0A0;
-  border-bottom: 1px solid #A0A0A0;
+  border-top: 1px solid #D0D0D0;
+  border-bottom: 1px solid #D0D0D0;
 }
 
 
@@ -423,7 +428,7 @@ body {
 
 #subPostTitleContainer h1{
   font-family: 'Roboto';
-  font-size: 1.2em;
+  font-size: 1.05em;
   font-weight: normal;
   width: 80%;
   margin: auto;
