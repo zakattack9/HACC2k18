@@ -374,3 +374,9 @@ function postItem() {
         $("#postForumContainer").css("display", "grid");
     }
 }
+
+//Image uploading
+var loadFile = function(event) {
+  var output = document.getElementById('displayImg');
+  output.src = URL.createObjectURL(event.target.files[0]);
+};
