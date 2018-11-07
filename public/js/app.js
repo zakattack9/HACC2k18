@@ -39,6 +39,9 @@ function generateHTML(action) {
         $(feedButton).css("border-bottom", "3px solid var(--main-purple)");
         $(feedButton).css("color", "var(--main-purple)");
         $("#filterButton").show();
+    } else if (action == "replyButton"){
+      var replyButton = document.createElement("div");
+      replyButton.className = "replyButtonContainer";
     }
 }
 
@@ -148,10 +151,18 @@ function generateFeed() {
                 for(var x in feedItems[key].comments){
                     var feedItemReplies = document.createElement("div");
                     feedItemReplies.id = `feedItemReplies${x}`;
+                    feedItemReplies.className = "feedItemReplies"
+
+                    var feedItemReplyUser = document.createElement("h5");
+                    $(feedItemReplies).append(feedItemReplyUser);
+                    $(feedItemReplyUser).html(`<i class="fas fa-user"></i> ${feedItems[key].comments[x].user} • ${feedItems[key].comments[x].date}`)
+
                     var feedItemReplyText = document.createElement("h4");
                     $(feedItemReplies).append(feedItemReplyText)
                     $(feedItemReplyText).text(feedItems[key].comments[x].text)
                     $(feedItemRepliesContainer).append(feedItemReplies);
+
+
                 }
 
                 // for (var i = 0; i <= test; i++) {
@@ -252,12 +263,19 @@ function subForumClick() {
 
 $('.requesting').click(function() {
     browser("requestItemClick");
-    $("#individualFeedItem").show();
+    generateHTML("replyButton");
+    $("#individualFeedItem").css("display","grid");
     $(this).find(".feedDescription").removeClass("shortDesc");
     $(this).find(".feedDescription").addClass("longDesc");
+    $(this).find(".feedItemRepliesContainer").clone().insertAfter(".repliesText");
+    $("#individualFeedItem").find(".feedItemRepliesContainer").removeClass("shortReplies");
+    $("#individualFeedItem").find(".feedItemRepliesContainer").addClass("longReplies");
     $(this).clone().prependTo("#individualFeedItem");
     $("#feedContainer").hide();
     generateFeedReplies(this);
+    $("#bottomBarGrid").hide();
+    $("#replyButtonContainer").removeClass(".replyButtonContainer");
+    $("#replyButtonContainer").addClass("replyButtonContainerShow");
 
 //     for (var i = 0; i <= Object.keys(feedItems).length; i++) {
 //         for (var key in feedItems) {
@@ -281,10 +299,18 @@ function generateFeedReplies(feedItem){
 $('.providing').click(function() {
     browser("provideItemClick");
     $("#individualFeedItem").show();
-    $(this).find(".feedDescription").removeClass("shortDesc")
+    $(this).find(".feedDescription").removeClass("shortDesc");
     $(this).find(".feedDescription").addClass("longDesc");
+    $(this).find(".feedItemRepliesContainer").clone().appendTo("#individualFeedItem");
+    $("#individualFeedItem").find(".feedItemRepliesContainer").removeClass("shortReplies");
+    $("#individualFeedItem").find(".feedItemRepliesContainer").addClass("longReplies");
     $(this).clone().prependTo("#individualFeedItem");
     $("#feedContainer").hide();
+    generateFeedReplies(this);
+    $("#bottomBarGrid").hide();
+    $("#replyButtonContainer").removeClass(".replyButtonContainer");
+    $("#replyButtonContainer").addClass(".replyButtonContainerShow");
+
 });
 
 function browser(action) {
@@ -378,10 +404,14 @@ $("#backArrow").click(function() {
         $(".feedDescription").addClass("shortDesc")
         $(".feedDescription").removeClass("longDesc")
         $("#individualFeedItem").find('.feedItem').remove();
+        $("#individualFeedItem").find('.feedItemRepliesContainer').remove();
         $("#individualFeedItem").hide();
         $("#rfBarGrid").show();
         $("#forumNameContainer").remove()
         $(".feedItem").not($(this)).show();
+        $("#replyButtonContainer").addClass(".replyButtonContainer");
+        $("#replyButtonContainer").removeClass("replyButtonContainerShow");
+        $("#bottomBarGrid").show();
         inFeedItem = 0;
     }
 });
