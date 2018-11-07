@@ -413,7 +413,7 @@ body {
 
 
 .subPostTopBar {
-  width: 80%;
+  width: 90%;
   margin: auto;
 }
 
@@ -421,28 +421,28 @@ body {
   display: grid;
   grid-template-columns: 9fr 1fr;
   font-family: 'Lato';
-  color: #707070;
+  color: #909090;
   font-size: 0.7em;
-  letter-spacing: 1.3px;
+  letter-spacing: 0.5px;
 }
 
 #subPostTitleContainer h1{
   font-family: 'Roboto';
   font-size: 1.05em;
   font-weight: normal;
-  width: 80%;
+  width: 90%;
   margin: auto;
   margin-top: 10px;
   margin-bottom: 30px;
 }
 
 .subPostBottomBar {
-  width: 80%;
+  width: 90%;
   margin: auto;
-  color: #707070;
+  color: #909090;
   font-family: 'Lato';
   font-size: 0.8em;
-  letter-spacing: 1.3px;
+  letter-spacing: 1px;
 }
 
 #postFeedContainer {
