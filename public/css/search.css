@@ -1,0 +1,242 @@
+body {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 0.5fr 2.5em 5fr 0.5fr;
+  /* background-color: purple; */
+  margin: 0;
+  padding: 0;
+}
+
+#searchBar {
+  display: grid;
+  grid-template-columns: 1fr 2.75em;
+}
+
+#searchUsersInput {
+  height: 80%;
+  width: 95%;
+  margin: auto;
+  border-radius: 1.25em;
+  border: 1px solid black !important;
+  padding-left: 1em; 
+  box-sizing: border-box;
+  font-family: 'Lato';
+  font-size: 1em;
+}
+
+#searchUsersInput:focus {
+  /* changes outline of search input to purple when focused */
+  border: 1px solid var(--main-purple) !important;
+  box-shadow: 0 0 3px var(--main-purple) !important;
+  -moz-box-shadow: 0 0 3px var(--main-purple) !important;
+  -webkit-box-shadow: 0 0 3px var(--main-purple) !important;
+  outline-offset: 0px !important;
+  outline: none !important;
+}
+
+#searchUserButton {
+  font-size: 1.7em;
+  margin: auto;
+}
+
+#searchUserButton:hover {
+  color: var(--main-purple);
+}
+
+:root {
+  --main-purple: #B885FE;
+}
+
+#topBar {
+  /* background-color: red; */
+  width: 100%;
+  height: 100%;
+}
+
+#topBarGrid {
+  display: grid;
+  grid-template-columns: 15% 1fr 18%;
+}
+
+#userIcon,
+/* #appName, */
+#filterButton,
+#postButton,
+#homeButton,
+#searchButton,
+#alertsButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* vertically centering elements */
+}
+
+#userIcon {
+  /* background-color: red; */
+}
+
+#userIconCircle {
+  width: 45px;
+  height: 45px;
+  background-color: var(--main-purple);
+  border-radius: 50%;
+  margin: auto;
+}
+
+#appName {
+  box-sizing: border-box;
+  padding-left: 1em;
+}
+
+#appName h1 {
+  text-align: left;
+  font-family: 'Lato';
+  font-weight: lighter;
+  font-size: 2em;
+}
+
+#filterButton {
+  /* background-color: blue; */
+  grid-column-start: 4;
+}
+
+#postButton {
+  /* background-color: yellow; */
+}
+
+#filterButton i,
+#postButton i {
+  font-size: 1.5em;
+}
+
+#bottomBar {
+  /* background-color: orange; */
+  width: 100%;
+  height: 100%;
+  border-top: 1px solid #A0A0A0;
+  /* position: absolute;
+  bottom: 0; */
+}
+
+#bottomBarGrid {
+  display: grid;
+  width: 95%;
+  margin: auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 100%;
+}
+
+#homeButton {
+}
+
+#searchButton {
+}
+
+#alertsButton {
+}
+
+#searchButton i {
+  color: var(--main-purple)
+}
+
+#homeButton i,
+#searchButton i,
+#alertsButton i {
+  font-size: 2em;
+  transition: 0.3s;
+}
+
+#homeButton i:hover,
+#searchButton i:hover,
+#alertsButton i:hover {
+  color: var(--main-purple)
+}
+
+#mainContent {
+  height: 100%;
+  max-height: 100%;
+  overflow-y: scroll;
+  background-color: #D0D0D0;
+}
+
+.userItem {
+  background-color: white;
+  width: 100%;
+  height: 80px;
+  border-bottom: 1px solid #A0A0A0;
+  /* display: grid;
+  grid-template-rows: 70px 1.2em; */
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  font-family: 'Lato';
+}
+
+#similarUsersContainer {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  overflow-y: scroll;
+}
+
+#searchGreeting {
+  margin-top: 1em;
+  width: 100%;
+  height: 70px;
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  border-bottom: 1px solid #A0A0A0;
+}
+
+#connectIcon {
+  display: flex;
+}
+
+#connectIcon img, .user-icon img {
+  width: 75%;
+  height: 75%;
+  margin: auto;
+}
+
+.user-icon img {
+  border-radius: 50% 50% 50% 50%;
+}
+
+#greetingMsg {
+  font-family: 'Lato';
+  vertical-align: middle;
+  padding: 0.5em;
+  font-size: 1.1em;
+}
+
+#userSubject {
+  color: var(--main-purple);
+}
+
+.user-icon {
+  display: flex;
+}
+
+/* .row1 {
+  width: 100%;
+  height: 100%;
+  
+} */
+
+.rowWrapper {
+  width: 100%;
+  height: 100%;
+  font-size: 0.7em;
+  color: #A0A0A0;
+}
+
+.infoContainer {
+  padding-left: 1em;
+  box-sizing: border-box;
+  padding-top: 0.5em;
+}
+
+.infoContainer p {
+  margin: 0;
+  margin-bottom: 0.2em;
+}
