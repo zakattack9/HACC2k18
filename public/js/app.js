@@ -1,5 +1,5 @@
 console.log('test')
-
+console.log(feedItems);
 let feedButton = document.getElementById('resourcesButton');
 let feedContainer = document.getElementById("feedContainer");
 let forumButton = document.getElementById("forumButton");
@@ -413,3 +413,59 @@ var loadFile = function(event) {
   var output = document.getElementById('displayImg');
   output.src = URL.createObjectURL(event.target.files[0]);
 };
+
+var radioProvide = document.getElementById("radioProvide");
+var radioRequest = document.getElementById("radioRequest");
+
+function postRequest() {
+    var typeSelected = (radioProvide.checked == true || radioRequest.checked== true);
+    var descriptionInputted = (document.getElementById("formDescriptionInput").value != '');
+    var imageSelected = (document.getElementById("displayImg").getAttribute('src') != "");
+    if (!typeSelected) {
+        alert("Please choose a type of post!");
+    }
+    if (!descriptionInputted){
+        alert("Please enter a description about your item");
+    }
+    if(!imageSelected){
+        alert("Please provide an picture of your item");
+    }
+    if (typeSelected && descriptionInputted && imageSelected){
+        /*feedItems.feedItem5 = {
+            {
+                type: document.querySelector('input[name = "radio"]:checked').value,
+                item: document.getElementById("formTitleInput").options[document.getElementById("formTitleInput").selectedIndex].value,
+                date: "10000hr",
+                user: "IAAAN",
+                icon: "url('"+document.getElementById("displayImg").getAttribute('src')+"')",
+                description: document.getElementById("formDescriptionInput").value,
+                comments: {
+                }
+            }
+        }*/
+        feedItems.feedItem5 = {
+            
+                type: "IAAAN",
+                item: "IAAAN",
+                date: "10000hr",
+                user: "IAAAN",
+                icon: "IAAAN",
+                description: "IAAAN",
+                comments: {
+                }
+            
+        }
+        generateFeed();
+        console.log(feedItems);
+    }
+}
+
+function selectRequest(){
+    radioProvide.checked = false;
+    radioRequest.checked = true;
+}
+
+function selectProvide(){
+    radioProvide.checked = true;
+    radioRequest.checked = false;
+}
