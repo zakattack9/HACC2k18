@@ -1,4 +1,4 @@
-console.log('test')
+
 
 let feedButton = document.getElementById('resourcesButton');
 let feedContainer = document.getElementById("feedContainer");
@@ -162,8 +162,6 @@ function generateFeed() {
                     $(feedItemReplies).append(feedItemReplyText)
                     $(feedItemReplyText).text(feedItems[key].comments[x].text)
                     $(feedItemRepliesContainer).append(feedItemReplies);
-
-
                 }
 
                 // for (var i = 0; i <= test; i++) {
@@ -218,7 +216,11 @@ function generateForumPosts(subForum, subForumObject) {
         var subPostCommentCountText = document.createElement("h4");
         $(subPostCommentCount).append(subPostCommentCountText);
         $(subPostBottomBar).append(subPostCommentCount);
-        $(subPost).append(subPostBottomBar)
+        $(subPost).append(subPostBottomBar);
+
+        var subPostRepliesContainer = document.createElement("div");
+        subPostRepliesContainer.className = "subPostRepliesContainer shortReplies";
+        $(subPost).append(subPostRepliesContainer);
 
 
 
@@ -228,11 +230,34 @@ function generateForumPosts(subForum, subForumObject) {
                 // $(supPostDateText).text(subForumObject[key].date)
                 $(supPostUserText).html(`<i class="fas fa-user"></i> ${subForumObject[key].user} • ${subForumObject[key].date}`);
                 $(subPostCommentCountText).html(`<i class="fas fa-comment-alt"></i> ${subForumObject[key].commentCount} comments`);
+
+                for(var x in subForumObject[key].comments){
+                    var subForumPostReplies = document.createElement("div");
+                    subForumPostReplies.id =  `subPostItemReply${x}`;
+                    subForumPostReplies.className = "subPostItemReplies"
+
+                    var subPostItemReplyUser = document.createElement("h5");
+                    $(subForumPostReplies).append(subPostItemReplyUser);
+                    $(subPostItemReplyUser).html(`<i class="fas fa-user"></i> ${subForumObject[key].comments[x].user} • ${subForumObject[key].comments[x].date}`)
+
+                    var subPostItemReplyText = document.createElement("h4");
+                    $(subForumPostReplies).append(subPostItemReplyText)
+                    $(subPostItemReplyText).text(subForumObject[key].comments[x].text)
+                    $(subPostRepliesContainer).append(subForumPostReplies);
+                }
             }
         }
         $(openSubForum).append(subPost);
     }
 }
+
+
+// $(document).on('click', ".subPost", function() {
+//   browser("forumPostClick");
+//   inForumPost = 1;
+//   $(this).clone().prependTo("#individualForumPost");
+//   $(".subForumGrid").hide();
+// });
 
 
 
@@ -246,7 +271,6 @@ foreignButton.addEventListener('click', subForumClick);
 offTopicButton.addEventListener('click', subForumClick);
 
 function subForumClick() {
-    console.log(this)
     if (this.id === "gdButton") {
         browser("gdForumClick");
     } else if (this.id === "mathButton") {
@@ -265,12 +289,12 @@ function subForumClick() {
 }
 
 $('.requesting').click(function() {
-    browser("requestItemClick");
+    browser("forumPostClick");
     generateHTML("replyButton");
-    $("#individualFeedItem").css("display","grid");
+    $("#individualFeedItem").show();
     $(this).find(".feedDescription").removeClass("shortDesc");
     $(this).find(".feedDescription").addClass("longDesc");
-    $(this).find(".feedItemRepliesContainer").clone().insertAfter(".repliesText");
+    $(this).find(".feedItemRepliesContainer").clone().appendTo("#individualFeedItem");
     $("#individualFeedItem").find(".feedItemRepliesContainer").removeClass("shortReplies");
     $("#individualFeedItem").find(".feedItemRepliesContainer").addClass("longReplies");
     $(this).clone().prependTo("#individualFeedItem");
@@ -281,28 +305,15 @@ $('.requesting').click(function() {
     $("#replyButtonContainer").addClass("replyButtonContainerShow");
     $("#filterButton").hide();
     $("#postButton").hide();
-
-//     for (var i = 0; i <= Object.keys(feedItems).length; i++) {
-//         for (var key in feedItems) {
-//             if (key == "feedItem" + i) {
-//               var feedItemNum = `feedItem${i}`;
-//               console.log(feedItemNum);
-//               for (var i = 0; i < 5; i++) {
-//                 var commentNum = `comment${i}`;
-//                 console.log(commentNum);
-//               }
-//               console.log(feedItems[key].comments.commentNum);
-//             }
-//           }
-// }
+      inFeedItem = 1;
 });
 
 function generateFeedReplies(feedItem){
-  console.log(feedItem)
 }
 
 $('.providing').click(function() {
     browser("provideItemClick");
+    generateHTML("replyButton");
     $("#individualFeedItem").show();
     $(this).find(".feedDescription").removeClass("shortDesc");
     $(this).find(".feedDescription").addClass("longDesc");
@@ -364,7 +375,6 @@ function browser(action) {
       $("#mainContent").animate({
           scrollTop: 0
       }, "fast");
-      console.log('h')
     }
 
 
@@ -429,6 +439,20 @@ $("#backArrow").click(function() {
         inFeedItem = 0;
         $("#filterButton").show();
         $("#postButton").show();
+        console.log('h')
+    } else if (inForumPost === 1){
+      $("#feedContainer").show();
+      $("#userIconCircle").show();
+      $("#backArrow").hide();
+      $("#individualForumPost").find('.subPost').remove();
+      $("#individualForumPost").hide();
+      $("#rfBarGrid").show();
+      $("#forumNameContainer").remove()
+      $(".feedItem").not($(this)).show();
+      $("#bottomBarGrid").show();
+      inForumPost = 0;
+      $("#postButton").show();
+      console.log('ssh')
     }
 });
 
@@ -444,17 +468,14 @@ $('.closeButton').click(function() {
 
 function postItem() {
     if (inFeed == 1) {
-        console.log('post feed item');
         $("#appContainer").hide();
         $("#postFeedContainer").css("display", "grid");
     } else if (inForum == 1) {
-        console.log("post forum item");
         $("#appContainer").hide();
         $("#postForumContainer").css("display", "grid");
     }
 }
 
 $("#userIcon").click(function(){
-  console.log('h');
   $("")
 })

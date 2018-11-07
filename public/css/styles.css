@@ -9,8 +9,10 @@ body {
 #appContainer {
   width: 100%;
   height: 100vh;
+  display: -ms-grid;
   display: grid;
-  grid-template-rows: 0.5fr 5fr 0.5fr;
+  -ms-grid-rows: 0.5fr 5fr 0.5fr;
+      grid-template-rows: 0.5fr 5fr 0.5fr;
   /* background-color: purple; */
   margin: 0;
   padding: 0;
@@ -32,10 +34,12 @@ body {
 }
 
 #topBarGrid {
+  display: -ms-grid;
   display: grid;
   width: 93%;
   margin: auto;
-  grid-template-columns: 15% 40% 27% 9% 9%;
+  -ms-grid-columns: 15% 40% 27% 9% 9%;
+      grid-template-columns: 15% 40% 27% 9% 9%;
 }
 
 #userIcon,
@@ -48,10 +52,17 @@ body {
 .formItemImageContainer,
 .itemMessage,
 .postContainer,
-#userIconCircle {
+#userIconCircle,
+.userIconCircle {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   /* vertically centering elements */
 }
 
@@ -59,7 +70,8 @@ body {
   /* background-color: red; */
 }
 
-#userIconCircle {
+#userIconCircle,
+.userIconCircle {
   width: 45px;
   height: 45px;
   background-color: var(--main-purple);
@@ -67,7 +79,8 @@ body {
   margin: auto;
 }
 
-#userIconCircle i {
+#userIconCircle i,
+.userIconCircle i {
   color: white;
   font-size: 1.3em
 }
@@ -92,12 +105,14 @@ body {
 
 #filterButton {
   /* background-color: blue; */
-  grid-column-start: 4;
+  -ms-grid-column: 4;
+      grid-column-start: 4;
 }
 
 #postButton {
   /* background-color: yellow; */
-  grid-column-start: 5;
+  -ms-grid-column: 5;
+      grid-column-start: 5;
 }
 
 #filterButton i,
@@ -114,13 +129,16 @@ body {
 }
 
 #rfBarGrid {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
   height: 20%;
 }
 
 .rfBarForum {
-  grid-template-columns: 1fr !important;
+  -ms-grid-columns: 1fr !important;
+      grid-template-columns: 1fr !important;
 }
 #resourcesButton {
   border-bottom: 3px solid var(--main-purple);
@@ -150,10 +168,12 @@ body {
 }
 
 #bottomBarGrid {
+  display: -ms-grid;
   display: grid;
   width: 95%;
   margin: auto;
-  grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
   height: 100%;
 }
 
@@ -161,10 +181,12 @@ body {
   display: none;
 }
 .replyButtonContainerShow {
+  display: -ms-grid !important;
   display: grid !important;
   height: 100%;
   width: 100%;
-  grid-template-columns: 90% 10%;
+  -ms-grid-columns: 90% 10%;
+      grid-template-columns: 90% 10%;
 }
 
 .addCommentContainer {
@@ -206,6 +228,8 @@ body {
 #searchButton i,
 #alertsButton i {
   font-size: 1.45em;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
   transition: 0.3s;
 }
 
@@ -234,9 +258,12 @@ body {
   background-color: white;
   width: 100%;
   border-bottom: 1px solid #D0D0D0;
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: 1fr 2fr 9%;
-  grid-template-rows: 1fr 1fr 2fr;
+  -ms-grid-columns: 1fr 2fr 9%;
+      grid-template-columns: 1fr 2fr 9%;
+  -ms-grid-rows: 1fr 1fr 2fr;
+      grid-template-rows: 1fr 1fr 2fr;
   /* margin-top: 10px; */
 }
 
@@ -245,7 +272,9 @@ body {
   margin-top: 10px;
   width: 80%;
   height: 70%;
-  grid-column-start: 1;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  -ms-grid-row-span: 2;
   grid-row-end: span 2;
   background-position: center;
   background-size: cover;
@@ -265,7 +294,9 @@ body {
   /* display: grid; */
   /* grid-template-columns: 1fr 3fr; */
   /* grid-row-gap: 32px; */
-  grid-row-start: 1;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  -ms-grid-column-span: 2;
   grid-column-end: span 2;
 }
 
@@ -274,12 +305,15 @@ body {
 }
 
 .itemTitle {
-  grid-column-start: 2;
+  -ms-grid-column: 2;
+      grid-column-start: 2;
 }
 
 .itemMessage {
-  grid-row-start: 1;
-  grid-column-start: 3;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  -ms-grid-column: 3;
+      grid-column-start: 3;
   margin: auto;
   color: var(--main-purple);
   font-size: 11px;
@@ -317,7 +351,9 @@ body {
 .feedDescription {
   /* background-color: red; */
   /* display: none; */
-  grid-column-start: 1;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  -ms-grid-column-span: 3;
   grid-column-end: span 3;
   /* text-align: center; */
   margin: auto;
@@ -336,6 +372,9 @@ body {
 }
 
 .shortDesc {
+  background-image: -webkit-gradient(linear,left top, left bottom,color-stop(40%, #303030),to(rgba(0,0,0,0)));
+  background-image: -webkit-linear-gradient(top,#303030 40%,rgba(0,0,0,0));
+  background-image: -o-linear-gradient(top,#303030 40%,rgba(0,0,0,0));
   background-image: linear-gradient(180deg,#303030 40%,rgba(0,0,0,0));
   -webkit-background-clip: text;
   display: none;
@@ -347,6 +386,7 @@ body {
 }
 
 .longReplies {
+  display: -ms-grid;
   display: grid;
   grid-gap: 10px;
 }
@@ -397,6 +437,7 @@ body {
 }
 
 #forumGrid {
+  display: -ms-grid;
   display: grid;
   height: 100%;
   grid-gap: 1px;
@@ -406,8 +447,10 @@ body {
   width: 100%;
   height: 100%;
   background-color: white;
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: 0.2fr 1fr 4fr;
+  -ms-grid-columns: 0.2fr 1fr 4fr;
+      grid-template-columns: 0.2fr 1fr 4fr;
   grid-gap: 10px;
   border-bottom: 1px solid #D0D0D0;
 }
@@ -477,8 +520,10 @@ body {
 }
 
 .subForumGrid {
+  display: -ms-grid;
   display: grid;
-  grid-template-rows: 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
   grid-gap: 10px;
 }
 
@@ -496,8 +541,10 @@ body {
 }
 
 .subPostInfo {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: 9fr 1fr;
+  -ms-grid-columns: 9fr 1fr;
+      grid-template-columns: 9fr 1fr;
   font-family: 'Lato';
   color: #707070;
   font-size: 0.7em;
@@ -526,7 +573,8 @@ body {
 #postFeedContainer {
   height: 100%;
   display: none;
-  grid-template-rows: 0.5fr 5fr;
+  -ms-grid-rows: 0.5fr 5fr;
+      grid-template-rows: 0.5fr 5fr;
 }
 
 .topBar {
@@ -536,21 +584,30 @@ body {
 }
 
 .topBarGrid {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: 15% 40% 27% 9% 9%;
+  -ms-grid-columns: 15% 40% 27% 9% 9%;
+      grid-template-columns: 15% 40% 27% 9% 9%;
   border-bottom: 1px solid #D0D0D0;
 }
 
 .userIcon,
 .closeButton {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   /* vertically centering elements */
 }
 
 .closeButton {
-  grid-column-start: 5;
+  -ms-grid-column: 5;
+      grid-column-start: 5;
 }
 
 .closeButton i {
@@ -595,8 +652,10 @@ body {
 }
 
 .formGrid {
+  display: -ms-grid;
   display: grid;
-  grid-template-rows: 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
   grid-gap: 2em;
 }
 
@@ -616,8 +675,10 @@ label h1 {
 }
 
 #radioGridContainer {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
 }
 
@@ -729,5 +790,6 @@ input[type="submit"] {
 #postForumContainer {
   height: 100%;
   display: none;
-  grid-template-rows: 0.5fr 5fr;
+  -ms-grid-rows: 0.5fr 5fr;
+      grid-template-rows: 0.5fr 5fr;
 }
