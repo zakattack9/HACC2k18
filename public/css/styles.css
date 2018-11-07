@@ -618,6 +618,7 @@ input:checked ~ .checkmark {
 
 .formItemImage {
   height: 200px;
+  position: relative;
 }
 
 .formItemImageContainer {
@@ -652,4 +653,16 @@ input[type="submit"] {
   height: 100%;
   display: none;
   grid-template-rows: 0.5fr 5fr;
+}
+
+#uploadImgBtn {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+#displayImg {
+  position: absolute;
+  max-height: 100%;
+  max-width: 100%;
 }

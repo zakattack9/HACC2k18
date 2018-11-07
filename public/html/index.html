@@ -194,8 +194,10 @@
                 <div class="formItemImage">
                   <label for="formItemImageContainer">Upload an Image</label>
                   <div class="formItemImageContainer">
-                  <i class="fas fa-file-image"></i>
-                </div>
+                    <input id="uploadImgBtn" type="file" accept="image/*" onchange="loadFile(event)">
+                    <i class="fas fa-file-image"></i>
+                    <img id="displayImg">
+                  </div>
                 </div>
                 <input type="submit" value="Submit">
             </form>
