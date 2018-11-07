@@ -4,6 +4,7 @@ const LocalStrategy = require('passport-local');
 const bcrypt = require('bcrypt');
 const router = express.Router();
 const app = express();
+//const flash = require('connect-flash');
 
 const User = require('../../models/User');
 const saltRounds = 12; //how many times to hash the password
@@ -12,6 +13,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 passport.serializeUser((user, done) => {
+  //console.log("serialize", done);
+  //console.log("serialize", user);
   return done(null, {
     id: user.id,
     username: user.username.toLowerCase(),
@@ -19,6 +22,7 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((user, done) => {
+  console.log("deserialize", done);
   new User({ id: user.id })
     .fetch()
     .then(user => {
@@ -106,7 +110,7 @@ router.post('/login', (req, res, next) => {
       console.log('redirecting...');
       return res.redirect('/');
     }
-    req.login(user, err => {
+    req.logIn(user, err => {
       if (err) {
         return next(err);
       } else {
@@ -125,11 +129,14 @@ router.post('/login', (req, res, next) => {
           request_tokens: user.request_tokens
         };
 
-        //req.cookie.cookieName //get userProfile
-        res.cookie('userProfile', userProfile);
-        console.log("success");
-        return res.redirect('/feed');
-        //return res.json(userProfile);
+        //req.body = userProfile;
+        //req.cookie.userProfile //get userProfile
+        // res.cookie('userProfile', userProfile);
+        // console.log(req.body);
+        // req.session.key = userProfile
+        // res.json(userProfile);
+        res.redirect('/feed');
+        req.user = userProfile;
       }
     });
   })(req, res, next);

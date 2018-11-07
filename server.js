@@ -6,33 +6,30 @@ const session = require('express-session');
 const Redis = require('connect-redis')(session);
 const passport = require('passport');
 const exphbs = require('express-handlebars');
+// const http = require('http').Server(server);
+const PORT = process.env.PORT || 8080;
 const server = express();
 const routes = require('./server/db/routes/');
-// const http = require('http').Server(server);
-const PORT = process.env.PORT || 8000;
-
-//set the template engine handlebars
-server.engine('.hbs', exphbs({
-  defaultLayout: 'main',
-  extname: '.hbs'
-}))
-server.set('view engine', '.hbs');
 
 //middleware
 server.use(express.static(__dirname + '/public')); //load static files (css & js)
+// server.use(express.bodyParser());
 server.use(bodyparser.json());
-server.use(bodyparser.urlencoded({ extended : true}));
-server.use(passport.initialize());
-server.use(passport.session());
+server.use(bodyparser.urlencoded({extended: true}));
+server.use((req, res, next) => {
+  next();
+});
 server.use(
   session({
     store : new Redis(),
     secret : process.env.SESSION_SECRET,
-    resave : false,
-    saveUninitialized : true
+    resave : false
   })
 );
-
+server.use(passport.initialize());
+server.use(passport.session());
+// server.use(server.router);
+  
 function checkAuth (req, res, next) { //prevents routes from being accessed without signing in
   if (req.isAuthenticated()) {
     return next();
@@ -45,13 +42,27 @@ function checkAuth (req, res, next) { //prevents routes from being accessed with
 //   res.render('home');
 // })
 
+// server.get('/', function (req, res) { //loads login page by default
+//   res.render('login');
+// });
+
 server.get('/', function (req, res) { //loads login page by default
-  res.render('login');
-});
+    res.render('home');
+  });
 
 server.get('/register', function (req, res) { //loads register page
   res.render('register');
 });
+
+server.get('/inbox', function (req, res) { //loads login page by default
+  res.render('inbox');
+});
+
+server.get('/search', function (req, res) { //loads register page
+  res.render('search');
+});
+
+
 
 server.use('/', routes);
 
@@ -79,7 +90,7 @@ io.on('connection', (socket) => {
     io.sockets.emit('new_message', {message : data.message, username : socket.username});
   })
 
-  //Privat Chats
+  //Private Chats
   socket.on('subscribe', function(room) { 
     console.log('joining room', room);
     socket.join(room); 
@@ -100,3 +111,10 @@ io.on('connection', (socket) => {
   //   socket.broadcast.emit('typing', {username : socket.username})
   // })
 })
+
+//set the template engine handlebars
+server.engine('.hbs', exphbs({
+  defaultLayout: 'main',
+  extname: '.hbs'
+}))
+server.set('view engine', '.hbs');

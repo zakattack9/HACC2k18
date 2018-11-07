@@ -25,27 +25,27 @@ $(function (){
     console.log(data);
     chatroom.append(`<p class="message">${data.username}: ${data.message}</p>`);
   })
-
-  //Emit typing
-	message.bind("keypress", () => {
-		socket.emit('typing')
-  })
   
   //Private Chats
   socket.on('message', function (data) {
     console.log(data);
-   });
+  });
   
   socket.emit('subscribe', 'roomOne');
   socket.emit('subscribe', 'roomTwo');
-
+  
   $('#send').click(function() {
-  let room = $('#room').val();
-  let message = $('#message').val();
-
-  socket.emit('send', { room: room, message: message });
+    let room = $('#room').val();
+    let message = $('#message').val();
+    
+    socket.emit('send', { room: room, message: message });
   });
 
+  // //Emit typing
+  // message.bind("keypress", () => {
+  // 	socket.emit('typing')
+  // })
+  
 	// //Listen on typing
 	// socket.on('typing', (data) => {
 	// 	feedback.html("<p><i>" + data.username + " is typing a message..." + "</i></p>")
