@@ -17,14 +17,13 @@
         <div id="topBar">
             <div id="topBarGrid">
                 <div id="userIcon">
-                    <div id="userIconCircle"></div>
+                    <div id="userIconCircle">
+                      <i class="fas fa-user-graduate"></i>
+                    </div>
                     <i id="backArrow" class="fas fa-arrow-left"></i>
                 </div>
                 <div id="appName">
-                    <h1>App Name</h1>
-                </div>
-                <div id="filterButton">
-                    <i class="fas fa-exchange-alt"></i>
+                    <h1>Ha’āwi</h1>
                 </div>
                 <div id="postButton">
                     <i class="fas fa-plus"></i>
@@ -123,6 +122,9 @@
                             <h2>Discuss anything about anything</h2>
                         </div>
                     </div>
+                </div>
+                <div id="individualForumPost">
+
                 </div>
             </div>
         </div>
@@ -231,12 +233,25 @@
             <div class="formItemForum formGridItem">
               <label for="formForumInput">What forum you're posting in</label>
               <select id="formForumInput">
-                <option value="">op1</option>
-                <option value="">op2</option>
-                <option value="">op3</option>
-                <option value="">op4</option>
+                <option value="">General Discussion</option>
+                <option value="">Math</option>
+                <option value="">Science</option>
+                <option value="">English Language Arts</option>
+                <option value="">Social Studies</option>
+                <option value="">Foreign Languages</option>
+                <option value="">Off Topic</option>
               </select>
             </div>
+            <div class="formItemTitle formGridItem">
+              <label for="formTitleInput">Title</label>
+              <input id="formTitleInput" type="text" name="" value="">
+            </div>
+
+            <div class="formItemDescription formGridItem">
+              <label for="formDescriptionInput">Description</label>
+              <textarea id="formDescriptionInput"></textarea>
+            </div>
+            <input type="submit" value="Submit">
           </form>
       </div>
     </div>

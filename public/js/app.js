@@ -21,6 +21,7 @@ var inSubForum = 0;
 var inFeedItem = 0;
 var inFeed = 1;
 var inForum = 0;
+var inForumPost = 0;
 
 function generateHTML(action) {
     if (action == "switchToForum") {
@@ -234,6 +235,8 @@ function generateForumPosts(subForum, subForumObject) {
 }
 
 
+
+
 gdButton.addEventListener('click', subForumClick);
 mathButton.addEventListener('click', subForumClick);
 scienceButton.addEventListener('click', subForumClick);
@@ -276,6 +279,8 @@ $('.requesting').click(function() {
     $("#bottomBarGrid").hide();
     $("#replyButtonContainer").removeClass(".replyButtonContainer");
     $("#replyButtonContainer").addClass("replyButtonContainerShow");
+    $("#filterButton").hide();
+    $("#postButton").hide();
 
 //     for (var i = 0; i <= Object.keys(feedItems).length; i++) {
 //         for (var key in feedItems) {
@@ -309,7 +314,9 @@ $('.providing').click(function() {
     generateFeedReplies(this);
     $("#bottomBarGrid").hide();
     $("#replyButtonContainer").removeClass(".replyButtonContainer");
-    $("#replyButtonContainer").addClass(".replyButtonContainerShow");
+    $("#replyButtonContainer").addClass("replyButtonContainerShow");
+    $("#filterButton").hide();
+    $("#postButton").hide();
 
 });
 
@@ -351,6 +358,13 @@ function browser(action) {
         $("#mainContent").animate({
             scrollTop: 0
         }, "fast");
+    } else if (action === "forumPostClick") {
+      inForumPost = 1;
+      $("#rfBarGrid").hide();
+      $("#mainContent").animate({
+          scrollTop: 0
+      }, "fast");
+      console.log('h')
     }
 
 
@@ -394,7 +408,7 @@ $("#backArrow").click(function() {
         $(".forumName").remove();
         $("#rfBarGrid").children().show();
         $("#rfBarGrid").removeClass("rfBarForum");
-        $("#appName > h1").text("App Name");
+        $("#appName > h1").text("Ha’āwi");
         $("#openSubForum").remove();
         inSubForum = 0;
     } else if (inFeedItem === 1) {
@@ -413,6 +427,8 @@ $("#backArrow").click(function() {
         $("#replyButtonContainer").removeClass("replyButtonContainerShow");
         $("#bottomBarGrid").show();
         inFeedItem = 0;
+        $("#filterButton").show();
+        $("#postButton").show();
     }
 });
 
@@ -437,3 +453,8 @@ function postItem() {
         $("#postForumContainer").css("display", "grid");
     }
 }
+
+$("#userIcon").click(function(){
+  console.log('h');
+  $("")
+})

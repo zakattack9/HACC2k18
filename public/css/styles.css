@@ -39,7 +39,6 @@ body {
 }
 
 #userIcon,
-#appName,
 #filterButton,
 #postButton,
 #homeButton,
@@ -48,7 +47,8 @@ body {
 .subForumIcon,
 .formItemImageContainer,
 .itemMessage,
-.postContainer {
+.postContainer,
+#userIconCircle {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -67,6 +67,11 @@ body {
   margin: auto;
 }
 
+#userIconCircle i {
+  color: white;
+  font-size: 1.3em
+}
+
 #backArrow {
   display: none;
   font-size: 1.5em;
@@ -77,11 +82,12 @@ body {
 }
 
 #appName h1 {
-  text-align: center;
+  /* text-align: center; */
   font-family: 'Lato';
   font-weight: lighter;
   font-size: 1.7em;
   color: #707070;
+  margin-left: 10px
 }
 
 #filterButton {
@@ -236,8 +242,9 @@ body {
 
 .itemIcon {
   margin: auto;
-  width: 100%;
-  height: 85%;
+  margin-top: 10px;
+  width: 80%;
+  height: 70%;
   grid-column-start: 1;
   grid-row-end: span 2;
   background-position: center;
