@@ -7,7 +7,7 @@ const Redis = require('connect-redis')(session);
 const passport = require('passport');
 const exphbs = require('express-handlebars');
 // const http = require('http').Server(server);
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8080;
 const server = express();
 const routes = require('./server/db/routes/');
 
@@ -42,13 +42,27 @@ function checkAuth (req, res, next) { //prevents routes from being accessed with
 //   res.render('home');
 // })
 
+// server.get('/', function (req, res) { //loads login page by default
+//   res.render('login');
+// });
+
 server.get('/', function (req, res) { //loads login page by default
-  res.render('login');
-});
+    res.render('home');
+  });
 
 server.get('/register', function (req, res) { //loads register page
   res.render('register');
 });
+
+server.get('/inbox', function (req, res) { //loads login page by default
+  res.render('inbox');
+});
+
+server.get('/search', function (req, res) { //loads register page
+  res.render('search');
+});
+
+
 
 server.use('/', routes);
 
