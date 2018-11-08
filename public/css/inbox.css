@@ -71,8 +71,8 @@ body {
   
   #appName h1 {
     text-align: left;
-    font-family: 'Lato';
-    font-weight: lighter;
+    font-family: 'Pacifico';
+    font-weight: 400;
     font-size: 2em;
   }
   
@@ -91,6 +91,7 @@ body {
     display: grid;
     height: 100%;
     grid-template-columns: 1fr 1fr;
+    background-color: white;
   }
   
   .tabButtonStyle {
@@ -113,6 +114,8 @@ body {
     font-family: 'Lato';
     font-weight: lighter;
     font-size: 1.2em;
+    line-height: calc((0.5/6.5) * 100vh);
+    margin-bottom: -3px;
   }
   
   #bottomBar {
@@ -130,19 +133,14 @@ body {
     height: 100%;
   }
   
-  #homeButton {
+  #homeButton a, #searchButton a{
+      color: rgb(75, 75, 75);
   }
-  
-  #searchButton {
-  }
-  
-  #alertsButton {
+
+  #alertsButton a {
       color: var(--main-purple);
   }
-  
-  #homeButton i {
-  }
-  
+
   #homeButton i,
   #searchButton i,
   #alertsButton i {
