@@ -1,5 +1,7 @@
+
 console.log('test')
 console.log(feedItems);
+
 let feedButton = document.getElementById('resourcesButton');
 let feedContainer = document.getElementById("feedContainer");
 let forumButton = document.getElementById("forumButton");
@@ -21,6 +23,7 @@ var inSubForum = 0;
 var inFeedItem = 0;
 var inFeed = 1;
 var inForum = 0;
+var inForumPost = 0;
 
 function generateHTML(action) {
     if (action == "switchToForum") {
@@ -39,6 +42,9 @@ function generateHTML(action) {
         $(feedButton).css("border-bottom", "3px solid var(--main-purple)");
         $(feedButton).css("color", "var(--main-purple)");
         $("#filterButton").show();
+    } else if (action == "replyButton"){
+      var replyButton = document.createElement("div");
+      replyButton.className = "replyButtonContainer";
     }
 }
 
@@ -148,6 +154,12 @@ function generateFeed() {
                 for(var x in feedItems[key].comments){
                     var feedItemReplies = document.createElement("div");
                     feedItemReplies.id = `feedItemReplies${x}`;
+                    feedItemReplies.className = "feedItemReplies"
+
+                    var feedItemReplyUser = document.createElement("h5");
+                    $(feedItemReplies).append(feedItemReplyUser);
+                    $(feedItemReplyUser).html(`<i class="fas fa-user"></i> ${feedItems[key].comments[x].user} • ${feedItems[key].comments[x].date}`)
+
                     var feedItemReplyText = document.createElement("h4");
                     $(feedItemReplies).append(feedItemReplyText)
                     $(feedItemReplyText).text(feedItems[key].comments[x].text)
@@ -206,7 +218,11 @@ function generateForumPosts(subForum, subForumObject) {
         var subPostCommentCountText = document.createElement("h4");
         $(subPostCommentCount).append(subPostCommentCountText);
         $(subPostBottomBar).append(subPostCommentCount);
-        $(subPost).append(subPostBottomBar)
+        $(subPost).append(subPostBottomBar);
+
+        var subPostRepliesContainer = document.createElement("div");
+        subPostRepliesContainer.className = "subPostRepliesContainer shortReplies";
+        $(subPost).append(subPostRepliesContainer);
 
 
 
@@ -216,11 +232,36 @@ function generateForumPosts(subForum, subForumObject) {
                 // $(supPostDateText).text(subForumObject[key].date)
                 $(supPostUserText).html(`<i class="fas fa-user"></i> ${subForumObject[key].user} • ${subForumObject[key].date}`);
                 $(subPostCommentCountText).html(`<i class="fas fa-comment-alt"></i> ${subForumObject[key].commentCount} comments`);
+
+                for(var x in subForumObject[key].comments){
+                    var subForumPostReplies = document.createElement("div");
+                    subForumPostReplies.id =  `subPostItemReply${x}`;
+                    subForumPostReplies.className = "subPostItemReplies"
+
+                    var subPostItemReplyUser = document.createElement("h5");
+                    $(subForumPostReplies).append(subPostItemReplyUser);
+                    $(subPostItemReplyUser).html(`<i class="fas fa-user"></i> ${subForumObject[key].comments[x].user} • ${subForumObject[key].comments[x].date}`)
+
+                    var subPostItemReplyText = document.createElement("h4");
+                    $(subForumPostReplies).append(subPostItemReplyText)
+                    $(subPostItemReplyText).text(subForumObject[key].comments[x].text)
+                    $(subPostRepliesContainer).append(subForumPostReplies);
+                }
             }
         }
         $(openSubForum).append(subPost);
     }
 }
+
+
+// $(document).on('click', ".subPost", function() {
+//   browser("forumPostClick");
+//   inForumPost = 1;
+//   $(this).clone().prependTo("#individualForumPost");
+//   $(".subForumGrid").hide();
+// });
+
+
 
 
 gdButton.addEventListener('click', subForumClick);
@@ -232,7 +273,6 @@ foreignButton.addEventListener('click', subForumClick);
 offTopicButton.addEventListener('click', subForumClick);
 
 function subForumClick() {
-    console.log(this)
     if (this.id === "gdButton") {
         browser("gdForumClick");
     } else if (this.id === "mathButton") {
@@ -251,40 +291,46 @@ function subForumClick() {
 }
 
 $('.requesting').click(function() {
-    browser("requestItemClick");
+    browser("forumPostClick");
+    generateHTML("replyButton");
     $("#individualFeedItem").show();
     $(this).find(".feedDescription").removeClass("shortDesc");
     $(this).find(".feedDescription").addClass("longDesc");
+    $(this).find(".feedItemRepliesContainer").clone().appendTo("#individualFeedItem");
+    $("#individualFeedItem").find(".feedItemRepliesContainer").removeClass("shortReplies");
+    $("#individualFeedItem").find(".feedItemRepliesContainer").addClass("longReplies");
     $(this).clone().prependTo("#individualFeedItem");
     $("#feedContainer").hide();
     generateFeedReplies(this);
-
-//     for (var i = 0; i <= Object.keys(feedItems).length; i++) {
-//         for (var key in feedItems) {
-//             if (key == "feedItem" + i) {
-//               var feedItemNum = `feedItem${i}`;
-//               console.log(feedItemNum);
-//               for (var i = 0; i < 5; i++) {
-//                 var commentNum = `comment${i}`;
-//                 console.log(commentNum);
-//               }
-//               console.log(feedItems[key].comments.commentNum);
-//             }
-//           }
-// }
+    $("#bottomBarGrid").hide();
+    $("#replyButtonContainer").removeClass(".replyButtonContainer");
+    $("#replyButtonContainer").addClass("replyButtonContainerShow");
+    $("#filterButton").hide();
+    $("#postButton").hide();
+      inFeedItem = 1;
 });
 
 function generateFeedReplies(feedItem){
-  console.log(feedItem)
 }
 
 $('.providing').click(function() {
     browser("provideItemClick");
+    generateHTML("replyButton");
     $("#individualFeedItem").show();
-    $(this).find(".feedDescription").removeClass("shortDesc")
+    $(this).find(".feedDescription").removeClass("shortDesc");
     $(this).find(".feedDescription").addClass("longDesc");
+    $(this).find(".feedItemRepliesContainer").clone().appendTo("#individualFeedItem");
+    $("#individualFeedItem").find(".feedItemRepliesContainer").removeClass("shortReplies");
+    $("#individualFeedItem").find(".feedItemRepliesContainer").addClass("longReplies");
     $(this).clone().prependTo("#individualFeedItem");
     $("#feedContainer").hide();
+    generateFeedReplies(this);
+    $("#bottomBarGrid").hide();
+    $("#replyButtonContainer").removeClass(".replyButtonContainer");
+    $("#replyButtonContainer").addClass("replyButtonContainerShow");
+    $("#filterButton").hide();
+    $("#postButton").hide();
+
 });
 
 function browser(action) {
@@ -325,6 +371,12 @@ function browser(action) {
         $("#mainContent").animate({
             scrollTop: 0
         }, "fast");
+    } else if (action === "forumPostClick") {
+      inForumPost = 1;
+      $("#rfBarGrid").hide();
+      $("#mainContent").animate({
+          scrollTop: 0
+      }, "fast");
     }
 
 
@@ -368,7 +420,7 @@ $("#backArrow").click(function() {
         $(".forumName").remove();
         $("#rfBarGrid").children().show();
         $("#rfBarGrid").removeClass("rfBarForum");
-        $("#appName > h1").text("App Name");
+        $("#appName > h1").text("Ha’āwi");
         $("#openSubForum").remove();
         inSubForum = 0;
     } else if (inFeedItem === 1) {
@@ -378,11 +430,31 @@ $("#backArrow").click(function() {
         $(".feedDescription").addClass("shortDesc")
         $(".feedDescription").removeClass("longDesc")
         $("#individualFeedItem").find('.feedItem').remove();
+        $("#individualFeedItem").find('.feedItemRepliesContainer').remove();
         $("#individualFeedItem").hide();
         $("#rfBarGrid").show();
         $("#forumNameContainer").remove()
         $(".feedItem").not($(this)).show();
+        $("#replyButtonContainer").addClass(".replyButtonContainer");
+        $("#replyButtonContainer").removeClass("replyButtonContainerShow");
+        $("#bottomBarGrid").show();
         inFeedItem = 0;
+        $("#filterButton").show();
+        $("#postButton").show();
+        console.log('h')
+    } else if (inForumPost === 1){
+      $("#feedContainer").show();
+      $("#userIconCircle").show();
+      $("#backArrow").hide();
+      $("#individualForumPost").find('.subPost').remove();
+      $("#individualForumPost").hide();
+      $("#rfBarGrid").show();
+      $("#forumNameContainer").remove()
+      $(".feedItem").not($(this)).show();
+      $("#bottomBarGrid").show();
+      inForumPost = 0;
+      $("#postButton").show();
+      console.log('ssh')
     }
 });
 
@@ -398,16 +470,15 @@ $('.closeButton').click(function() {
 
 function postItem() {
     if (inFeed == 1) {
-        console.log('post feed item');
         $("#appContainer").hide();
         $("#postFeedContainer").css("display", "grid");
     } else if (inForum == 1) {
-        console.log("post forum item");
         $("#appContainer").hide();
         $("#postForumContainer").css("display", "grid");
     }
 }
 
+<<<<<<< HEAD
 //Image uploading
 var loadFile = function(event) {
   var output = document.getElementById('displayImg');
@@ -469,3 +540,8 @@ function selectProvide(){
     radioProvide.checked = true;
     radioRequest.checked = false;
 }
+=======
+$("#userIcon").click(function(){
+  $("")
+})
+>>>>>>> b77bbf7b994c9a283cb0e741713c6095d329fe4a
