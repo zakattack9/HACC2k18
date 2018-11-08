@@ -200,7 +200,7 @@ body {
 .addCommentContainer h1 {
   margin-left: 5px;
   font-family: 'Lato';
-  font-size: 0.9em;
+  font-size: 0.7em;
   font-weight: bolder;
   color: #909090;
   letter-spacing: 1.2px;
@@ -662,6 +662,7 @@ body {
 label {
   font-family: 'Roboto';
   font-weight: normal;
+  color: white;
 }
 
 label h1 {
