@@ -291,6 +291,8 @@ function subForumClick() {
 }
 
 $(document).on('click', ".requesting", function() {
+    
+    if (inFeedItem != 1){
     browser("forumPostClick");
     generateHTML("replyButton");
     $("#individualFeedItem").show();
@@ -307,30 +309,34 @@ $(document).on('click', ".requesting", function() {
     $("#replyButtonContainer").addClass("replyButtonContainerShow");
     $("#filterButton").hide();
     $("#postButton").hide();
-      inFeedItem = 1;
+    }
+    inFeedItem = 1;
 });
 
 function generateFeedReplies(feedItem){
 }
 
 $(document).on('click', ".providing", function() {
-    browser("provideItemClick");
-    generateHTML("replyButton");
-    $("#individualFeedItem").show();
-    $(this).find(".feedDescription").removeClass("shortDesc");
-    $(this).find(".feedDescription").addClass("longDesc");
-    $(this).find(".feedItemRepliesContainer").clone().appendTo("#individualFeedItem");
-    $("#individualFeedItem").find(".feedItemRepliesContainer").removeClass("shortReplies");
-    $("#individualFeedItem").find(".feedItemRepliesContainer").addClass("longReplies");
-    $(this).clone().prependTo("#individualFeedItem");
-    $("#feedContainer").hide();
-    generateFeedReplies(this);
-    $("#bottomBarGrid").hide();
-    $("#replyButtonContainer").removeClass(".replyButtonContainer");
-    $("#replyButtonContainer").addClass("replyButtonContainerShow");
-    $("#filterButton").hide();
-    $("#postButton").hide();
-
+    
+    if (inFeedItem != 1){
+        browser("provideItemClick");
+        generateHTML("replyButton");
+        $("#individualFeedItem").show();
+        $(this).find(".feedDescription").removeClass("shortDesc");
+        $(this).find(".feedDescription").addClass("longDesc");
+        $(this).find(".feedItemRepliesContainer").clone().appendTo("#individualFeedItem");
+        $("#individualFeedItem").find(".feedItemRepliesContainer").removeClass("shortReplies");
+        $("#individualFeedItem").find(".feedItemRepliesContainer").addClass("longReplies");
+        $(this).clone().prependTo("#individualFeedItem");
+        $("#feedContainer").hide();
+        generateFeedReplies(this);
+        $("#bottomBarGrid").hide();
+        $("#replyButtonContainer").removeClass(".replyButtonContainer");
+        $("#replyButtonContainer").addClass("replyButtonContainerShow");
+        $("#filterButton").hide();
+        $("#postButton").hide();
+    }
+    inFeedItem = 1;
 });
 
 function browser(action) {
@@ -424,6 +430,7 @@ $("#backArrow").click(function() {
         $("#openSubForum").remove();
         inSubForum = 0;
     } else if (inFeedItem === 1) {
+        onFrontPage = true;
         $("#feedContainer").show();
         $("#userIconCircle").show();
         $("#backArrow").hide();
