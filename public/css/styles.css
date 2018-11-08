@@ -96,10 +96,9 @@ body {
 
 #appName h1 {
   /* text-align: center; */
-  font-family: 'Lato';
-  font-weight: lighter;
-  font-size: 1.7em;
-  color: #707070;
+  font-family: 'Pacifico', cursive;
+  font-size: 1.8em;
+  color: #464646;
   margin-left: 10px
 }
 
@@ -243,7 +242,8 @@ body {
 
 #mainContent {
   overflow-y: scroll;
-  background-color: #D0D0D0;
+  /* background-color: #D0D0D0; */
+  background-color: white !important;
 }
 
 #feedContainer,
@@ -252,7 +252,7 @@ body {
 .formContainer {
   height: 100%;
   margin: auto;
-  margin-top: 0.5em;
+  /* margin-top: 0.5em; */
   display: block;
 }
 
@@ -531,7 +531,7 @@ body {
 
 .subPost {
   background-color: white;
-  border-top: 1px solid #D0D0D0;
+  /* border-top: 1px solid #D0D0D0; */
   border-bottom: 1px solid #D0D0D0;
 }
 
