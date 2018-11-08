@@ -16,7 +16,9 @@ $(document).ready(() => {
 
 const activateNotifTab = () => {
     $("#notificationsButton").addClass("tabButtonStyle");
+    $("#notificationsButton").removeClass("inactiveTab");
     $("#messagesButton").removeClass("tabButtonStyle");
+    $("#messagesButton").addClass("inactiveTab");
     $("#notificationContainer").addClass("block-display");
     $("#notificationContainer").removeClass("inactive");
     $("#messagePreviewContainer").removeClass("block-display");
@@ -35,6 +37,8 @@ const activateNotifTab = () => {
 const activateMsgTab = () => {
     $("#notificationsButton").removeClass("tabButtonStyle");
     $("#messagesButton").addClass("tabButtonStyle");
+    $("#notificationsButton").addClass("inactiveTab");
+    $("#messagesButton").removeClass("inactiveTab");
     $("#notificationContainer").removeClass("block-display");
     $("#notificationContainer").addClass("inactive");
     $("#messagePreviewContainer").removeClass("inactive");
@@ -45,6 +49,7 @@ const activateMsgTab = () => {
     $("#convoContainer").addClass("inactive");
     $("#newMsgContainer").removeClass("grid-display");
     $("#newMsgContainer").addClass("inactive");
+    $("#bottomBar").show();
     // $("#notificationContainer").hide();
     // $("#messagePreviewContainer").show();
     // $("#convoConatiner").hide();
@@ -60,6 +65,7 @@ const activateConvo = () => {
     $("#convoContainer").addClass("grid-display");
     $("#newMsgContainer").removeClass("grid-display");
     $("#newMsgContainer").addClass("inactive");
+    $("#bottomBar").hide();
     scrollToBottom();
 }
 
@@ -195,10 +201,14 @@ $(document).ready(() => {
 
 
 /* MESSAGE GENERATION */
-$(document).ready(() => {
+$(document).on("click", ".messagePreviewItem", function() {
+
     $(".messagePreviewItem").on('click', function() {
         generateConvo(this);
+        activateConvo();
     });
+})
+$(document).ready(() => {
     $(".friendItem").on('click', function() {
         generateConvo(this);
         activateConvo();
@@ -327,7 +337,7 @@ function updateMsgPreview(el) {
 
 function addMsgPreview(obj, lastMsg) {
     $("#messagePreviewContainer").prepend(`
-    <div class="messagePreviewItem ${obj.convoWith}" onclick="generateConvo(this) activateConvo()">
+    <div class="messagePreviewItem ${obj.convoWith}" >
         <div class="user-icon">
             <img src="${obj.userIcon}">
         </div>

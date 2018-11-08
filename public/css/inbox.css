@@ -71,14 +71,15 @@ body {
 
   #appName h1 {
     text-align: left;
-    font-family: 'Lato';
-    font-weight: lighter;
+    font-family: 'Pacifico';
+    font-weight: 400;
     font-size: 2em;
   }
 
   #newMsgButton {
     margin: auto;
     font-size: 1.7em;
+    color: #808080;
   }
 
   #notificationMessageBar {
@@ -91,11 +92,16 @@ body {
     display: grid;
     height: 100%;
     grid-template-columns: 1fr 1fr;
+    background-color: white;
   }
 
   .tabButtonStyle {
     border-bottom: 3px solid var(--main-purple);
     color: var(--main-purple);
+  }
+
+  .inactiveTab {
+      color:#808080;
   }
 
   #notificationsButton {
@@ -113,19 +119,32 @@ body {
     font-family: 'Lato';
     font-weight: lighter;
     font-size: 1.2em;
+    line-height: calc((0.5/6.5) * 100vh);
+    margin-bottom: -3px;
+    margin-top: 0;
+  }
+  
+  #bottomBar {
+    height: 3em;
+    width: 100%;
+    border-top: 1px solid #A0A0A0;
+    height: 3em;
+  }
+  
+  #bottomBarGrid {
+    display: grid;
+    width: 95%;
+    margin: auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 100%;
+  }
+  
+  #homeButton a, #searchButton a{
+      color: rgb(75, 75, 75);
   }
 
-  #homeButton {
-  }
-
-  #searchButton {
-  }
-
-  #alertsButton {
+  #alertsButton a {
       color: var(--main-purple);
-  }
-
-  #homeButton i {
   }
 
   #homeButton i,
