@@ -290,7 +290,7 @@ function subForumClick() {
     }
 }
 
-$('.requesting').click(function() {
+$(document).on('click', ".requesting", function() {
     browser("forumPostClick");
     generateHTML("replyButton");
     $("#individualFeedItem").show();
@@ -313,7 +313,7 @@ $('.requesting').click(function() {
 function generateFeedReplies(feedItem){
 }
 
-$('.providing').click(function() {
+$(document).on('click', ".providing", function() {
     browser("provideItemClick");
     generateHTML("replyButton");
     $("#individualFeedItem").show();
