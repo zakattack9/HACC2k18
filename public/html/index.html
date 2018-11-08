@@ -171,7 +171,7 @@
         </div>
         <div class="forumScroll">
         <div class="formContainer">
-            <form class="formGrid">
+            <form class="formGrid"  action="#" onsubmit="postRequest();return false">
                 <div class="formItemType formGridItem">
                     <label for="radioContainer">Type of Post</label>
                     <div id="radioGridContainer">
@@ -189,10 +189,10 @@
                 <div class="formItemTitle formGridItem">
                   <label for="formTitleInput">What you're requesting/providing</label>
                   <select id="formTitleInput">
-                    <option value="">op1</option>
-                    <option value="">op2</option>
-                    <option value="">op3</option>
-                    <option value="">op4</option>
+                    <option value="">Crayons</option>
+                    <option value="">Folder Paper</option>
+                    <option value="">Markers</option>
+                    <option value="">Rulers</option>
                   </select>
                 </div>
 
@@ -209,7 +209,7 @@
                     <img id="displayImg" src = "">
                   </div>
                 </div>
-                <input type="submit" value="Submit" onclick="postRequest()">
+                <input id="submitRequest" type="submit" value="Submit">
             </form>
         </div>
       </div>

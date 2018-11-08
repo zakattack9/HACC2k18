@@ -478,7 +478,6 @@ function postItem() {
     }
 }
 
-<<<<<<< HEAD
 //Image uploading
 var loadFile = function(event) {
   var output = document.getElementById('displayImg');
@@ -487,7 +486,7 @@ var loadFile = function(event) {
 
 var radioProvide = document.getElementById("radioProvide");
 var radioRequest = document.getElementById("radioRequest");
-
+var feedCount = 8;
 function postRequest() {
     var typeSelected = (radioProvide.checked == true || radioRequest.checked== true);
     var descriptionInputted = (document.getElementById("formDescriptionInput").value != '');
@@ -502,32 +501,32 @@ function postRequest() {
         alert("Please provide an picture of your item");
     }
     if (typeSelected && descriptionInputted && imageSelected){
-        /*feedItems.feedItem5 = {
-            {
+        feedCount++;
+        feedItems["feedItem"+feedCount] = {
+            
                 type: document.querySelector('input[name = "radio"]:checked').value,
-                item: document.getElementById("formTitleInput").options[document.getElementById("formTitleInput").selectedIndex].value,
-                date: "10000hr",
-                user: "IAAAN",
+                item: $('#formTitleInput :selected').text(),
+                date: "Just Now",
+                user: "Me",
                 icon: "url('"+document.getElementById("displayImg").getAttribute('src')+"')",
                 description: document.getElementById("formDescriptionInput").value,
                 comments: {
                 }
-            }
-        }*/
-        feedItems.feedItem5 = {
-            
-                type: "IAAAN",
-                item: "IAAAN",
-                date: "10000hr",
-                user: "IAAAN",
-                icon: "IAAAN",
-                description: "IAAAN",
-                comments: {
-                }
             
         }
-        generateFeed();
+        //reload submission
+        radioProvide.checked = false;
+        radioRequest.checked = false;
+        document.getElementById("formDescriptionInput").value = "";
+        $("#displayImg").attr("src","");
+
         console.log(feedItems);
+        $("#feedContainer").html("");
+        generateFeed();
+        generateFeedReplies();
+        $("#postFeedContainer").hide();
+        $("#postForumContainer").hide();
+        $("#appContainer").show();
     }
 }
 
@@ -540,8 +539,9 @@ function selectProvide(){
     radioProvide.checked = true;
     radioRequest.checked = false;
 }
-=======
+
+
 $("#userIcon").click(function(){
   $("")
 })
->>>>>>> b77bbf7b994c9a283cb0e741713c6095d329fe4a
+
