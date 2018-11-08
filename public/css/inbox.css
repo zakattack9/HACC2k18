@@ -23,22 +23,22 @@ body {
     /* background-color: purple; */
     /* display: none; */
   }
-  
+
   :root {
     --main-purple: #B885FE;
   }
-  
+
   #topBar {
     /* background-color: red; */
     width: 100%;
     /* height: 100%; */
   }
-  
+
   #topBarGrid {
     display: grid;
     grid-template-columns: 15% 1fr 18%;
   }
-  
+
   #userIcon,
   /* #appName, */
   #filterButton,
@@ -51,11 +51,11 @@ body {
     justify-content: center;
     /* vertically centering elements */
   }
-  
+
   #userIcon {
     /* background-color: red; */
   }
-  
+
   #userIconCircle {
     width: 45px;
     height: 45px;
@@ -63,36 +63,36 @@ body {
     border-radius: 50%;
     margin: auto;
   }
-  
+
   #appName {
     box-sizing: border-box;
     padding-left: 1em;
   }
-  
+
   #appName h1 {
     text-align: left;
     font-family: 'Lato';
     font-weight: lighter;
     font-size: 2em;
   }
-  
+
   #newMsgButton {
     margin: auto;
     font-size: 1.7em;
   }
-  
+
   #notificationMessageBar {
     /* background-color: yellow; */
     width: 100%;
     /* height: 100%; */
   }
-  
+
   #nmBarGrid {
     display: grid;
     height: 100%;
     grid-template-columns: 1fr 1fr;
   }
-  
+
   .tabButtonStyle {
     border-bottom: 3px solid var(--main-purple);
     color: var(--main-purple);
@@ -106,7 +106,7 @@ body {
     /* border-bottom: 3px solid var(--main-purple);
     color: var(--main-purple); */
   }
-  
+
   #notificationsButton h1,
   #messagesButton h1 {
     text-align: center;
@@ -117,37 +117,37 @@ body {
 
   #homeButton {
   }
-  
+
   #searchButton {
   }
-  
+
   #alertsButton {
       color: var(--main-purple);
   }
-  
+
   #homeButton i {
   }
-  
+
   #homeButton i,
   #searchButton i,
   #alertsButton i {
-    font-size: 2em;
+    font-size: 1.5em;
     transition: 0.3s;
   }
-  
+
   #homeButton i:hover,
   #searchButton i:hover,
   #alertsButton i:hover {
     color: var(--main-purple)
   }
-  
+
   #mainContent {
     /* height: 100%; */
     /* max-height: 100%; */
     overflow-y: scroll;
     background-color: #D0D0D0;
   }
-  
+
 /* Notification/Message styles */
 #notificationContainer, #messagePreviewContainer {
     width: 100%;
@@ -308,7 +308,7 @@ body {
 }
 
 
-/* 
+/*
 .messageItem p {
     background-color: #B885FE;
     border-radius: 5px;
@@ -323,7 +323,7 @@ body {
 #msgInput {
     height: 100%;
     width: 100%;
-    padding-left: 1em; 
+    padding-left: 1em;
     box-sizing: border-box;
     border: none;
     border-right: 1px solid var(--main-purple) !important;
@@ -390,12 +390,12 @@ body {
     margin: auto;
     border-radius: 1.25em;
     border: 1px solid black !important;
-    padding-left: 1em; 
+    padding-left: 1em;
     box-sizing: border-box;
     font-family: 'Lato';
     font-size: 1em;
 }
- 
+
 #friendSearchInput:focus {
     /* changes outline of search input to purple when focused */
     border: 1px solid var(--main-purple) !important;

@@ -19,7 +19,7 @@ body {
   margin: auto;
   border-radius: 1.25em;
   border: 1px solid black !important;
-  padding-left: 1em; 
+  padding-left: 1em;
   box-sizing: border-box;
   font-family: 'Lato';
   font-size: 1em;
@@ -117,7 +117,7 @@ body {
 #homeButton i,
 #searchButton i,
 #alertsButton i {
-  font-size: 2em;
+  font-size: 1.5em;
   transition: 0.3s;
 }
 
@@ -150,7 +150,7 @@ body {
 
 #similarUsersContainer, #allUsersContainer {
   overflow-y: scroll;
-  
+
   width: 100%;
   height: 100%;
 }
@@ -200,7 +200,7 @@ body {
 /* .row1 {
   width: 100%;
   height: 100%;
-  
+
 } */
 
 .rowWrapper {
