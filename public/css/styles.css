@@ -20,7 +20,7 @@ body {
 }
 :root {
   --main-dark-purple: #8c14fc;
-  --main-purple: rgb(172, 123, 241);
+  --main-purple: #ac7bf1;
   --math-red: #ec644b;
   --science-green: #23cba7;
   --english-blue: #6bb9f0;
@@ -40,8 +40,9 @@ body {
   display: grid;
   width: 93%;
   margin: auto;
-  -ms-grid-columns: 15% 40% 27% 9% 9%;
-  grid-template-columns: 15% 40% 27% 9% 9%;
+  /* -ms-grid-columns: 15% 40% 27% 9% 9%; */
+  -ms-grid-template-columns: 15% 1fr 18%;
+  grid-template-columns: 15% 1fr 18%;
 }
 
 #userIcon,
@@ -68,8 +69,13 @@ body {
   /* vertically centering elements */
 }
 
+#postButton {
+  padding-right: 15px;
+}
+
 #userIcon {
   /* background-color: red; */
+  padding-left: 5px;
 }
 
 #userIconCircle,
@@ -223,9 +229,9 @@ body {
 #alertsButton {
 }
 
-#homeButton i {
+/* #homeButton i {
   color: var(--main-purple);
-}
+} */
 
 #homeButton i,
 #searchButton i,

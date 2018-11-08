@@ -87,8 +87,8 @@ body {
 
 #appName h1 {
   text-align: left;
-  font-family: 'Lato';
-  font-weight: lighter;
+  font-family: 'Pacifico';
+  font-weight: 400;
   font-size: 2em;
 } */
 
@@ -106,9 +106,9 @@ body {
   font-size: 1.5em;
 }
 
-#searchButton i {
+/* #searchButton i {
   color: var(--main-purple);
-}
+} */
 
 #homeButton i,
 #searchButton i,
