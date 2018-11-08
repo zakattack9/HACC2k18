@@ -201,11 +201,14 @@ $(document).ready(() => {
 
 
 /* MESSAGE GENERATION */
-$(document).ready(() => {
+$(document).on("click", ".messagePreviewItem", function() {
+
     $(".messagePreviewItem").on('click', function() {
         generateConvo(this);
         activateConvo();
     });
+})
+$(document).ready(() => {
     $(".friendItem").on('click', function() {
         generateConvo(this);
         activateConvo();
