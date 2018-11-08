@@ -195,29 +195,70 @@ body {
   height: 100%;
   width: 100%;
   -ms-grid-columns: 90% 10%;
-  grid-template-columns: 90% 10%;
+  /* grid-template-columns: 90% 10%; */
 }
 
 .addCommentContainer {
   border: 1px solid #a0a0a0;
-  height: 60%;
+  /* height: 60%; */
   width: 90%;
-  margin: auto;
-  border-radius: 3px;
+  /* margin: auto; */
+  /* border-radius: 3px; */
 }
 
 .addCommentContainer h1 {
   margin-left: 5px;
   font-family: "Lato";
-  font-size: 0.7em;
+  font-size: ;
   font-weight: bolder;
   color: #909090;
   letter-spacing: 1.2px;
 }
+
 .postContainer {
   height: 60%;
   margin: auto;
   color: #808080;
+}
+
+#sendContainerHome {
+  display: grid;
+  grid-template-columns: 2fr 0.3fr;
+}
+
+#msgInputHome {
+  height: 100%;
+  width: 100%;
+  padding-left: 0.9em;
+  box-sizing: border-box;
+  border: none;
+  /* border-right: 1px solid var(--main-purple) !important; */
+  border-radius: 0px;
+  font-size: 1em;
+}
+
+#msgInputHome:focus {
+  outline-offset: 0px !important;
+  outline: none !important;
+}
+
+#msgInputHome:placeholder-shown {
+  padding-left: 1em;
+}
+
+#sendButtonHome {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+#sendButtonHome i {
+  font-size: 1.5em;
+  line-height: calc(100vh * (0.5 / 6.75));
+}
+
+#sendButtonHome i:hover {
+  color: var(--main-purple);
 }
 
 #homeButton {
@@ -267,7 +308,7 @@ body {
 .feedItem {
   background-color: white;
   width: 100%;
-  border-bottom: 1px solid #d0d0d0;
+  /* border-bottom: 1px solid #d0d0d0; */
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 2fr 9%;
@@ -376,8 +417,9 @@ body {
 
 .feedDescription h4 {
   font-family: "Roboto";
-  font-weight: normal;
-  font-size: 0.8em;
+  font-weight: 300;
+  line-height: 150%;
+  font-size: 0.9em;
 }
 
 .shortDesc {
@@ -407,30 +449,31 @@ body {
 }
 
 .longDesc {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 #individualFeedItem {
 }
 
 .repliesText {
-  background-color: #d0d0d0;
+  background-color: var(--main-purple);
   padding: 10px;
   font-family: "Lato";
   font-weight: bolder;
-  color: #808080;
+  color: white;
   border-bottom: 1px solid #d0d0d0;
   letter-spacing: 1.4px;
+  padding-left: 5%;
 }
 
 .feedItemRepliesContainer {
   /* background-color: white; */
+  padding: 0 2.5%;
 }
 
 .feedItemReplies {
   /* width: 95%; */
   margin: auto;
-  background-color: white;
 }
 
 .feedItemReplies h5 {
@@ -444,7 +487,7 @@ body {
 
 .feedItemReplies h4 {
   font-family: "Roboto";
-  font-size: 0.8em;
+  font-size: 0.9em;
   font-weight: 500;
   width: 95%;
   margin-left: 10px;

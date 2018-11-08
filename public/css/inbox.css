@@ -230,10 +230,8 @@ body {
 
 .msgBackButton {
   margin: auto;
-}
-
-.msgBackButton {
   font-size: 2em;
+  color: white;
 }
 
 .user-name {
@@ -241,12 +239,13 @@ body {
 }
 
 #userBar {
-  background-color: var(--main-purple);
+  background-color: var(--main-dark-purple);
 }
 
 #userBar .user-name {
   font-size: 1.5em;
   margin: auto;
+  color: white;
 }
 
 #sendContainer {
@@ -256,7 +255,7 @@ body {
 
 #conversation {
   overflow-y: scroll;
-  background-color: #f2f2f2;
+  background-color: #f5f5f5;
 }
 
 #messageContainer {
@@ -279,15 +278,18 @@ body {
 
 .non-native-user p {
   padding: 10px;
-  background-color: #f7e0ff;
+  background-color: var(--main-purple);
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
+  border-top-left-radius: 10px;
+  color: white;
 }
 
 .native-user p {
   padding: 10px;
   background-color: white;
   border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   border-bottom-left-radius: 10px;
 }
 
@@ -324,8 +326,9 @@ body {
   padding-left: 1em;
   box-sizing: border-box;
   border: none;
-  border-right: 1px solid var(--main-purple) !important;
+  /* border-right: 1px solid var(--main-purple) !important; */
   border-radius: 0px;
+  font-size: 1em;
 }
 
 #msgInput:focus {
@@ -344,7 +347,7 @@ body {
 }
 
 #sendButton i {
-  font-size: 1.7em;
+  font-size: 1.5em;
   line-height: calc(100vh * (0.5 / 6.75));
 }
 
@@ -379,35 +382,58 @@ body {
 
 #searchFriendsBar {
   display: grid;
-  grid-template-columns: 2.5em 1fr 2.5em;
+  grid-template-columns: 2.5em 1fr;
+}
+
+#searchFriendsBar .msgBackButton{
+  color: #464646;
+  font-size: 1em;
+  margin: auto;
+  font-size: 2em;
+  /* color: white; */
+  margin-top: 16%;
+  margin-left: 50%;
+}
+
+.searchWrapper {
+  position: relative;
+  display: block;
 }
 
 #friendSearchInput {
   height: 80%;
-  width: 93%;
+  width: 90%;
   margin: auto;
+  margin-top: 2%;
   border-radius: 1.25em;
   border: 1px solid black !important;
   padding-left: 1em;
+  padding-right: 2.5em;
   box-sizing: border-box;
   font-family: "Lato";
   font-size: 1em;
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 
 #friendSearchInput:focus {
   /* changes outline of search input to purple when focused */
-  border: 1px solid var(--main-purple) !important;
+  /* border: 1px solid var(--main-purple) !important;
   box-shadow: 0 0 3px var(--main-purple) !important;
   -moz-box-shadow: 0 0 3px var(--main-purple) !important;
   -webkit-box-shadow: 0 0 3px var(--main-purple) !important;
-  outline-offset: 0px !important;
+  outline-offset: 0px !important; */
   outline: none !important;
 }
 
 #searchFriendButton {
-  font-size: 1.75em;
+  font-size: 1.1em;
   margin: auto;
   margin-left: 0;
+  position: absolute;
+  top: 32%;
+  right: 9%;
 }
 
 .friendList {

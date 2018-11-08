@@ -10,38 +10,49 @@ body {
 
 #searchBar {
   display: grid;
-  grid-template-columns: 1fr 2.75em;
+  grid-template-columns: 1fr;
 }
 
 #searchUsersInput {
   height: 80%;
-  width: 95%;
+  width: 90%;
   margin: auto;
   border-radius: 1.25em;
   border: 1px solid black !important;
   padding-left: 1em;
+  padding-right: 2.5em;
   box-sizing: border-box;
   font-family: "Lato";
   font-size: 1em;
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 
 #searchUsersInput:focus {
   /* changes outline of search input to purple when focused */
-  border: 1px solid var(--main-purple) !important;
-  box-shadow: 0 0 3px var(--main-purple) !important;
-  -moz-box-shadow: 0 0 3px var(--main-purple) !important;
-  -webkit-box-shadow: 0 0 3px var(--main-purple) !important;
-  outline-offset: 0px !important;
+  /* border: 1px solid var(--main-purple) !important; */
+  /* box-shadow: 0 0 3px var(--main-purple) !important; */
+  /* -moz-box-shadow: 0 0 3px var(--main-purple) !important; */
+  /* -webkit-box-shadow: 0 0 3px var(--main-purple) !important; */
+  /* outline-offset: 0px !important; */
   outline: none !important;
 }
 
 #searchUserButton {
-  font-size: 1.7em;
+  position: relative;
+}
+
+#searchUserButton i {
+  font-size: 1.1em;
   margin: auto;
+  position: absolute;
+  top: 18%;
+  right: 8%;
 }
 
 #searchUserButton:hover {
-  color: var(--main-purple);
+  /* color: var(--main-purple); */
 }
 
 #topBar {
@@ -131,13 +142,14 @@ body {
 .userItem {
   background-color: white;
   width: 100%;
-  height: 80px;
+  height: 100px;
   border-bottom: 1px solid #a0a0a0;
   /* display: grid;
   grid-template-rows: 70px 1.2em; */
   display: grid;
   grid-template-columns: 80px 1fr;
   font-family: "Lato";
+  padding-left: 0.5em;
 }
 
 .userItem:last-child {
@@ -157,16 +169,20 @@ body {
 }
 
 #searchGreeting {
-  margin-top: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
   width: 100%;
   height: 70px;
   display: grid;
   grid-template-columns: 70px 1fr;
-  border-bottom: 1px solid #a0a0a0;
+  /* border-bottom: 1px solid #a0a0a0; */
+  padding-left: 1em;
+  color: rgb(87, 87, 87);
 }
 
 #connectIcon {
   display: flex;
+  opacity: 0.75;
 }
 
 #connectIcon img,
@@ -185,6 +201,7 @@ body {
   vertical-align: middle;
   padding: 0.5em;
   font-size: 1.1em;
+  padding-right: 2em;
 }
 
 #userSubject {
@@ -211,7 +228,7 @@ body {
 .infoContainer {
   padding-left: 1em;
   box-sizing: border-box;
-  padding-top: 0.5em;
+  padding-top: 1em;
 }
 
 .infoContainer p {
