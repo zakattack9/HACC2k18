@@ -5,6 +5,7 @@ exports.up = function(knex, Promise) {
     table.integer('sender').references('users.id');
     table.integer('receiver').references('users.id');
     table.text('content').notNullable();
+    table.text('roomId');
   });
 };
 

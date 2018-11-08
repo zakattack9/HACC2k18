@@ -1,0 +1,18 @@
+#chatroom {
+  width: 100%;
+  height: 200px;
+  border: 5px solid white;
+  box-sizing: border-box;
+}
+
+#message {
+  width: 100%;
+}
+
+#send_message {
+  border: 3px solid white;
+  border-radius: 50px;
+  display: block;
+  margin-top: 10%;
+  margin-left: auto;
+}
