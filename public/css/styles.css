@@ -227,7 +227,7 @@ body {
 #homeButton i,
 #searchButton i,
 #alertsButton i {
-  font-size: 1.45em;
+  font-size: 1.5em;
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
@@ -321,14 +321,14 @@ body {
 
 .itemType h2 {
   font-family: 'Roboto';
-  font-weight: lighter;
+  font-weight: normal;
   letter-spacing: 1px;
   color: #505050;
 }
 
 .itemTitle h2 {
   font-family: 'Roboto';
-  font-weight: lighter;
+  font-weight: 390;
   font-size: 1.1em;
   color: #808080;
   letter-spacing: 1px;
@@ -367,7 +367,7 @@ body {
 
 .feedDescription h4 {
   font-family: 'Roboto';
-  font-weight: lighter;
+  font-weight: normal;
   font-size: 0.8em;
 }
 
@@ -505,7 +505,7 @@ body {
 .subForumInfo h1,
 .subForumInfo h2 {
   font-family: 'Roboto';
-  font-weight: lighter;
+  font-weight: normal;
 }
 
 .subForumInfo h1 {
@@ -516,7 +516,7 @@ body {
 .subForumInfo h2 {
   font-size: 0.9em;
   margin-top: 10px;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .subForumGrid {
@@ -661,7 +661,7 @@ body {
 
 label {
   font-family: 'Roboto';
-  font-weight: 200;
+  font-weight: normal;
 }
 
 label h1 {
