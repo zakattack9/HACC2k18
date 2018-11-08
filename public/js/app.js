@@ -466,6 +466,7 @@ $('.closeButton').click(function() {
     $("#postFeedContainer").hide();
     $("#postForumContainer").hide();
     $("#appContainer").show();
+    resetForm();
 })
 
 function postItem() {
@@ -515,10 +516,7 @@ function postRequest() {
             
         }
         //reload submission
-        radioProvide.checked = false;
-        radioRequest.checked = false;
-        document.getElementById("formDescriptionInput").value = "";
-        $("#displayImg").attr("src","");
+        resetForm();
 
         console.log(feedItems);
         $("#feedContainer").html("");
@@ -533,13 +531,35 @@ function postRequest() {
 function selectRequest(){
     radioProvide.checked = false;
     radioRequest.checked = true;
+
+    $("#formProvide").css("background-color", "var(--main-purple)");
+    $("#h1Provide").css("color", "white");
+
+    $("#formRequest").css("background-color", " #F0F0F0");
+    $("#h1Request").css("color", "var(--main-purple)");
 }
 
 function selectProvide(){
     radioProvide.checked = true;
     radioRequest.checked = false;
+
+    $("#formProvide").css("background-color", " #F0F0F0");
+    $("#h1Provide").css("color", "var(--main-purple)");
+
+    $("#formRequest").css("background-color", "var(--main-purple)");
+    $("#h1Request").css("color", "white");
 }
 
+function resetForm(){
+    radioProvide.checked = false;
+    radioRequest.checked = false;
+    document.getElementById("formDescriptionInput").value = "";
+    $("#displayImg").attr("src","");
+    $("#formProvide").css("background-color", "var(--main-purple)");
+    $("#h1Provide").css("color", "white");
+    $("#formRequest").css("background-color", "var(--main-purple)");
+    $("#h1Request").css("color", "white");
+}
 
 $("#userIcon").click(function(){
   $("")
