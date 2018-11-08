@@ -12,19 +12,21 @@ body {
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: 0.5fr 5fr 0.5fr;
-      grid-template-rows: 0.5fr 6fr 0.6fr;
+  grid-template-rows: 0.5fr 6fr 0.6fr;
   /* background-color: purple; */
   margin: 0;
   padding: 0;
   overflow-y: hidden;
 }
 :root {
-  --main-purple: #B885FE;
+  --main-dark-purple: #8c14fc;
+  --main-purple: rgb(172, 123, 241);
   --math-red: #ec644b;
   --science-green: #23cba7;
   --english-blue: #6bb9f0;
   --history-yellow: #f7ca18;
-  --foreign-orange: #e67e22
+  --foreign-orange: #e67e22;
+  color: #464646;
 }
 
 #topBar {
@@ -39,7 +41,7 @@ body {
   width: 93%;
   margin: auto;
   -ms-grid-columns: 15% 40% 27% 9% 9%;
-      grid-template-columns: 15% 40% 27% 9% 9%;
+  grid-template-columns: 15% 40% 27% 9% 9%;
 }
 
 #userIcon,
@@ -58,11 +60,11 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   /* vertically centering elements */
 }
 
@@ -74,7 +76,7 @@ body {
 .userIconCircle {
   width: 45px;
   height: 45px;
-  background-color: var(--main-purple);
+  background-color: var(--main-dark-purple);
   border-radius: 50%;
   margin: auto;
 }
@@ -82,7 +84,7 @@ body {
 #userIconCircle i,
 .userIconCircle i {
   color: white;
-  font-size: 1.3em
+  font-size: 1.3em;
 }
 
 #backArrow {
@@ -96,29 +98,29 @@ body {
 
 #appName h1 {
   /* text-align: center; */
-  font-family: 'Pacifico', cursive;
+  font-family: "Pacifico", cursive;
   font-size: 1.8em;
   color: #464646;
-  margin-left: 10px
+  margin-left: 10px;
 }
 
 #filterButton {
   /* background-color: blue; */
   -ms-grid-column: 4;
-      grid-column-start: 4;
+  grid-column-start: 4;
 }
 
 #postButton {
   /* background-color: yellow; */
   -ms-grid-column: 5;
-      grid-column-start: 5;
+  grid-column-start: 5;
 }
 
 #filterButton i,
 #postButton i,
 #backArrow {
   font-size: 1.5em;
-  color: #808080;
+  color: #464646;
 }
 
 #resourceForumBar {
@@ -131,13 +133,13 @@ body {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   height: 20%;
 }
 
 .rfBarForum {
   -ms-grid-columns: 1fr !important;
-      grid-template-columns: 1fr !important;
+  grid-template-columns: 1fr !important;
 }
 #resourcesButton {
   border-bottom: 3px solid var(--main-purple);
@@ -145,14 +147,14 @@ body {
 }
 
 #forumButton {
-  color: #808080
+  color: #5a5a5a;
 }
 
 #resourcesButton h1,
 #forumButton h1,
 #forumNameContainer h1 {
   text-align: center;
-  font-family: 'Lato';
+  font-family: "Lato";
   font-weight: lighter;
   font-size: 1.25em;
 }
@@ -174,7 +176,7 @@ body {
   width: 95%;
   margin: auto;
   -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   height: 100%;
 }
 
@@ -187,11 +189,11 @@ body {
   height: 100%;
   width: 100%;
   -ms-grid-columns: 90% 10%;
-      grid-template-columns: 90% 10%;
+  grid-template-columns: 90% 10%;
 }
 
 .addCommentContainer {
-  border: 1px solid #A0A0A0;
+  border: 1px solid #a0a0a0;
   height: 60%;
   width: 90%;
   margin: auto;
@@ -200,7 +202,7 @@ body {
 
 .addCommentContainer h1 {
   margin-left: 5px;
-  font-family: 'Lato';
+  font-family: "Lato";
   font-size: 0.7em;
   font-weight: bolder;
   color: #909090;
@@ -209,7 +211,7 @@ body {
 .postContainer {
   height: 60%;
   margin: auto;
-  color: #808080
+  color: #808080;
 }
 
 #homeButton {
@@ -222,7 +224,7 @@ body {
 }
 
 #homeButton i {
-  color: var(--main-purple)
+  color: var(--main-purple);
 }
 
 #homeButton i,
@@ -237,7 +239,7 @@ body {
 #homeButton i:hover,
 #searchButton i:hover,
 #alertsButton i:hover {
-  color: var(--main-purple)
+  color: var(--main-purple);
 }
 
 #mainContent {
@@ -259,13 +261,13 @@ body {
 .feedItem {
   background-color: white;
   width: 100%;
-  border-bottom: 1px solid #D0D0D0;
+  border-bottom: 1px solid #d0d0d0;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 2fr 9%;
-      grid-template-columns: 1fr 2fr 9%;
+  grid-template-columns: 1fr 2fr 9%;
   -ms-grid-rows: 1fr 1fr 2fr;
-      grid-template-rows: 1fr 1fr 2fr;
+  grid-template-rows: 1fr 1fr 2fr;
   /* margin-top: 10px; */
 }
 
@@ -275,13 +277,12 @@ body {
   width: 80%;
   height: 70%;
   -ms-grid-column: 1;
-      grid-column-start: 1;
+  grid-column-start: 1;
   -ms-grid-row-span: 2;
   grid-row-end: span 2;
   background-position: center;
   background-size: cover;
 }
-
 
 .feedItem:last-child,
 .subForum:last-child,
@@ -297,7 +298,7 @@ body {
   /* grid-template-columns: 1fr 3fr; */
   /* grid-row-gap: 32px; */
   -ms-grid-row: 1;
-      grid-row-start: 1;
+  grid-row-start: 1;
   -ms-grid-column-span: 2;
   grid-column-end: span 2;
 }
@@ -308,28 +309,28 @@ body {
 
 .itemTitle {
   -ms-grid-column: 2;
-      grid-column-start: 2;
+  grid-column-start: 2;
 }
 
 .itemMessage {
   -ms-grid-row: 1;
-      grid-row-start: 1;
+  grid-row-start: 1;
   -ms-grid-column: 3;
-      grid-column-start: 3;
+  grid-column-start: 3;
   margin: auto;
   color: var(--main-purple);
   font-size: 11px;
 }
 
 .itemType h2 {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-weight: normal;
   letter-spacing: 1px;
   color: #505050;
 }
 
 .itemTitle h2 {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-weight: 390;
   font-size: 1.1em;
   color: #808080;
@@ -339,7 +340,7 @@ body {
 
 .itemDate h4,
 .itemUser h4 {
-  font-family: 'Lato';
+  font-family: "Lato";
   font-weight: bolder;
   font-size: 0.7em;
   opacity: 0.5;
@@ -354,7 +355,7 @@ body {
   /* background-color: red; */
   /* display: none; */
   -ms-grid-column: 1;
-      grid-column-start: 1;
+  grid-column-start: 1;
   -ms-grid-column-span: 3;
   grid-column-end: span 3;
   /* text-align: center; */
@@ -368,16 +369,22 @@ body {
 }
 
 .feedDescription h4 {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-weight: normal;
   font-size: 0.8em;
 }
 
 .shortDesc {
-  background-image: -webkit-gradient(linear,left top, left bottom,color-stop(40%, #303030),to(rgba(0,0,0,0)));
-  background-image: -webkit-linear-gradient(top,#303030 40%,rgba(0,0,0,0));
-  background-image: -o-linear-gradient(top,#303030 40%,rgba(0,0,0,0));
-  background-image: linear-gradient(180deg,#303030 40%,rgba(0,0,0,0));
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(40%, #303030),
+    to(rgba(0, 0, 0, 0))
+  );
+  background-image: -webkit-linear-gradient(top, #303030 40%, rgba(0, 0, 0, 0));
+  background-image: -o-linear-gradient(top, #303030 40%, rgba(0, 0, 0, 0));
+  background-image: linear-gradient(180deg, #303030 40%, rgba(0, 0, 0, 0));
   -webkit-background-clip: text;
   display: none;
   -webkit-text-fill-color: transparent;
@@ -400,14 +407,13 @@ body {
 #individualFeedItem {
 }
 
-
 .repliesText {
-  background-color: #D0D0D0;
+  background-color: #d0d0d0;
   padding: 10px;
-  font-family: 'Lato';
+  font-family: "Lato";
   font-weight: bolder;
   color: #808080;
-  border-bottom: 1px solid #D0D0D0;
+  border-bottom: 1px solid #d0d0d0;
   letter-spacing: 1.4px;
 }
 
@@ -424,18 +430,18 @@ body {
 .feedItemReplies h5 {
   width: 95%;
   margin-left: 10px;
-    font-family: 'Lato';
+  font-family: "Lato";
   color: #707070;
   font-size: 0.7em;
   letter-spacing: 1.3px;
 }
 
 .feedItemReplies h4 {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-size: 0.8em;
   font-weight: 500;
   width: 95%;
-  margin-left: 10px
+  margin-left: 10px;
 }
 
 #forumGrid {
@@ -452,9 +458,9 @@ body {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 0.2fr 1fr 4fr;
-      grid-template-columns: 0.2fr 1fr 4fr;
+  grid-template-columns: 0.2fr 1fr 4fr;
   grid-gap: 10px;
-  border-bottom: 1px solid #D0D0D0;
+  border-bottom: 1px solid #d0d0d0;
 }
 
 .borderLeft {
@@ -469,29 +475,28 @@ body {
 
 .subForum:nth-child(3) .borderLeft,
 .subForum:nth-child(3) .subForumIcon i {
-  background-color: var(--science-green)
+  background-color: var(--science-green);
 }
 
 .subForum:nth-child(4) .borderLeft,
 .subForum:nth-child(4) .subForumIcon i {
-  background-color: var(--english-blue)
+  background-color: var(--english-blue);
 }
 
 .subForum:nth-child(5) .borderLeft,
 .subForum:nth-child(5) .subForumIcon i {
-  background-color: var(--history-yellow)
+  background-color: var(--history-yellow);
 }
 
 .subForum:nth-child(6) .borderLeft,
 .subForum:nth-child(6) .subForumIcon i {
-  background-color: var(--foreign-orange)
+  background-color: var(--foreign-orange);
 }
 
 .subForum:nth-child(7) .borderLeft,
 .subForum:nth-child(7) .subForumIcon i {
-  background-color: var(--main-purple)
+  background-color: var(--main-purple);
 }
-
 
 .subForumIcon {
 }
@@ -506,7 +511,7 @@ body {
 
 .subForumInfo h1,
 .subForumInfo h2 {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-weight: normal;
 }
 
@@ -525,17 +530,15 @@ body {
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr;
+  grid-template-rows: 1fr;
   grid-gap: 10px;
 }
 
 .subPost {
   background-color: white;
   /* border-top: 1px solid #D0D0D0; */
-  border-bottom: 1px solid #D0D0D0;
+  border-bottom: 1px solid #d0d0d0;
 }
-
-
 
 .subPostTopBar {
   width: 80%;
@@ -546,15 +549,15 @@ body {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 9fr 1fr;
-      grid-template-columns: 9fr 1fr;
-  font-family: 'Lato';
+  grid-template-columns: 9fr 1fr;
+  font-family: "Lato";
   color: #707070;
   font-size: 0.7em;
   letter-spacing: 1.3px;
 }
 
-#subPostTitleContainer h1{
-  font-family: 'Roboto';
+#subPostTitleContainer h1 {
+  font-family: "Roboto";
   font-size: 1.05em;
   font-weight: normal;
   width: 80%;
@@ -567,7 +570,7 @@ body {
   width: 80%;
   margin: auto;
   color: #707070;
-  font-family: 'Lato';
+  font-family: "Lato";
   font-size: 0.8em;
   letter-spacing: 1.3px;
 }
@@ -576,7 +579,7 @@ body {
   height: 100%;
   display: none;
   -ms-grid-rows: 0.5fr 5fr;
-      grid-template-rows: 0.5fr 5fr;
+  grid-template-rows: 0.5fr 5fr;
 }
 
 .topBar {
@@ -589,8 +592,8 @@ body {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 15% 40% 27% 9% 9%;
-      grid-template-columns: 15% 40% 27% 9% 9%;
-  border-bottom: 1px solid #D0D0D0;
+  grid-template-columns: 15% 40% 27% 9% 9%;
+  border-bottom: 1px solid #d0d0d0;
 }
 
 .userIcon,
@@ -599,17 +602,17 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   /* vertically centering elements */
 }
 
 .closeButton {
   -ms-grid-column: 5;
-      grid-column-start: 5;
+  grid-column-start: 5;
 }
 
 .closeButton i {
@@ -638,7 +641,7 @@ body {
 }
 
 .postFeedTitle h1 {
-  font-family: 'Lato';
+  font-family: "Lato";
   font-weight: lighter;
   font-size: 2em;
   color: #707070;
@@ -650,27 +653,26 @@ body {
 
 .formContainer {
   width: 80%;
-
 }
 
 .formGrid {
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr;
+  grid-template-rows: 1fr;
   grid-gap: 2em;
 }
 
 label {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-weight: normal;
-  color: black;
+  color: white;
 }
 
 label h1 {
   font-size: 1em;
   letter-spacing: 2px;
-  font-family: 'Lato';
+  font-family: "Lato";
   font-weight: bolder;
   color: white;
   text-align: center;
@@ -681,7 +683,7 @@ label h1 {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
 }
 
@@ -706,41 +708,40 @@ label h1 {
 /* Hide the browser's default radio button */
 
 .radioContainer input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
 }
-
 
 /* Create a custom radio button */
 
 .checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0);
-    color: transparent;
-    border-radius: 10px;
-    -webkit-transition: 0.3s;
-    -o-transition: 0.3s;
-    transition: 0.3s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0);
+  color: transparent;
+  border-radius: 10px;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
 }
 
 input:checked ~ .checkmark {
 }
 
 .checkmark:after {
-    content: '';
-    padding: 10px;
-    position: absolute;
-    display: none;
+  content: "";
+  padding: 10px;
+  position: absolute;
+  display: none;
 }
 
 .checkmark p {
-    color: white;
-    font-size: 20px;
+  color: white;
+  font-size: 20px;
 }
 
 #formTitleInput,
@@ -766,7 +767,7 @@ input:checked ~ .checkmark {
 .formItemImageContainer {
   width: 100%;
   height: 100%;
-  background-color: #C0C0C0;
+  background-color: #c0c0c0;
   border-radius: 6px;
 }
 
@@ -786,7 +787,7 @@ input[type="submit"] {
   margin-top: 1em;
   margin-bottom: 1em;
   text-transform: uppercase;
-  font-family: 'Lato';
+  font-family: "Lato";
   font-size: 1em;
   letter-spacing: 2px;
 }
@@ -795,14 +796,14 @@ input[type="submit"] {
   height: 100%;
   display: none;
   -ms-grid-rows: 0.5fr 5fr;
-      grid-template-rows: 0.5fr 5fr;
+  grid-template-rows: 0.5fr 5fr;
 }
 
 #uploadImgBtn {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
 }
 
 #displayImg {

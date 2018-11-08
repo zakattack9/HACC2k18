@@ -21,7 +21,7 @@ body {
   border: 1px solid black !important;
   padding-left: 1em;
   box-sizing: border-box;
-  font-family: 'Lato';
+  font-family: "Lato";
   font-size: 1em;
 }
 
@@ -42,10 +42,6 @@ body {
 
 #searchUserButton:hover {
   color: var(--main-purple);
-}
-
-:root {
-  --main-purple: #B885FE;
 }
 
 #topBar {
@@ -79,7 +75,7 @@ body {
 #userIconCircle {
   width: 45px;
   height: 45px;
-  background-color: var(--main-purple);
+  background-color: var(--main-dark-purple);
   border-radius: 50%;
   margin: auto;
 }
@@ -111,7 +107,7 @@ body {
 }
 
 #searchButton i {
-  color: var(--main-purple)
+  color: var(--main-purple);
 }
 
 #homeButton i,
@@ -124,31 +120,32 @@ body {
 #homeButton i:hover,
 #searchButton i:hover,
 #alertsButton i:hover {
-  color: var(--main-purple)
+  color: var(--main-purple);
 }
 
 #mainContent {
   overflow-y: scroll;
-  background-color: #D0D0D0;
+  background-color: #d0d0d0;
 }
 
 .userItem {
   background-color: white;
   width: 100%;
   height: 80px;
-  border-bottom: 1px solid #A0A0A0;
+  border-bottom: 1px solid #a0a0a0;
   /* display: grid;
   grid-template-rows: 70px 1.2em; */
   display: grid;
   grid-template-columns: 80px 1fr;
-  font-family: 'Lato';
+  font-family: "Lato";
 }
 
 .userItem:last-child {
   border-bottom: none;
 }
 
-#similarUsersContainer, #allUsersContainer {
+#similarUsersContainer,
+#allUsersContainer {
   overflow-y: scroll;
 
   width: 100%;
@@ -165,14 +162,15 @@ body {
   height: 70px;
   display: grid;
   grid-template-columns: 70px 1fr;
-  border-bottom: 1px solid #A0A0A0;
+  border-bottom: 1px solid #a0a0a0;
 }
 
 #connectIcon {
   display: flex;
 }
 
-#connectIcon img, .user-icon img {
+#connectIcon img,
+.user-icon img {
   width: 75%;
   height: 75%;
   margin: auto;
@@ -183,7 +181,7 @@ body {
 }
 
 #greetingMsg {
-  font-family: 'Lato';
+  font-family: "Lato";
   vertical-align: middle;
   padding: 0.5em;
   font-size: 1.1em;
@@ -207,7 +205,7 @@ body {
   width: 100%;
   height: 100%;
   font-size: 0.7em;
-  color: #A0A0A0;
+  color: #a0a0a0;
 }
 
 .infoContainer {
