@@ -6,6 +6,7 @@ const session = require('express-session');
 const Redis = require('connect-redis')(session);
 const passport = require('passport');
 const exphbs = require('express-handlebars');
+const favicon = require('serve-favicon');
 // const functions = require('firebase-functions');
 // const http = require('http').Server(server);
 const PORT = process.env.PORT || 8080;
@@ -14,6 +15,7 @@ const server = express();
 
 //middleware
 server.use(express.static(__dirname + '/public')); //load static files (css & js)
+server.use(favicon(__dirname + '/public/images/haawi.jpg'));
 // server.use(express.bodyParser());
 server.use(bodyparser.json());
 server.use(bodyparser.urlencoded({extended: true}));
