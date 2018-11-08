@@ -1,11 +1,14 @@
 {
-  "name": "chatApp",
+  "name": "haawi",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app"
+  },
+  "engines": {
+    "node": "8.12.0"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +26,7 @@
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.6",
+    "firebase-functions": "^2.1.0",
     "handlebars": "^4.0.12",
     "hawk": "^7.0.7",
     "hoek": "^5.0.4",

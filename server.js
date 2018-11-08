@@ -6,10 +6,11 @@ const session = require('express-session');
 const Redis = require('connect-redis')(session);
 const passport = require('passport');
 const exphbs = require('express-handlebars');
+// const functions = require('firebase-functions');
 // const http = require('http').Server(server);
 const PORT = process.env.PORT || 8080;
 const server = express();
-const routes = require('./server/db/routes/');
+//const routes = require('./server/db/routes/');
 
 //middleware
 server.use(express.static(__dirname + '/public')); //load static files (css & js)
@@ -47,8 +48,8 @@ function checkAuth (req, res, next) { //prevents routes from being accessed with
 // });
 
 server.get('/', function (req, res) { //loads login page by default
-    res.render('home');
-  });
+  res.render('home');
+});
 
 server.get('/register', function (req, res) { //loads register page
   res.render('register');
@@ -62,9 +63,10 @@ server.get('/search', function (req, res) { //loads register page
   res.render('search');
 });
 
+// exports.home = functions.https.onRequest(server);
 
 
-server.use('/', routes);
+//server.use('/', routes);
 
 const websock = server.listen(PORT, () => {
   console.log(`Connected to port ${PORT}\n`);
