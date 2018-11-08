@@ -1,4 +1,6 @@
 
+console.log('test')
+console.log(feedItems);
 
 let feedButton = document.getElementById('resourcesButton');
 let feedContainer = document.getElementById("feedContainer");
@@ -288,7 +290,9 @@ function subForumClick() {
     }
 }
 
-$('.requesting').click(function() {
+$(document).on('click', ".requesting", function() {
+    
+    if (inFeedItem != 1){
     browser("forumPostClick");
     generateHTML("replyButton");
     $("#individualFeedItem").show();
@@ -305,30 +309,34 @@ $('.requesting').click(function() {
     $("#replyButtonContainer").addClass("replyButtonContainerShow");
     $("#filterButton").hide();
     $("#postButton").hide();
-      inFeedItem = 1;
+    }
+    inFeedItem = 1;
 });
 
 function generateFeedReplies(feedItem){
 }
 
-$('.providing').click(function() {
-    browser("provideItemClick");
-    generateHTML("replyButton");
-    $("#individualFeedItem").show();
-    $(this).find(".feedDescription").removeClass("shortDesc");
-    $(this).find(".feedDescription").addClass("longDesc");
-    $(this).find(".feedItemRepliesContainer").clone().appendTo("#individualFeedItem");
-    $("#individualFeedItem").find(".feedItemRepliesContainer").removeClass("shortReplies");
-    $("#individualFeedItem").find(".feedItemRepliesContainer").addClass("longReplies");
-    $(this).clone().prependTo("#individualFeedItem");
-    $("#feedContainer").hide();
-    generateFeedReplies(this);
-    $("#bottomBarGrid").hide();
-    $("#replyButtonContainer").removeClass(".replyButtonContainer");
-    $("#replyButtonContainer").addClass("replyButtonContainerShow");
-    $("#filterButton").hide();
-    $("#postButton").hide();
-
+$(document).on('click', ".providing", function() {
+    
+    if (inFeedItem != 1){
+        browser("provideItemClick");
+        generateHTML("replyButton");
+        $("#individualFeedItem").show();
+        $(this).find(".feedDescription").removeClass("shortDesc");
+        $(this).find(".feedDescription").addClass("longDesc");
+        $(this).find(".feedItemRepliesContainer").clone().appendTo("#individualFeedItem");
+        $("#individualFeedItem").find(".feedItemRepliesContainer").removeClass("shortReplies");
+        $("#individualFeedItem").find(".feedItemRepliesContainer").addClass("longReplies");
+        $(this).clone().prependTo("#individualFeedItem");
+        $("#feedContainer").hide();
+        generateFeedReplies(this);
+        $("#bottomBarGrid").hide();
+        $("#replyButtonContainer").removeClass(".replyButtonContainer");
+        $("#replyButtonContainer").addClass("replyButtonContainerShow");
+        $("#filterButton").hide();
+        $("#postButton").hide();
+    }
+    inFeedItem = 1;
 });
 
 function browser(action) {
@@ -422,6 +430,7 @@ $("#backArrow").click(function() {
         $("#openSubForum").remove();
         inSubForum = 0;
     } else if (inFeedItem === 1) {
+        onFrontPage = true;
         $("#feedContainer").show();
         $("#userIconCircle").show();
         $("#backArrow").hide();
@@ -464,6 +473,7 @@ $('.closeButton').click(function() {
     $("#postFeedContainer").hide();
     $("#postForumContainer").hide();
     $("#appContainer").show();
+    resetForm();
 })
 
 function postItem() {
@@ -476,6 +486,89 @@ function postItem() {
     }
 }
 
+//Image uploading
+var loadFile = function(event) {
+  var output = document.getElementById('displayImg');
+  output.src = URL.createObjectURL(event.target.files[0]);
+};
+
+var radioProvide = document.getElementById("radioProvide");
+var radioRequest = document.getElementById("radioRequest");
+var feedCount = 8;
+function postRequest() {
+    var typeSelected = (radioProvide.checked == true || radioRequest.checked== true);
+    var descriptionInputted = (document.getElementById("formDescriptionInput").value != '');
+    var imageSelected = (document.getElementById("displayImg").getAttribute('src') != "");
+    if (!typeSelected) {
+        alert("Please choose a type of post!");
+    }
+    if (!descriptionInputted){
+        alert("Please enter a description about your item");
+    }
+    if(!imageSelected){
+        alert("Please provide an picture of your item");
+    }
+    if (typeSelected && descriptionInputted && imageSelected){
+        feedCount++;
+        feedItems["feedItem"+feedCount] = {
+            
+                type: document.querySelector('input[name = "radio"]:checked').value,
+                item: $('#formTitleInput :selected').text(),
+                date: "Just Now",
+                user: "Me",
+                icon: "url('"+document.getElementById("displayImg").getAttribute('src')+"')",
+                description: document.getElementById("formDescriptionInput").value,
+                comments: {
+                }
+            
+        }
+        //reload submission
+        resetForm();
+
+        console.log(feedItems);
+        $("#feedContainer").html("");
+        generateFeed();
+        generateFeedReplies();
+        $("#postFeedContainer").hide();
+        $("#postForumContainer").hide();
+        $("#appContainer").show();
+    }
+}
+
+function selectRequest(){
+    radioProvide.checked = false;
+    radioRequest.checked = true;
+
+    $("#formProvide").css("background-color", "var(--main-purple)");
+    $("#h1Provide").css("color", "white");
+
+    $("#formRequest").css("background-color", " #F0F0F0");
+    $("#h1Request").css("color", "var(--main-purple)");
+}
+
+function selectProvide(){
+    radioProvide.checked = true;
+    radioRequest.checked = false;
+
+    $("#formProvide").css("background-color", " #F0F0F0");
+    $("#h1Provide").css("color", "var(--main-purple)");
+
+    $("#formRequest").css("background-color", "var(--main-purple)");
+    $("#h1Request").css("color", "white");
+}
+
+function resetForm(){
+    radioProvide.checked = false;
+    radioRequest.checked = false;
+    document.getElementById("formDescriptionInput").value = "";
+    $("#displayImg").attr("src","");
+    $("#formProvide").css("background-color", "var(--main-purple)");
+    $("#h1Provide").css("color", "white");
+    $("#formRequest").css("background-color", "var(--main-purple)");
+    $("#h1Request").css("color", "white");
+}
+
 $("#userIcon").click(function(){
   $("")
 })
+

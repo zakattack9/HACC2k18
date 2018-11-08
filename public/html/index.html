@@ -171,19 +171,17 @@
         </div>
         <div class="forumScroll">
         <div class="formContainer">
-            <form class="formGrid">
+            <form class="formGrid"  action="#" onsubmit="postRequest();return false">
                 <div class="formItemType formGridItem">
                     <label for="radioContainer">Type of Post</label>
                     <div id="radioGridContainer">
-                      <label id="formRequest" class="radioContainer">
-                        <h1>Requesting</h1>
-                        <input type="radio" name="radio" value="request">
-                        <!-- <span class="checkmark"></span> -->
+                      <label id="formRequest" class="radioContainer" onclick="selectRequest()">
+                        <h1 id="h1Request">Requesting</h1>
+                        <input id="radioRequest" type="radio" name="radio" value="requesting">
                       </label>
-                      <label id="formProvide" class="radioContainer">
-                        <h1>Providing</h1>
-                        <input type="radio" name="radio" value="request">
-                        <!-- <span class="checkmark"></span> -->
+                      <label id="formProvide" class="radioContainer" onclick="selectProvide()">
+                        <h1 id="h1Provide">Providing</h1>
+                        <input id="radioProvide" type="radio" name="radio" value="providing">
                     </label>
                     </div>
                 </div>
@@ -191,10 +189,10 @@
                 <div class="formItemTitle formGridItem">
                   <label for="formTitleInput">What you're requesting/providing</label>
                   <select id="formTitleInput">
-                    <option value="">op1</option>
-                    <option value="">op2</option>
-                    <option value="">op3</option>
-                    <option value="">op4</option>
+                    <option value="">Crayons</option>
+                    <option value="">Folder Paper</option>
+                    <option value="">Markers</option>
+                    <option value="">Rulers</option>
                   </select>
                 </div>
 
@@ -206,10 +204,12 @@
                 <div class="formItemImage">
                   <label for="formItemImageContainer">Upload an Image</label>
                   <div class="formItemImageContainer">
-                  <i class="fas fa-file-image"></i>
+                    <input id="uploadImgBtn" type="file" accept="image/*" onchange="loadFile(event)">
+                    <i class="fas fa-file-image"></i>
+                    <img id="displayImg" src = "">
+                  </div>
                 </div>
-                </div>
-                <input type="submit" value="Submit">
+                <input id="submitRequest" type="submit" value="Submit">
             </form>
         </div>
       </div>

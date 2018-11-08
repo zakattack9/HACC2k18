@@ -2,7 +2,7 @@ body {
   width: 100%;
   height: 100vh;
   display: grid;
-  grid-template-rows: 0.5fr 2.5em 5fr 0.5fr;
+  grid-template-rows: 0.5fr 0.5fr 6fr 0.6fr;
   /* background-color: purple; */
   margin: 0;
   padding: 0;
@@ -19,7 +19,7 @@ body {
   margin: auto;
   border-radius: 1.25em;
   border: 1px solid black !important;
-  padding-left: 1em; 
+  padding-left: 1em;
   box-sizing: border-box;
   font-family: 'Lato';
   font-size: 1em;
@@ -110,29 +110,6 @@ body {
   font-size: 1.5em;
 }
 
-#bottomBar {
-  width: 100%;
-  border-top: 1px solid #A0A0A0;
-  height: 3em;
-}
-
-#bottomBarGrid {
-  display: grid;
-  width: 95%;
-  margin: auto;
-  grid-template-columns: 1fr 1fr 1fr;
-  height: 100%;
-}
-
-#homeButton {
-}
-
-#searchButton {
-}
-
-#alertsButton {
-}
-
 #searchButton i {
   color: var(--main-purple)
 }
@@ -140,7 +117,7 @@ body {
 #homeButton i,
 #searchButton i,
 #alertsButton i {
-  font-size: 2em;
+  font-size: 1.5em;
   transition: 0.3s;
 }
 
@@ -173,7 +150,7 @@ body {
 
 #similarUsersContainer, #allUsersContainer {
   overflow-y: scroll;
-  
+
   width: 100%;
   height: 100%;
 }
@@ -223,7 +200,7 @@ body {
 /* .row1 {
   width: 100%;
   height: 100%;
-  
+
 } */
 
 .rowWrapper {
