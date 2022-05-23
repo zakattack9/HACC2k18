@@ -28,7 +28,7 @@
     "express-session": "^1.15.6",
     "firebase-functions": "^2.1.0",
     "handlebars": "^4.0.12",
-    "hawk": "^7.0.7",
+    "hawk": "^9.0.1",
     "hoek": "^5.0.4",
     "knex": "^0.15.2",
     "nodemon": "^1.18.5",
